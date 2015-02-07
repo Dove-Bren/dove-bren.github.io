@@ -112,6 +112,7 @@ function init_level(config) {
 
         place_object(object, x, y, z);
 
+        object.winner = false;
         if (x === 0) {
 
             //mark as arrowBlock and save new Material
@@ -129,6 +130,10 @@ function init_level(config) {
             //object.onclick = [block_action("boom")];
             object.onclick = [block_action("pulse")];
             object.activate = [block_action("pulse")];
+
+            if (y === 0 && z === 0) {
+                object.winner = true;
+            }
 
         } else {
 
@@ -299,6 +304,9 @@ function retrieve_object(p) {
 }
 
 function fly_away(obj) {
+    if (obj.winner) {
+        return;
+    }
     new TWEEN.Tween( obj.position ).to( {
         x: 3100 * Math.sign(obj.position.x),
         y: 3100 * Math.sign(obj.position.y),
@@ -351,6 +359,8 @@ function pulse(obj) {
 
     //up, down, left, right, forward, backwards
     //is there a better way of doing this?
+
+    // yes: use an array of offsets, loop through it
 
     neighbor = retrieve_object({ x : cs.x + 1, y : cs.y, z : cs.z});
     if (neighbor !== undefined && !neighbor.activated) {
