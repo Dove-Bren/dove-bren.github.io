@@ -88,15 +88,6 @@ function init_level(config) {
     var texture = THREE.ImageUtils.loadTexture( 'textures/crate.gif' );
     var arrowTexture = THREE.ImageUtils.loadTexture( 'textures/crate-arrow.gif' );
 
-    var arrowMat = [
-        new THREE.MeshPhongMaterial({map: arrowTexture, shininess: 1, color: col}),
-        new THREE.MeshPhongMaterial({map: arrowTexture, shininess: 1, color: col}),
-        new THREE.MeshPhongMaterial({map: arrowTexture, shininess: 1, color: col}),
-        new THREE.MeshPhongMaterial({map: arrowTexture, shininess: 1, color: col}),
-        new THREE.MeshPhongMaterial({map: arrowTexture, shininess: 1, color: col}),
-        new THREE.MeshPhongMaterial({map: arrowTexture, shininess: 1, color: col}),
-    ];
-
     texture.anisotropy = renderer.getMaxAnisotropy();
 
     for ( var x = 0; x < config.n; x ++ ) {
@@ -121,9 +112,15 @@ function init_level(config) {
             col = new THREE.Color( .3 * x/config.n, .3 * y/config.n, .3 * z/config.n);
 
             //create arrow material
-            // can we make this a shaded material?
-            // if (config.nice_shading) {
-            material = new THREE.MeshFaceMaterial( arrowMat );
+            var arrowMat;
+            if (config.nice_shading) {
+                arrowMat = new THREE.MeshPhongMaterial(
+                            {map: arrowTexture, shininess: 1, color: col});
+            } else {
+                arrowMat = new THREE.MeshBasicMaterial(
+                            {map: arrowTexture, shininess: 1, color: col});
+            }
+            material = new THREE.MeshFaceMaterial( [ arrowMat, arrowMat, arrowMat, arrowMat, arrowMat, arrowMat ] );
 
             // explode
             object.hp = 3;
@@ -216,7 +213,7 @@ function onDocumentMouseUp( event ) {
         var obj = intersects[ 0 ].object;
 
         // invert color
-        if (!obj.arrowBlock) {
+        if (!obj.arrowBlock || obj.material.color !== undefined) {
             obj.material.color.multiplyScalar(-1);
             obj.material.color.addScalar(1);
         }
