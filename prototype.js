@@ -107,6 +107,8 @@ function init_level(config) {
         var col;
 
         var object = new THREE.Mesh( geometry, material );
+        
+        object.activated = false;
 
         place_object(object, x, y, z);
 
@@ -126,7 +128,9 @@ function init_level(config) {
             
             // explode
             object.hp = 3;
-            object.onclick = [block_action("boom")];
+            //object.onclick = [block_action("boom")];
+            object.onclick = [block_action("pulse")];
+            object.activate = [block_action("pulse")];
 
         } else {
             
@@ -152,10 +156,12 @@ function init_level(config) {
 
                 // pick a random action
                 object.onclick = [block_action()];
+                object.activate = [block_action("pulse")];
 
             } else {
 
                 object.onclick = [fly_away]
+                object.activate = [fly_away];
 
             }
         }
@@ -331,6 +337,57 @@ function win(obj) {
     config.quit = true;
 }
 
+
+//Activator blocks send pulse that activates other blocks.
+//Note: The block may fire because it's clicked on OR because another block
+//activated it, resulting in a chain
+//TODO: only pulse in one direction. This requires an indication of the
+//       direction, which is why it currently pulses in all directions
+function pulse(obj) {
+    
+    var cs = to_grid(obj.position);
+    
+    var neighbor;
+    
+    obj.activated = true;
+    
+    //up, down, left, right, forward, backwards
+    //is there a better way of doing this? 
+    
+    neighbor = retrieve_object({ x : cs.x + 1, y: cs.y, z: cs.z});
+    if (neighbor !== undefined && neighbor.activated !== true) {
+        neighbor.activated = true;
+        neighbor.activate.forEach(function (f) { f(obj); });; 
+    }
+    neighbor = retrieve_object({ x : cs.x - 1, y: cs.y, z: cs.z});
+    if (neighbor !== undefined && neighbor.activated !== true) {
+        neighbor.activated = true;
+        neighbor.activate.forEach(function (f) { f(obj); });; 
+    }
+    neighbor = retrieve_object({ x : cs.x, y: cs.y + 1, z: cs.z});
+    if (neighbor !== undefined && neighbor.activated !== true) {
+        neighbor.activated = true;
+        neighbor.activate.forEach(function (f) { f(obj); });; 
+    }
+    neighbor = retrieve_object({ x : cs.x, y: cs.y - 1, z: cs.z});
+    if (neighbor !== undefined && neighbor.activated !== true) {
+        neighbor.activated = true;
+        neighbor.activate.forEach(function (f) { f(obj); });; 
+    }
+    neighbor = retrieve_object({ x : cs.x, y: cs.y, z: cs.z + 1});
+    if (neighbor !== undefined && neighbor.activated !== true) {
+        neighbor.activated = true;
+        neighbor.activate.forEach(function (f) { f(obj); });; 
+    }
+    neighbor = retrieve_object({ x : cs.x, y: cs.y, z: cs.z - 1});
+    if (neighbor !== undefined && neighbor.activated !== true) {
+        neighbor.activated = true;
+        neighbor.activate.forEach(function (f) { f(obj); });; 
+    }
+        
+    fly_away(obj);
+}
+
 function boom(obj) {
     var cs = to_grid(obj.position);
 
@@ -352,7 +409,7 @@ function boom(obj) {
 
 function block_action() {
     // each of these takes a THREE.js mesh object as the first argument
-    var actions = { boom: boom, shrink: function(b) { scale_to(b, 0.1); }
+    var actions = { boom: boom, pulse: pulse, shrink: function(b) { scale_to(b, 0.1); }
     };
 
     if (arguments.length === 1) {
