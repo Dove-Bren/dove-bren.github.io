@@ -354,35 +354,35 @@ function pulse(obj) {
     //up, down, left, right, forward, backwards
     //is there a better way of doing this? 
     
-    neighbor = retrieve_object({ x : cs.x + 1, y: cs.y, z: cs.z});
-    if (neighbor !== undefined && neighbor.activated !== true) {
+    neighbor = retrieve_object({ x : cs.x + 1, y : cs.y, z : cs.z});
+    if (neighbor !== undefined && !neighbor.activated) {
+        neighbor.activate.forEach(function (f) { f(neighbor); });
         neighbor.activated = true;
-        neighbor.activate.forEach(function (f) { f(obj); });; 
     }
-    neighbor = retrieve_object({ x : cs.x - 1, y: cs.y, z: cs.z});
-    if (neighbor !== undefined && neighbor.activated !== true) {
+    neighbor = retrieve_object({ x : cs.x - 1, y : cs.y, z : cs.z});
+    if (neighbor !== undefined && !neighbor.activated) {
+        neighbor.activate.forEach(function (f) { f(neighbor); });
         neighbor.activated = true;
-        neighbor.activate.forEach(function (f) { f(obj); });; 
     }
-    neighbor = retrieve_object({ x : cs.x, y: cs.y + 1, z: cs.z});
-    if (neighbor !== undefined && neighbor.activated !== true) {
+    neighbor = retrieve_object({ x : cs.x, y : cs.y + 1, z : cs.z});
+    if (neighbor !== undefined && !neighbor.activated) {
+        neighbor.activate.forEach(function (f) { f(neighbor); }); 
         neighbor.activated = true;
-        neighbor.activate.forEach(function (f) { f(obj); });; 
     }
-    neighbor = retrieve_object({ x : cs.x, y: cs.y - 1, z: cs.z});
-    if (neighbor !== undefined && neighbor.activated !== true) {
+    neighbor = retrieve_object({ x : cs.x, y : cs.y - 1, z : cs.z});
+    if (neighbor !== undefined && !neighbor.activated) {
+        neighbor.activate.forEach(function (f) { f(neighbor); }); 
         neighbor.activated = true;
-        neighbor.activate.forEach(function (f) { f(obj); });; 
     }
-    neighbor = retrieve_object({ x : cs.x, y: cs.y, z: cs.z + 1});
-    if (neighbor !== undefined && neighbor.activated !== true) {
+    neighbor = retrieve_object({ x : cs.x, y : cs.y, z : cs.z + 1});
+    if (neighbor !== undefined && !neighbor.activated) {
+        neighbor.activate.forEach(function (f) { f(neighbor); }); 
         neighbor.activated = true;
-        neighbor.activate.forEach(function (f) { f(obj); });; 
     }
-    neighbor = retrieve_object({ x : cs.x, y: cs.y, z: cs.z - 1});
-    if (neighbor !== undefined && neighbor.activated !== true) {
+    neighbor = retrieve_object({ x : cs.x, y : cs.y, z : cs.z - 1});
+    if (neighbor !== undefined && !neighbor.activated) {
+        neighbor.activate.forEach(function (f) { f(neighbor); }); 
         neighbor.activated = true;
-        neighbor.activate.forEach(function (f) { f(obj); });; 
     }
         
     fly_away(obj);
