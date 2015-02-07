@@ -89,12 +89,12 @@ function init_level(config) {
     var arrowTexture = THREE.ImageUtils.loadTexture( 'textures/crate-arrow.gif' );
     
     var arrowMat = [
-        new THREE.MeshPhongMaterial({map: arrowTexture, shininess: 1}),
-        new THREE.MeshPhongMaterial({map: arrowTexture, shininess: 1}),
-        new THREE.MeshPhongMaterial({map: arrowTexture, shininess: 1}),
-        new THREE.MeshPhongMaterial({map: arrowTexture, shininess: 1}),
-        new THREE.MeshPhongMaterial({map: arrowTexture, shininess: 1}),
-        new THREE.MeshPhongMaterial({map: arrowTexture, shininess: 1}),
+        new THREE.MeshPhongMaterial({map: arrowTexture, shininess: 1, color: col}),
+        new THREE.MeshPhongMaterial({map: arrowTexture, shininess: 1, color: col}),
+        new THREE.MeshPhongMaterial({map: arrowTexture, shininess: 1, color: col}),
+        new THREE.MeshPhongMaterial({map: arrowTexture, shininess: 1, color: col}),
+        new THREE.MeshPhongMaterial({map: arrowTexture, shininess: 1, color: col}),
+        new THREE.MeshPhongMaterial({map: arrowTexture, shininess: 1, color: col}),
     ];
     
     texture.anisotropy = renderer.getMaxAnisotropy();
@@ -103,6 +103,7 @@ function init_level(config) {
     for ( var y = 0; y < config.n; y ++ ) {
     for ( var z = 0; z < config.n; z ++ ) {
         var material;
+        var arrowBlock;
         var col;
 
         var object = new THREE.Mesh( geometry, material );
@@ -111,14 +112,16 @@ function init_level(config) {
 
         if (x === 0) {
             
+            //mark as arrowBlock and save new Material
+            object.arrowBlock = true;
             //color black
             col = new THREE.Color( .3 * x/config.n, .3 * y/config.n, .3 * z/config.n);
             
             //create arrow material       
             if (config.nice_shading) {
-                material = arrowMat;
+                material = new THREE.MeshFaceMaterial( arrowMat );
             } else {
-                material = arrowMat;
+                material = new THREE.MeshFaceMaterial( arrowMat );
             }
             
             // explode
@@ -204,8 +207,10 @@ function onDocumentMouseUp( event ) {
         var obj = intersects[ 0 ].object;
 
         // invert color
-        obj.material.color.multiplyScalar(-1);
-        obj.material.color.addScalar(1);
+        if (!obj.arrowBlock) {
+            obj.material.color.multiplyScalar(-1);
+            obj.material.color.addScalar(1);
+        }
 
         var coords = to_grid(obj.position);
 
