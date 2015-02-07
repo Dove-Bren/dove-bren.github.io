@@ -87,7 +87,7 @@ function init_level(config) {
 
     var texture = THREE.ImageUtils.loadTexture( 'textures/crate.gif' );
     var arrowTexture = THREE.ImageUtils.loadTexture( 'textures/crate-arrow.gif' );
-    
+
     var arrowMat = [
         new THREE.MeshPhongMaterial({map: arrowTexture, shininess: 1, color: col}),
         new THREE.MeshPhongMaterial({map: arrowTexture, shininess: 1, color: col}),
@@ -96,7 +96,7 @@ function init_level(config) {
         new THREE.MeshPhongMaterial({map: arrowTexture, shininess: 1, color: col}),
         new THREE.MeshPhongMaterial({map: arrowTexture, shininess: 1, color: col}),
     ];
-    
+
     texture.anisotropy = renderer.getMaxAnisotropy();
 
     for ( var x = 0; x < config.n; x ++ ) {
@@ -107,25 +107,23 @@ function init_level(config) {
         var col;
 
         var object = new THREE.Mesh( geometry, material );
-        
+
         object.activated = false;
 
         place_object(object, x, y, z);
 
         if (x === 0) {
-            
+
             //mark as arrowBlock and save new Material
             object.arrowBlock = true;
             //color black
             col = new THREE.Color( .3 * x/config.n, .3 * y/config.n, .3 * z/config.n);
-            
-            //create arrow material       
-            if (config.nice_shading) {
-                material = new THREE.MeshFaceMaterial( arrowMat );
-            } else {
-                material = new THREE.MeshFaceMaterial( arrowMat );
-            }
-            
+
+            //create arrow material
+            // can we make this a shaded material?
+            // if (config.nice_shading) {
+            material = new THREE.MeshFaceMaterial( arrowMat );
+
             // explode
             object.hp = 3;
             //object.onclick = [block_action("boom")];
@@ -133,12 +131,12 @@ function init_level(config) {
             object.activate = [block_action("pulse")];
 
         } else {
-            
-            // color in gradient    
+
+            // color in gradient
             col = new THREE.Color( x/config.n, y/config.n, z/config.n );
-            
-            
-            //create material based on color        
+
+
+            //create material based on color
             if (config.nice_shading) {
                 material = new THREE.MeshPhongMaterial(
                         { //map: texture,
@@ -148,7 +146,7 @@ function init_level(config) {
                         { //map: texture,
                           color: col });
             }
-            
+
             // pick a random action
             object.hp = 1;
             object.solid = false;
@@ -344,16 +342,16 @@ function win(obj) {
 //TODO: only pulse in one direction. This requires an indication of the
 //       direction, which is why it currently pulses in all directions
 function pulse(obj) {
-    
+
     var cs = to_grid(obj.position);
-    
+
     var neighbor;
-    
+
     obj.activated = true;
-    
+
     //up, down, left, right, forward, backwards
-    //is there a better way of doing this? 
-    
+    //is there a better way of doing this?
+
     neighbor = retrieve_object({ x : cs.x + 1, y : cs.y, z : cs.z});
     if (neighbor !== undefined && !neighbor.activated) {
         neighbor.activate.forEach(function (f) { f(neighbor); });
@@ -366,25 +364,25 @@ function pulse(obj) {
     }
     neighbor = retrieve_object({ x : cs.x, y : cs.y + 1, z : cs.z});
     if (neighbor !== undefined && !neighbor.activated) {
-        neighbor.activate.forEach(function (f) { f(neighbor); }); 
+        neighbor.activate.forEach(function (f) { f(neighbor); });
         neighbor.activated = true;
     }
     neighbor = retrieve_object({ x : cs.x, y : cs.y - 1, z : cs.z});
     if (neighbor !== undefined && !neighbor.activated) {
-        neighbor.activate.forEach(function (f) { f(neighbor); }); 
+        neighbor.activate.forEach(function (f) { f(neighbor); });
         neighbor.activated = true;
     }
     neighbor = retrieve_object({ x : cs.x, y : cs.y, z : cs.z + 1});
     if (neighbor !== undefined && !neighbor.activated) {
-        neighbor.activate.forEach(function (f) { f(neighbor); }); 
+        neighbor.activate.forEach(function (f) { f(neighbor); });
         neighbor.activated = true;
     }
     neighbor = retrieve_object({ x : cs.x, y : cs.y, z : cs.z - 1});
     if (neighbor !== undefined && !neighbor.activated) {
-        neighbor.activate.forEach(function (f) { f(neighbor); }); 
+        neighbor.activate.forEach(function (f) { f(neighbor); });
         neighbor.activated = true;
     }
-        
+
     fly_away(obj);
 }
 

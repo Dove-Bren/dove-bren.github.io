@@ -1,3 +1,3 @@
 Prototype for CSE326 project
 
-[url](http://dove-bren.github.io/)
+[click here to play](http://dove-bren.github.io/)
