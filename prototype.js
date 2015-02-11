@@ -16,22 +16,18 @@ var config =
     nice_shading: false
   };
 
-init();
-init_level(config);
-animate();
+var __c = 0.9;
+var block_geometry = new THREE.BoxGeometry(
+        __c * config.box_size, __c * config.box_size, __c * config.box_size );
+
+// lol @ globals
+var texture = THREE.ImageUtils.loadTexture(
+        'textures/crate.gif' );
+var arrowTexture = THREE.ImageUtils.loadTexture(
+        'textures/crate-arrow.gif' );
 
 function init() {
-    container = document.createElement( 'div' );
-    document.body.appendChild( container );
-
-    info = document.createElement( 'div' );
-    info.style.position = 'absolute';
-    info.style.top = '10px';
-    info.style.width = '100%';
-    info.style.textAlign = 'center';
-    info.innerHTML =
-        '<a href="http://threejs.org" target="_blank">three.js</a> - prototype';
-    container.appendChild( info );
+    container = document.getElementById( 'container' );
 
     renderer = new THREE.WebGLRenderer( {antialias: true } );
     renderer.setClearColor( config.clear_color );
@@ -84,95 +80,18 @@ function init_level(config) {
     }
 
     var c = 0.95;
-    var geometry = new THREE.BoxGeometry(
-            c * config.box_size, c * config.box_size, c * config.box_size );
-
-    var texture = THREE.ImageUtils.loadTexture(
-            'textures/crate.gif' );
-    var arrowTexture = THREE.ImageUtils.loadTexture(
-            'textures/crate-arrow.gif' );
-
     texture.anisotropy = renderer.getMaxAnisotropy();
 
     for ( var x = 0; x < config.n; x ++ ) {
     for ( var y = 0; y < config.n; y ++ ) {
     for ( var z = 0; z < config.n; z ++ ) {
         var material;
-        var arrowBlock;
-        var col;
+        var arrow_block;
+        var col = new THREE.Color( x/config.n, y/config.n, z/config.n );
 
-        var object = new THREE.Mesh( geometry, material );
+        var block = new Block(x, y, z, col);
 
-        object.activated = false;
-
-        place_object(object, x, y, z);
-
-        object.winner = false;
-        if (x === 0) {
-
-            //mark as arrowBlock and save new Material
-            object.arrowBlock = true;
-            //color black
-            col = new THREE.Color(
-                    .3 * x/config.n, .3 * y/config.n, .3 * z/config.n);
-
-            //create arrow material
-            var arrMat;
-            if (config.nice_shading) {
-                arrMat = new THREE.MeshPhongMaterial(
-                            {map: arrowTexture, shininess: 1, color: col});
-            } else {
-                arrMat = new THREE.MeshBasicMaterial(
-                            {map: arrowTexture, shininess: 1, color: col});
-            }
-            material = new THREE.MeshFaceMaterial(
-                    [ arrMat, arrMat, arrMat, arrMat, arrMat, arrMat ] );
-
-            // explode
-            object.hp = 3;
-            //object.onclick = [block_action("boom")];
-            object.onclick = [block_action("pulse")];
-            object.activate = [block_action("pulse")];
-
-            if (y === 0 && z === 0) {
-                object.winner = true;
-            }
-
-        } else {
-
-            // color in gradient
-            col = new THREE.Color( x/config.n, y/config.n, z/config.n );
-
-
-            //create material based on color
-            if (config.nice_shading) {
-                material = new THREE.MeshPhongMaterial(
-                        { //map: texture,
-                          shininess: 1, color: col });
-            } else {
-                material = new THREE.MeshBasicMaterial(
-                        { //map: texture,
-                          color: col });
-            }
-
-            // pick a random action
-            object.hp = 1;
-            object.solid = false;
-            if (Math.random() > 0.5) {
-
-                // pick a random action
-                object.onclick = [block_action()];
-                object.activate = [block_action("pulse")];
-
-            } else {
-
-                object.onclick = [fly_away]
-                object.activate = [fly_away];
-
-            }
-        }
-
-        scene.add( object );
+        scene.add( block.mesh );
     }
     }
     }
@@ -218,25 +137,7 @@ function onDocumentMouseUp( event ) {
 
         var obj = intersects[ 0 ].object;
 
-        // invert color
-        if (!obj.arrowBlock || obj.material.color !== undefined) {
-            obj.material.color.multiplyScalar(-1);
-            obj.material.color.addScalar(1);
-        }
-
-        var coords = to_grid(obj.position);
-
-        // corner = winner
-        if (coords.x == 0 && coords.y == 0 && coords.z == 0) {
-
-            win(obj);
-
-        } else {
-
-            // run each action
-            obj.onclick.forEach(function (f) { f(obj); });
-
-        }
+        retrieve_object(to_grid(obj.position)).click();
 
     }
 }
@@ -265,61 +166,132 @@ function render() {
 
 }
 
-// returns grid points of a "real-world" object
-function to_grid(position) {
-    var box_size = config.box_size;
-    var n = config.n;
 
-    return {
-        x: (position.x + n * box_size / 2) / box_size,
-        y: (position.y + n * box_size / 2) / box_size,
-        z: (position.z + n * box_size / 2) / box_size
+
+
+
+
+
+
+/**************** Block object ************/
+
+// instantiate:
+// var b = new Block(THREE.js Mesh)
+var Block = function (x, y, z, col) {
+    var material;
+    this.onclick = Math.random > 0.5 ? [] : [block_action()];
+    this.onactive = [];
+
+    this.x = x;
+    this.y = y;
+    this.z = z;
+    this.color = col;
+
+    this.arrow_block = Math.random() < 0.2;
+    this.winner = x == 0 && y == 0 && z == 0;
+
+    // LOOKS. pick material
+    if (this.arrow_block) {
+
+        //darker
+        col.multiplyScalar(0.3);
+
+        //create arrow material
+        var arrMat;
+
+        if (config.nice_shading) {
+
+            arrMat = new THREE.MeshPhongMaterial(
+
+                    {map: arrowTexture, shininess: 1, color: col});
+        } else {
+
+            arrMat = new THREE.MeshBasicMaterial(
+
+                    {map: arrowTexture, shininess: 1, color: col});
+
+        }
+
+        material = new THREE.MeshFaceMaterial(
+                [ arrMat, arrMat, arrMat, arrMat, arrMat, arrMat ] );
+
+        if (y === 0 && z === 0) {
+            this.winner = true;
+        }
+
+    } else {
+
+        //create material based on color
+        if (config.nice_shading) {
+
+            material = new THREE.MeshPhongMaterial(
+
+                    { //map: texture,
+                      shininess: 1, color: col });
+        } else {
+
+            material = new THREE.MeshBasicMaterial(
+
+                    { //map: texture,
+                      color: col });
+        }
+
     }
+
+    this.mesh = new THREE.Mesh( block_geometry, material );
+
+    place_object(this, x, y, z);
+};
+
+// method click(), called when user clicks block
+Block.prototype.click = function() {
+
+        // invert color
+        if (!this.arrow_block || this.mesh.material.color !== undefined) {
+            this.mesh.material.color.multiplyScalar(-1);
+            this.mesh.material.color.addScalar(1);
+        }
+
+        // corner = winner
+        if (this.winner) {
+
+            win(this);
+
+        } else {
+
+            // run each action
+            var b = this;
+            this.onclick.forEach(function (f){ f(b); });
+
+        }
 }
 
-// converts real coordinates into a gridded system
-function from_grid(position) {
-        var box_size = config.box_size;
-        var n = config.n;
-
-        return {
-            x: position.x * box_size - n * box_size / 2,
-            y: position.y * box_size - n * box_size / 2,
-            z: position.z * box_size - n * box_size / 2
-        };
+Block.prototype.activate = function() {
+    var b = this;
+    this.onactive.forEach(function (f){ f(b); });
 }
 
-function place_object(object, x, y, z) {
 
-        var cs = from_grid({ x: x, y: y, z: z });
 
-        object.position.x = cs.x;
-        object.position.y = cs.y;
-        object.position.z = cs.z;
 
-        grid_objects[x + config.n * y + config.n * config.n * z] = object;
 
-}
 
-// p = position
-function retrieve_object(p) {
-    return grid_objects[p.x + config.n * p.y + config.n * config.n * p.z];
-}
 
-function fly_away(obj) {
-    if (obj.winner) {
+
+function fly_away(b) {
+    if (b.winner) {
         return;
     }
-    new TWEEN.Tween( obj.position ).to( {
-        x: 3100 * Math.sign(obj.position.x),
-        y: 3100 * Math.sign(obj.position.y),
-        z: 3100 * Math.sign(obj.position.z)}
+    new TWEEN.Tween( b.mesh.position ).to( {
+        x: 3100 * Math.sign(b.mesh.position.x),
+        y: 3100 * Math.sign(b.mesh.position.y),
+        z: 3100 * Math.sign(b.mesh.position.z)}
         , 20000 )
     .easing( TWEEN.Easing.Elastic.Out).start();
 }
 
-function scale_to(obj, scale) {
-    new TWEEN.Tween( obj.scale ).to( {
+function scale_to(b, scale) {
+    new TWEEN.Tween( b.mesh.scale ).to( {
         x: scale,
         y: scale,
         z: scale
@@ -327,12 +299,12 @@ function scale_to(obj, scale) {
     .easing( TWEEN.Easing.Elastic.Out).start();
 }
 
-function win(obj) {
-    scale_to(obj, config.n * 2);
+function win(b) {
+    scale_to(b.mesh, config.n * 2);
 
-    obj.material.color = new THREE.Color("gold");
+    b.mesh.material.color = new THREE.Color("gold");
 
-    info.innerHTML = "YOU WIN! " +
+    document.getElementByID("info").innerHTML = "YOU WIN! " +
         "<a href=\"javascript:window.location.reload(false);\">"
         + "PLAY AGAIN?</a>";
 
@@ -353,82 +325,94 @@ function win(obj) {
 //activated it, resulting in a chain
 //TODO: only pulse in one direction. This requires an indication of the
 //       direction, which is why it currently pulses in all directions
-function pulse(obj) {
+function pulse(b) {
 
-    var cs = to_grid(obj.position);
+    var cs = to_grid(b.mesh.position);
 
     var neighbor;
 
-    obj.activated = true;
+    b.activate();
+
+    // find nearest neighbor in a direction...
+    // special data structure for this ?
+    b.pulse_direction;
 
     //up, down, left, right, forward, backwards
     //is there a better way of doing this?
 
     // yes: use an array of offsets, loop through it
 
-    neighbor = retrieve_object({ x : cs.x + 1, y : cs.y, z : cs.z});
-    if (neighbor !== undefined && !neighbor.activated) {
-        neighbor.activate.forEach(function (f) { f(neighbor); });
-        neighbor.activated = true;
-    }
-    neighbor = retrieve_object({ x : cs.x - 1, y : cs.y, z : cs.z});
-    if (neighbor !== undefined && !neighbor.activated) {
-        neighbor.activate.forEach(function (f) { f(neighbor); });
-        neighbor.activated = true;
-    }
-    neighbor = retrieve_object({ x : cs.x, y : cs.y + 1, z : cs.z});
-    if (neighbor !== undefined && !neighbor.activated) {
-        neighbor.activate.forEach(function (f) { f(neighbor); });
-        neighbor.activated = true;
-    }
-    neighbor = retrieve_object({ x : cs.x, y : cs.y - 1, z : cs.z});
-    if (neighbor !== undefined && !neighbor.activated) {
-        neighbor.activate.forEach(function (f) { f(neighbor); });
-        neighbor.activated = true;
-    }
-    neighbor = retrieve_object({ x : cs.x, y : cs.y, z : cs.z + 1});
-    if (neighbor !== undefined && !neighbor.activated) {
-        neighbor.activate.forEach(function (f) { f(neighbor); });
-        neighbor.activated = true;
-    }
-    neighbor = retrieve_object({ x : cs.x, y : cs.y, z : cs.z - 1});
-    if (neighbor !== undefined && !neighbor.activated) {
-        neighbor.activate.forEach(function (f) { f(neighbor); });
-        neighbor.activated = true;
-    }
+    // neighbor = retrieve_object({ x : cs.x + 1, y : cs.y, z : cs.z});
+    // if (neighbor !== undefined && !neighbor.activated) {
+    //     neighbor.activate.forEach(function (f) { f(neighbor); });
+    //     neighbor.activated = true;
+    // }
+    // neighbor = retrieve_object({ x : cs.x - 1, y : cs.y, z : cs.z});
+    // if (neighbor !== undefined && !neighbor.activated) {
+    //     neighbor.activate.forEach(function (f) { f(neighbor); });
+    //     neighbor.activated = true;
+    // }
+    // neighbor = retrieve_object({ x : cs.x, y : cs.y + 1, z : cs.z});
+    // if (neighbor !== undefined && !neighbor.activated) {
+    //     neighbor.activate.forEach(function (f) { f(neighbor); });
+    //     neighbor.activated = true;
+    // }
+    // neighbor = retrieve_object({ x : cs.x, y : cs.y - 1, z : cs.z});
+    // if (neighbor !== undefined && !neighbor.activated) {
+    //     neighbor.activate.forEach(function (f) { f(neighbor); });
+    //     neighbor.activated = true;
+    // }
+    // neighbor = retrieve_object({ x : cs.x, y : cs.y, z : cs.z + 1});
+    // if (neighbor !== undefined && !neighbor.activated) {
+    //     neighbor.activate.forEach(function (f) { f(neighbor); });
+    //     neighbor.activated = true;
+    // }
+    // neighbor = retrieve_object({ x : cs.x, y : cs.y, z : cs.z - 1});
+    // if (neighbor !== undefined && !neighbor.activated) {
+    //     neighbor.activate.forEach(function (f) { f(neighbor); });
+    //     neighbor.activated = true;
+    // }
 
-    fly_away(obj);
+    // fly_away(obj);
 }
 
-function boom(obj) {
-    var cs = to_grid(obj.position);
+function boom(b) {
+    var cs = to_grid(b.mesh.position);
 
     // clear out a 3x3 cube
     for (var xoff = -1; xoff <= 1; xoff++ ) {
+
     for (var yoff = -1; yoff <= 1; yoff++ ) {
+
     for (var zoff = -1; zoff <= 1; zoff++ ) {
 
         neighbor = retrieve_object(
                 { x: cs.x + xoff, y: cs.y + yoff, z: cs.z + zoff });
 
         if (neighbor !== undefined) {
+
             fly_away(neighbor);
+
         }
     }
     }
     }
-    fly_away(obj);
+
+    fly_away(b);
 }
 
-function block_action() {
-    // each of these takes a THREE.js mesh object as the first argument
-    // Haskell style commas OHYEA
-    var actions = { boom: boom
-                  , pulse: pulse
-                  , shrink: function(b) { scale_to(b, 0.1);
-                  }
-    };
 
+
+// each of these takes a Block mesh as the first argument
+// Haskell style commas OHYEA
+var actions = { boom: boom
+
+              , pulse: pulse
+
+              , shrink: function(b) { scale_to(b, 0.1); }
+              };
+
+function block_action() {
     if (arguments.length === 1) {
 
         return actions[arguments[0]];
@@ -436,10 +420,72 @@ function block_action() {
     } else {
 
         // http://stackoverflow.com/questions/2532218/
-        // pick-random-property-from-a-javascript-object
+        // pick-random-property-from-a-javascript-meshect
 
         var keys = Object.keys(actions);
 
         return actions[keys[ keys.length * Math.random() << 0]];
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+/********** Block collection functions. **********/
+
+// returns grid points of a "real-world" object
+function to_grid(pos) {
+    var box_size = config.box_size;
+    var n = config.n;
+
+    return {
+        x: (pos.x + n * box_size / 2) / box_size,
+        y: (pos.y + n * box_size / 2) / box_size,
+        z: (pos.z + n * box_size / 2) / box_size
+    }
+}
+
+// converts real coordinates into a gridded system
+function from_grid(pos) {
+        var box_size = config.box_size;
+        var n = config.n;
+
+        return {
+            x: pos.x * box_size - n * box_size / 2,
+            y: pos.y * box_size - n * box_size / 2,
+            z: pos.z * box_size - n * box_size / 2
+        };
+}
+
+function place_object(b, x, y, z) {
+
+        var cs = from_grid({ x: x, y: y, z: z });
+
+        b.mesh.position.x = cs.x;
+        b.mesh.position.y = cs.y;
+        b.mesh.position.z = cs.z;
+
+        grid_objects[x + config.n * y + config.n * config.n * z] = b;
+
+}
+
+// p = position
+function retrieve_object(p) {
+    return grid_objects[p.x + config.n * p.y + config.n * config.n * p.z];
+}
+
+
+
+
+
+init();
+init_level(config);
+animate();
+
