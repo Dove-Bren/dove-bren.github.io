@@ -1,27 +1,27 @@
+// D3 globals
 var container, stats, controls;
 var camera, scene, renderer;
 
 var raycaster;
 var mouse;
 
-var info;
-
-var grid_objects = [];
-
+// user config, level difficulty
 var config =
-  { n: 8,
+  { n: 5,
     box_size: 30,
     quit: false,
     clear_color: "white",
-    nice_shading: false
+    nice_shading: true
   };
+
+// lol @ globals
+var grid_objects = [];
 
 var __c = 0.9;
 var block_geometry = new THREE.BoxGeometry(
         __c * config.box_size, __c * config.box_size, __c * config.box_size );
 
-// lol @ globals
-var texture = THREE.ImageUtils.loadTexture(
+var crateTexture = THREE.ImageUtils.loadTexture(
         'textures/crate.gif' );
 var arrowTexture = THREE.ImageUtils.loadTexture(
         'textures/crate-arrow.gif' );
@@ -58,7 +58,6 @@ function init() {
 
     window.addEventListener( 'resize', onWindowResize, false );
 
-
 }
 
 function init_level(config) {
@@ -80,21 +79,20 @@ function init_level(config) {
     }
 
     var c = 0.95;
-    texture.anisotropy = renderer.getMaxAnisotropy();
 
     for ( var x = 0; x < config.n; x ++ ) {
     for ( var y = 0; y < config.n; y ++ ) {
     for ( var z = 0; z < config.n; z ++ ) {
         var material;
         var arrow_block;
-        var col = new THREE.Color( x/config.n, y/config.n, z/config.n );
+        var block = new Block(x, y, z);
 
-        var block = new Block(x, y, z, col);
+        if (block.mesh !== undefined)
+            scene.add( block.mesh );
+    }
+    }
+    }
 
-        scene.add( block.mesh );
-    }
-    }
-    }
 }
 
 function onWindowResize() {
@@ -177,24 +175,62 @@ function render() {
 
 // instantiate:
 // var b = new Block(THREE.js Mesh)
-var Block = function (x, y, z, col) {
+var Block = function (x, y, z) {
     var material;
-    this.onclick = Math.random > 0.5 ? [] : [block_action()];
-    this.onactive = [];
+    var col = new THREE.Color( x/config.n, y/config.n, z/config.n );
 
-    this.x = x;
-    this.y = y;
-    this.z = z;
-    this.color = col;
+    // actions and behavior
 
     this.arrow_block = Math.random() < 0.2;
+    this.breakable = !this.arrow_block && Math.random() < 0.2;
     this.winner = x == 0 && y == 0 && z == 0;
 
+    this.dir_neg = Math.random > 0.5 ? -1 : 1;
+    this.dir = ["x", "y", "z"][Math.floor(Math.random() * 3)];
+
+    if (!this.breakable && !this.winner && !this.arrow_block) {
+        return;
+    }
+
+    this.create(col);
+
+    place_object(this, x, y, z);
+};
+
+// separated Block(), which selects random properties, from create() to allow
+// custom blocks configurations and positions.
+Block.prototype.create = function(col) {
+    this.onactive = this.winner ? [] : [fly_away];
+    this.onclick = [];
+    this.hp = 1;
+    if (this.arrow_block) {
+        this.onclick = [actions.pulse];
+        this.onactive = [actions.pulse];
+    }
+    else if (this.breakable) {
+        this.hp = 3;
+        this.onclick = [actions.break_self];
+    }
+
     // LOOKS. pick material
+    if (config.nice_shading) {
+
+        material = new THREE.MeshPhongMaterial(
+
+                { //map: texture,
+                  shininess: 1, color: col });
+    } else {
+
+        material = new THREE.MeshBasicMaterial(
+
+                { //map: texture,
+                  color: col });
+    }
+
     if (this.arrow_block) {
 
-        //darker
-        col.multiplyScalar(0.3);
+        // lighter
+        col.multiplyScalar(2);
 
         //create arrow material
         var arrMat;
@@ -202,46 +238,41 @@ var Block = function (x, y, z, col) {
         if (config.nice_shading) {
 
             arrMat = new THREE.MeshPhongMaterial(
-
                     {map: arrowTexture, shininess: 1, color: col});
+
+            crateMat = new THREE.MeshPhongMaterial(
+                    {map: crateTexture, shininess: 1, color: col});
+
         } else {
 
             arrMat = new THREE.MeshBasicMaterial(
-
                     {map: arrowTexture, shininess: 1, color: col});
 
+            crateMat = new THREE.MeshBasicMaterial(
+                    {map: crateTexture, shininess: 1, color: col});
+
         }
 
-        material = new THREE.MeshFaceMaterial(
-                [ arrMat, arrMat, arrMat, arrMat, arrMat, arrMat ] );
+        // ???
+        material = new THREE.MeshFaceMaterial([
+                arrMat, crateMat, arrMat, crateMat, arrMat, arrMat
+        ]);
 
-        if (y === 0 && z === 0) {
-            this.winner = true;
+
+    }
+    else {
+        if (!this.breakable) {
+            material.color.multiplyScalar(1.2);
         }
-
-    } else {
-
-        //create material based on color
-        if (config.nice_shading) {
-
-            material = new THREE.MeshPhongMaterial(
-
-                    { //map: texture,
-                      shininess: 1, color: col });
-        } else {
-
-            material = new THREE.MeshBasicMaterial(
-
-                    { //map: texture,
-                      color: col });
-        }
-
+    }
+    if (this.winner) {
+        material.color = new THREE.Color("gold");
     }
 
     this.mesh = new THREE.Mesh( block_geometry, material );
 
-    place_object(this, x, y, z);
-};
+
+}
 
 // method click(), called when user clicks block
 Block.prototype.click = function() {
@@ -290,7 +321,15 @@ function fly_away(b) {
     .easing( TWEEN.Easing.Elastic.Out).start();
 }
 
+function break_self(b) {
+    b.hp -= 1;
+    if (b.hp <= 0) {
+        fly_away(b);
+    }
+}
+
 function scale_to(b, scale) {
+    console.log(b);
     new TWEEN.Tween( b.mesh.scale ).to( {
         x: scale,
         y: scale,
@@ -300,11 +339,9 @@ function scale_to(b, scale) {
 }
 
 function win(b) {
-    scale_to(b.mesh, config.n * 2);
+    scale_to(b, config.n * 2);
 
-    b.mesh.material.color = new THREE.Color("gold");
-
-    document.getElementByID("info").innerHTML = "YOU WIN! " +
+    document.getElementById("info").innerHTML = "YOU WIN! " +
         "<a href=\"javascript:window.location.reload(false);\">"
         + "PLAY AGAIN?</a>";
 
@@ -326,54 +363,59 @@ function win(b) {
 //TODO: only pulse in one direction. This requires an indication of the
 //       direction, which is why it currently pulses in all directions
 function pulse(b) {
+    // ms to vanish
+    var laser_go_away = 0.5 * 1000;
 
     var cs = to_grid(b.mesh.position);
 
     var neighbor;
+    var blocks_away = 1;
+    // clone() for objects?
+    var search = { x: cs.x, y: cs.y, z: cs.z };
+    // could send a laser n empty blocks away!
+    // need to place a better bound on this, depending on block's position
+    for (; blocks_away < config.n; blocks_away += b.dir_neg) {
+        search[b.dir] += 1;
+        neighbor = retrieve_object(search);
+        if (neighbor !== undefined) {
+            setTimeout(function()
+                    { fly_away(b) ; fly_away(neighbor) }, laser_go_away);
+            break;
+        }
+    }
 
-    b.activate();
+    // translate to pulse direction
+    cs[b.dir] += b.dir_neg * blocks_away / 2;
 
-    // find nearest neighbor in a direction...
-    // special data structure for this ?
-    b.pulse_direction;
+    var size = {}
+    size.x = config.box_size * 1.5;
+    size.y = size.x;
+    size.z = size.x;
 
-    //up, down, left, right, forward, backwards
-    //is there a better way of doing this?
+    // long in pulse direction
+    size[b.dir] = config.box_size * blocks_away;
+    var laser_geometry = new THREE.BoxGeometry(
+            size.x, size.y, size.z);
 
-    // yes: use an array of offsets, loop through it
+    material = new THREE.MeshBasicMaterial(
+        { shininess: 1, color: new THREE.Color("red") });
 
-    // neighbor = retrieve_object({ x : cs.x + 1, y : cs.y, z : cs.z});
-    // if (neighbor !== undefined && !neighbor.activated) {
-    //     neighbor.activate.forEach(function (f) { f(neighbor); });
-    //     neighbor.activated = true;
-    // }
-    // neighbor = retrieve_object({ x : cs.x - 1, y : cs.y, z : cs.z});
-    // if (neighbor !== undefined && !neighbor.activated) {
-    //     neighbor.activate.forEach(function (f) { f(neighbor); });
-    //     neighbor.activated = true;
-    // }
-    // neighbor = retrieve_object({ x : cs.x, y : cs.y + 1, z : cs.z});
-    // if (neighbor !== undefined && !neighbor.activated) {
-    //     neighbor.activate.forEach(function (f) { f(neighbor); });
-    //     neighbor.activated = true;
-    // }
-    // neighbor = retrieve_object({ x : cs.x, y : cs.y - 1, z : cs.z});
-    // if (neighbor !== undefined && !neighbor.activated) {
-    //     neighbor.activate.forEach(function (f) { f(neighbor); });
-    //     neighbor.activated = true;
-    // }
-    // neighbor = retrieve_object({ x : cs.x, y : cs.y, z : cs.z + 1});
-    // if (neighbor !== undefined && !neighbor.activated) {
-    //     neighbor.activate.forEach(function (f) { f(neighbor); });
-    //     neighbor.activated = true;
-    // }
-    // neighbor = retrieve_object({ x : cs.x, y : cs.y, z : cs.z - 1});
-    // if (neighbor !== undefined && !neighbor.activated) {
-    //     neighbor.activate.forEach(function (f) { f(neighbor); });
-    //     neighbor.activated = true;
-    // }
+    lzr = new THREE.Mesh( laser_geometry, material );
 
-    // fly_away(obj);
+    var actual_cs = from_grid(cs);
+    lzr.position.x = actual_cs.x;
+    lzr.position.y = actual_cs.y;
+    lzr.position.z = actual_cs.z;
+
+    scene.add( lzr );
+
+    var scale_transform = { x: 0.1, y: 0.1, z: 0.1 };
+    scale_transform[b.dir] = 1;
+    new TWEEN.Tween( lzr.scale ).to( scale_transform, laser_go_away )
+    .easing( TWEEN.Easing.Elastic.Out).start();
+
+    setTimeout(function() { fly_away(b) ; scene.remove(lzr) }, laser_go_away);
+
 }
 
 function boom(b) {
@@ -409,23 +451,18 @@ var actions = { boom: boom
 
               , pulse: pulse
 
+              , break_self: break_self
+
               , shrink: function(b) { scale_to(b, 0.1); }
               };
 
-function block_action() {
-    if (arguments.length === 1) {
+function random_action() {
+    // http://stackoverflow.com/questions/2532218/
+    // pick-random-property-from-a-javascript-meshect
 
-        return actions[arguments[0]];
+    var keys = Object.keys(actions);
 
-    } else {
-
-        // http://stackoverflow.com/questions/2532218/
-        // pick-random-property-from-a-javascript-meshect
-
-        var keys = Object.keys(actions);
-
-        return actions[keys[ keys.length * Math.random() << 0]];
-    }
+    return keys[ keys.length * Math.random() << 0];
 }
 
 
