@@ -29,7 +29,8 @@ function init() {
     info.style.top = '10px';
     info.style.width = '100%';
     info.style.textAlign = 'center';
-    info.innerHTML = '<a href="http://threejs.org" target="_blank">three.js</a> - patchwork prototype';
+    info.innerHTML =
+        '<a href="http://threejs.org" target="_blank">three.js</a> - prototype';
     container.appendChild( info );
 
     renderer = new THREE.WebGLRenderer( {antialias: true } );
@@ -39,7 +40,8 @@ function init() {
     container.appendChild(renderer.domElement);
 
     // CAMERA
-    camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 3000 );
+    camera = new THREE.PerspectiveCamera( 70,
+            window.innerWidth / window.innerHeight, 1, 3000 );
     camera.position.y = 300;
     camera.position.z = 500;
 
@@ -85,8 +87,10 @@ function init_level(config) {
     var geometry = new THREE.BoxGeometry(
             c * config.box_size, c * config.box_size, c * config.box_size );
 
-    var texture = THREE.ImageUtils.loadTexture( 'textures/crate.gif' );
-    var arrowTexture = THREE.ImageUtils.loadTexture( 'textures/crate-arrow.gif' );
+    var texture = THREE.ImageUtils.loadTexture(
+            'textures/crate.gif' );
+    var arrowTexture = THREE.ImageUtils.loadTexture(
+            'textures/crate-arrow.gif' );
 
     texture.anisotropy = renderer.getMaxAnisotropy();
 
@@ -109,18 +113,20 @@ function init_level(config) {
             //mark as arrowBlock and save new Material
             object.arrowBlock = true;
             //color black
-            col = new THREE.Color( .3 * x/config.n, .3 * y/config.n, .3 * z/config.n);
+            col = new THREE.Color(
+                    .3 * x/config.n, .3 * y/config.n, .3 * z/config.n);
 
             //create arrow material
-            var arrowMat;
+            var arrMat;
             if (config.nice_shading) {
-                arrowMat = new THREE.MeshPhongMaterial(
+                arrMat = new THREE.MeshPhongMaterial(
                             {map: arrowTexture, shininess: 1, color: col});
             } else {
-                arrowMat = new THREE.MeshBasicMaterial(
+                arrMat = new THREE.MeshBasicMaterial(
                             {map: arrowTexture, shininess: 1, color: col});
             }
-            material = new THREE.MeshFaceMaterial( [ arrowMat, arrowMat, arrowMat, arrowMat, arrowMat, arrowMat ] );
+            material = new THREE.MeshFaceMaterial(
+                    [ arrMat, arrMat, arrMat, arrMat, arrMat, arrMat ] );
 
             // explode
             object.hp = 3;
@@ -326,8 +332,9 @@ function win(obj) {
 
     obj.material.color = new THREE.Color("gold");
 
-    info.innerHTML =
-        "YOU WIN! <a href=\"javascript:window.location.reload(false);\">PLAY AGAIN?</a>";
+    info.innerHTML = "YOU WIN! " +
+        "<a href=\"javascript:window.location.reload(false);\">"
+        + "PLAY AGAIN?</a>";
 
     // zoom out
     new TWEEN.Tween( camera.position ).to( {
@@ -401,7 +408,8 @@ function boom(obj) {
     for (var yoff = -1; yoff <= 1; yoff++ ) {
     for (var zoff = -1; zoff <= 1; zoff++ ) {
 
-        neighbor = retrieve_object({ x: cs.x + xoff, y: cs.y + yoff, z: cs.z + zoff });
+        neighbor = retrieve_object(
+                { x: cs.x + xoff, y: cs.y + yoff, z: cs.z + zoff });
 
         if (neighbor !== undefined) {
             fly_away(neighbor);
@@ -414,7 +422,11 @@ function boom(obj) {
 
 function block_action() {
     // each of these takes a THREE.js mesh object as the first argument
-    var actions = { boom: boom, pulse: pulse, shrink: function(b) { scale_to(b, 0.1); }
+    // Haskell style commas OHYEA
+    var actions = { boom: boom
+                  , pulse: pulse
+                  , shrink: function(b) { scale_to(b, 0.1);
+                  }
     };
 
     if (arguments.length === 1) {
@@ -423,7 +435,8 @@ function block_action() {
 
     } else {
 
-        // http://stackoverflow.com/questions/2532218/pick-random-property-from-a-javascript-object
+        // http://stackoverflow.com/questions/2532218/
+        // pick-random-property-from-a-javascript-object
 
         var keys = Object.keys(actions);
 
