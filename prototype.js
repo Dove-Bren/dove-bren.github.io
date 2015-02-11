@@ -189,9 +189,9 @@ var Block = function (x, y, z) {
     this.dir = ["x", "y", "z"][Math.floor(Math.random() * 3)];
 
     // no unbreakable blocks visible...
-    // if (!this.breakable && !this.winner && !this.arrow_block) {
-    //     return;
-    // }
+    if (!this.breakable && !this.winner && !this.arrow_block) {
+        return;
+    }
 
     this.create(col);
 
@@ -319,7 +319,10 @@ function fly_away(b) {
         y: 3100 * Math.sign(b.mesh.position.y),
         z: 3100 * Math.sign(b.mesh.position.z)}
         , 20000 )
+
     .easing( TWEEN.Easing.Elastic.Out).start();
+
+    remove_object(b.mesh.position);
 }
 
 function break_self(b) {
@@ -330,7 +333,6 @@ function break_self(b) {
 }
 
 function scale_to(b, scale) {
-    console.log(b);
     new TWEEN.Tween( b.mesh.scale ).to( {
         x: scale,
         y: scale,
@@ -370,31 +372,45 @@ function pulse(b) {
     var cs = to_grid(b.mesh.position);
 
     var neighbor;
+
     var blocks_away = 1;
+
     // clone() for objects?
     var search = { x: cs.x, y: cs.y, z: cs.z };
+
+    search[b.dir] += b.dir_neg;
+
     // could send a laser n empty blocks away!
     // need to place a better bound on this, depending on block's position
-    for (; blocks_away < config.n; blocks_away += b.dir_neg) {
-        search[b.dir] += 1;
+    for (; blocks_away < config.n; blocks_away++) {
         neighbor = retrieve_object(search);
+
         if (neighbor !== undefined) {
+
             setTimeout(function()
-                    { fly_away(b) ; fly_away(neighbor) }, laser_go_away);
+
+                    {
+                      neighbor.onactive.forEach(function(f) {f(neighbor)});
+
+                      fly_away(neighbor) }, laser_go_away * 2);
+
             break;
         }
+        search[b.dir] += b.dir_neg;
     }
 
     // translate to pulse direction
     cs[b.dir] += b.dir_neg * blocks_away / 2;
 
     var size = {}
+
     size.x = config.box_size * 1.5;
     size.y = size.x;
     size.z = size.x;
 
     // long in pulse direction
     size[b.dir] = config.box_size * blocks_away;
+
     var laser_geometry = new THREE.BoxGeometry(
             size.x, size.y, size.z);
 
@@ -404,6 +420,7 @@ function pulse(b) {
     lzr = new THREE.Mesh( laser_geometry, material );
 
     var actual_cs = from_grid(cs);
+
     lzr.position.x = actual_cs.x;
     lzr.position.y = actual_cs.y;
     lzr.position.z = actual_cs.z;
@@ -411,12 +428,13 @@ function pulse(b) {
     scene.add( lzr );
 
     var scale_transform = { x: 0.1, y: 0.1, z: 0.1 };
+
     scale_transform[b.dir] = 1;
+
     new TWEEN.Tween( lzr.scale ).to( scale_transform, laser_go_away )
     .easing( TWEEN.Easing.Elastic.Out).start();
 
     setTimeout(function() { fly_away(b) ; scene.remove(lzr) }, laser_go_away);
-
 }
 
 function boom(b) {
@@ -519,6 +537,9 @@ function retrieve_object(p) {
     return grid_objects[p.x + config.n * p.y + config.n * config.n * p.z];
 }
 
+function remove_object(p) {
+    grid_objects[p.x + config.n * p.y + config.n * config.n * p.z] = undefined;
+}
 
 
 
