@@ -7,7 +7,7 @@ var mouse;
 
 // user config, level difficulty
 var config =
-  { n: 5,
+  { n: 9,
     box_size: 30,
     quit: false,
     clear_color: "white",
@@ -190,7 +190,9 @@ var Block = function (x, y, z) {
 
     // no unbreakable blocks visible...
     if (!this.breakable && !this.winner && !this.arrow_block) {
+
         return;
+
     }
 
     this.create(col);
@@ -201,7 +203,7 @@ var Block = function (x, y, z) {
 // separated Block(), which selects random properties, from create() to allow
 // custom blocks configurations and positions.
 Block.prototype.create = function(col) {
-    this.onactive = this.winner ? [] : [fly_away];
+    this.onactive = this.winner ? [win] : [fly_away];
     this.onclick = [];
     this.hp = 1;
     if (this.arrow_block) {
@@ -211,6 +213,9 @@ Block.prototype.create = function(col) {
     else if (this.breakable) {
         this.hp = 3;
         this.onclick = [actions.break_self];
+    }
+    else if (this.winner) {
+        this.onclick = [win];
     }
 
     // LOOKS. pick material
@@ -263,7 +268,7 @@ Block.prototype.create = function(col) {
     }
     else {
         if (!this.breakable) {
-            material.color.multiplyScalar(1.2);
+            material.color.multiplyScalar(0.5);
         }
     }
     if (this.winner) {
@@ -284,18 +289,9 @@ Block.prototype.click = function() {
             this.mesh.material.color.addScalar(1);
         }
 
-        // corner = winner
-        if (this.winner) {
-
-            win(this);
-
-        } else {
-
-            // run each action
-            var b = this;
-            this.onclick.forEach(function (f){ f(b); });
-
-        }
+        // run each action
+        var b = this;
+        this.onclick.forEach(function (f){ f(b); });
 }
 
 Block.prototype.activate = function() {
@@ -378,11 +374,15 @@ function pulse(b) {
     // clone() for objects?
     var search = { x: cs.x, y: cs.y, z: cs.z };
 
-    search[b.dir] += b.dir_neg;
+    // TODO DEBUG ME...
+    // may select neghbor on the opposite end of the cube
+    // may not select neighbor at all, although one is available along
+    // the b.dir axis
+    for (; search[b.dir] >= 0 && search[b.dir] <= config.n; blocks_away++) {
 
-    // could send a laser n empty blocks away!
-    // need to place a better bound on this, depending on block's position
-    for (; blocks_away < config.n; blocks_away++) {
+        // fetch object along the laser's path
+        search[b.dir] += b.dir_neg;
+
         neighbor = retrieve_object(search);
 
         if (neighbor !== undefined) {
@@ -396,7 +396,6 @@ function pulse(b) {
 
             break;
         }
-        search[b.dir] += b.dir_neg;
     }
 
     // translate to pulse direction
