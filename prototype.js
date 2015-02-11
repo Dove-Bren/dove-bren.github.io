@@ -188,9 +188,10 @@ var Block = function (x, y, z) {
     this.dir_neg = Math.random > 0.5 ? -1 : 1;
     this.dir = ["x", "y", "z"][Math.floor(Math.random() * 3)];
 
-    if (!this.breakable && !this.winner && !this.arrow_block) {
-        return;
-    }
+    // no unbreakable blocks visible...
+    // if (!this.breakable && !this.winner && !this.arrow_block) {
+    //     return;
+    // }
 
     this.create(col);
 
