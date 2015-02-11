@@ -277,7 +277,11 @@ Block.prototype.create = function(col) {
 
     this.mesh = new THREE.Mesh( block_geometry, material );
 
-
+    if (this.arrow_block) {
+        this.mesh.rotation[this.dir] = this.dir_neg < 0 ?
+                  Math.PI / 2
+                : Math.PI;
+    }
 }
 
 // method click(), called when user clicks block
