@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html>
-    <meta charset="utf-8">
-    </meta>
-<body>
-    <div id="container">
-        <div id="info" style="
-            top: 10px;
-            width: 100%;
-            text-align: center;">
+<head>
+<meta charset="utf-8">
+</meta>
 
-            <a href="http://threejs.org" target="_blank">three.js</a>
-            - CSE326 ANTTRIS PROTOTYPE
-    </div>
-    </div>
-    <script src="three.js"></script>
-    <script src="js/libs/tween.min.js"></script>
-    <script src="js/libs/stats.min.js"></script>
-    <script src="js/controls/OrbitControls.js"></script>
-    <script src="js/renderers/CanvasRenderer.js"></script>
-    <script src="prototype.js"></script>
+
+<script language="javascript" type="text/javascript" src="jit.js"></script>
+<script language="javascript" type="text/javascript" src="Tree_Script.js"></script>
+</head>
+<body onload="init();">
+<div id="container" style="width: 1000px; margin: 0 auto; position: relative">
+
+<div id="left-container" style="float: left; width: 300px; height: 700px;
+overflow:hidden; background-color: brown; border: 3px outset gray">
+<p>lulz :(</p>
+</div>
+
+<div id="center-container" style="width: 700px; overflow:hidden; border: 3px outset gray">
+
+
+    <div id="infovis"></div>    
+</div>
+</div>
 </body>
 </html>
