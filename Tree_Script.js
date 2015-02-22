@@ -15,7 +15,7 @@ function init() {
     function changeHandler() {
         if(this.checked) {
             //top.disabled = bottom.disabled = right.disabled = left.disabled = true;
-            vis.canvas.clear(5);
+            //vis.canvas.clear(5);
             this.value();
         }
     };
