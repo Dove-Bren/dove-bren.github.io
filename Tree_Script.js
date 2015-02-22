@@ -1,4 +1,33 @@
+var eTree = $jit.id('e-tree');//, 
+//        left = $jit.id('r-left'), 
+//        bottom = $jit.id('r-bottom'), 
+//        right = $jit.id('r-right'),
+//        normal = $jit.id('s-normal');
+        
+    
+function changeHandler() {
+        if(this.checked) {
+            top.disabled = bottom.disabled = right.disabled = left.disabled = true;
+            st.switchPosition(this.value, "animate", {
+                onComplete: function(){
+                    top.disabled = bottom.disabled = right.disabled = left.disabled = false;
+                }
+            });
+        }
+    };
+    
+top.onchange = left.onchange = bottom.onchange = right.onchange = changeHandler;
+    
+
 function init() {
+    
+    
+    
+}
+
+
+
+function extendsTree() {
     
     var json = (function () {
     var json = null;
@@ -78,6 +107,8 @@ function init() {
     //emulate a click on the root node.
     st.onClick(st.root);
 }
+
+
 
 
 
