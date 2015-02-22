@@ -1,25 +1,33 @@
-var eTree = $jit.id('e-tree');//, 
-//        left = $jit.id('r-left'), 
+var eTree, iGraph;
+//, 
 //        bottom = $jit.id('r-bottom'), 
 //        right = $jit.id('r-right'),
 //        normal = $jit.id('s-normal');
-        
+     
+var vis;     
     
-function changeHandler() {
-        if(this.checked) {
-            top.disabled = bottom.disabled = right.disabled = left.disabled = true;
-            st.switchPosition(this.value, "animate", {
-                onComplete: function(){
-                    top.disabled = bottom.disabled = right.disabled = left.disabled = false;
-                }
-            });
-        }
-    };
-    
-top.onchange = left.onchange = bottom.onchange = right.onchange = changeHandler;
+
     
 
 function init() {
+    eTree = document.getElementById('e-tree');
+    iGraph = document.getElementById('i-graph');
+    function changeHandler() {
+        if(this.checked) {
+            //top.disabled = bottom.disabled = right.disabled = left.disabled = true;
+            vis.morph({}, 
+                {
+                type: 'fade'
+                }
+            );
+            this.value();
+        }
+    };
+    
+    eTree.onchange = changeHandler;
+    iGraph.onchange = changeHandler;
+
+    extendsTree();
     
     
     
@@ -50,7 +58,7 @@ function extendsTree() {
 //        json = file;
 //    });
     
-    var st = new $jit.ST({
+    vis = new $jit.ST({
         injectInto: 'infovis',
         type: '2D',
         width: 700,
@@ -99,13 +107,13 @@ function extendsTree() {
     });
     
     //load json data
-    st.loadJSON(json);
+    vis.loadJSON(json);
     //compute node positions and layout
-    st.compute();
+    vis.compute();
     //optional: make a translation of the tree
     //st.geom.translate(new $jit.Complex(-200, 0), "current");
     //emulate a click on the root node.
-    st.onClick(st.root);
+    vis.onClick(vis.root);
 }
 
 
