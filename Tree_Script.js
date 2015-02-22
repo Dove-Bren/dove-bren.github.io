@@ -5,7 +5,7 @@ function init() {
     $.ajax({
         'async': false,
         'global': false,
-        'url': my_url,
+        'url': './data/ExtendTree',
         'dataType': "json",
         'success': function (data) {
             json = data;
