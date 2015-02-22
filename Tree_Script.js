@@ -1,31 +1,18 @@
-var eTree, iGraph;
-//, 
-//        bottom = $jit.id('r-bottom'), 
-//        right = $jit.id('r-right'),
-//        normal = $jit.id('s-normal');
-     
-var vis;     
+
+var vis;
+var canvas = false;     
+    
     
 
+function init(val) {
     
-
-function init() {
-    eTree = document.getElementById('e-tree');
-    iGraph = document.getElementById('i-graph');
-    function changeHandler() {
-        if(this.checked) {
-            //top.disabled = bottom.disabled = right.disabled = left.disabled = true;
-            //vis.canvas.clear(5);
-            window[this.value]();
-        }
-    };
+//    canvas = new $jit.ST({
+//        injectInto: 'infovis'
+//        }).canvas;
+//    
+    var fn = window[val];
     
-    eTree.onchange = changeHandler;
-    iGraph.onchange = changeHandler;
-
-    extendsTree();
-    
-    
+    fn();
     
 }
 
@@ -55,10 +42,13 @@ function extendsTree() {
 //    });
     
     vis = new $jit.ST({
+    
+        useCanvas: canvas,
         injectInto: 'infovis',
         type: '2D',
         width: 700,
         height: 700,
+        offsetX: 250,
         
         Navigation: {
           enable:true,
@@ -72,6 +62,9 @@ function extendsTree() {
             overridable: true,
             align: 'left'
         },
+        
+        
+        levelDistance: 130,
         
 //        onBeforePlotNode: function(node) {
 //            node.width = (node.name.length * 20) + 'px';
@@ -94,6 +87,7 @@ function extendsTree() {
             style.height = 17 + 'px';            
             style.cursor = 'pointer';
             style.color = '#333';
+            style.backgroundColor = '#EEFFEE';
             style.fontSize = '10pt';
             style.textAlign= 'left';
             style.paddingTop = '3px';
@@ -101,6 +95,11 @@ function extendsTree() {
             //style.paddingRight = '5px';
         }
     });
+    
+    if (canvas == false) {
+        canvas = vis.canvas;
+    }
+    
     
     //load json data
     vis.loadJSON(json);
@@ -110,6 +109,154 @@ function extendsTree() {
     //st.geom.translate(new $jit.Complex(-200, 0), "current");
     //emulate a click on the root node.
     vis.onClick(vis.root);
+}
+
+function ImplementsGraph() {
+    
+    var json = (function () {
+    var json = null;
+    $.ajax({
+        'async': false,
+        'global': false,
+        'url': "./data/ImplementGraph.json",
+        'dataType': "json",
+        'success': function (data) {
+            json = data;
+        }
+    });
+    return json;
+    })();
+    
+    var vis = new $jit.ForceDirected({
+        useCanvas: canvas,
+        injectInto: 'infovis',
+        type: '2D',
+        width: 700,
+        height: 700,
+        Navigation: {
+          enable: true,
+          //Enable panning events only if we're dragging the empty
+          //canvas (and not a node).
+          panning: 'avoid nodes',
+          zooming: 10 //zoom speed. higher is more sensible
+        },
+        // Change node and edge styles such as
+        // color and width.
+        // These properties are also set per node
+        // with dollar prefixed data-properties in the
+        // JSON structure.
+        Node: {
+          overridable: true,
+          color: '#FF0000'
+        },
+        Edge: {
+          overridable: true,
+          color: '#23A4FF',
+          lineWidth: 0.4
+        },
+        //Native canvas text styling
+        Label: {
+          size: 10,
+          style: 'bold'
+        },
+        //Add Tips
+        Tips: {
+          enable: true,
+          onShow: function(tip, node) {
+            //count connections
+            var count = 0;
+            node.eachAdjacency(function() { count++; });
+            //display node info in tooltip
+            tip.innerHTML = "<div class=\"tip-title\">" + node.name + "</div>"
+              + "<div class=\"tip-text\"><b>connections:</b> " + count + "</div>";
+          }
+        },
+        // Add node events
+        Events: {
+          enable: true,
+          type: 'Native',
+          //Change cursor style when hovering a node
+          onMouseEnter: function() {
+            vis.canvas.getElement().style.cursor = 'move';
+          },
+          onMouseLeave: function() {
+            vis.canvas.getElement().style.cursor = '';
+          },
+          //Update node positions when dragged
+          onDragMove: function(node, eventInfo, e) {
+              var pos = eventInfo.getPos();
+              node.pos.setc(pos.x, pos.y);
+              vis.plot();
+          },
+          //Implement the same handler for touchscreens
+          onTouchMove: function(node, eventInfo, e) {
+            $jit.util.event.stop(e); //stop default touchmove event
+            this.onDragMove(node, eventInfo, e);
+          },
+          //Add also a click handler to nodes
+          onClick: function(node) {
+            if(!node) return;
+            // Build the right column relations list.
+            // This is done by traversing the clicked node connections.
+            var html = "<h4>" + node.name + "</h4><b> connections:</b><ul><li>",
+                list = [];
+            node.eachAdjacency(function(adj){
+              list.push(adj.nodeTo.name);
+            });
+            //append connections information
+            //$jit.id('inner-details').innerHTML = html + list.join("</li><li>") + "</li></ul>";
+          }
+        },
+        //Number of iterations for the FD algorithm
+        iterations: 200,
+        //Edge length
+        levelDistance: 100,
+        // Add text to the labels. This method is only triggered
+        // on label creation and only for DOM labels (not native canvas ones).
+        onCreateLabel: function(domElement, node){
+          domElement.innerHTML = node.name;
+          var style = domElement.style;
+          style.fontSize = "0.8em";
+          style.color = "#ddd";
+          style.backgroundColor = "#113311";
+        },
+        // Change node styles when DOM labels are placed
+        // or moved.
+        onPlaceLabel: function(domElement, node){
+          var style = domElement.style;
+          var left = parseInt(style.left);
+          var top = parseInt(style.top);
+          var w = domElement.offsetWidth;
+          style.left = ((left - w / 2)+10) + 'px';
+          style.top = (top + 10) + 'px';
+          style.display = '';
+        }
+        
+      });
+      
+      
+        if (canvas == false) {
+            canvas = vis.canvas;
+        }
+        
+      // load JSON data.
+      vis.loadJSON(json);
+      // compute positions incrementally and animate.
+      vis.computeIncremental({
+        iter: 40,
+        property: 'end',
+        onStep: function(perc){
+          //Log.write(perc + '% loaded...');
+        },
+        onComplete: function(){
+          //Log.write('done');
+          vis.animate({
+            modes: ['linear'],
+            transition: $jit.Trans.Elastic.easeOut,
+            duration: 2500
+          });
+        }
+      });
 }
 
 
