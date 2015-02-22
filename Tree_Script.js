@@ -15,11 +15,7 @@ function init() {
     function changeHandler() {
         if(this.checked) {
             //top.disabled = bottom.disabled = right.disabled = left.disabled = true;
-            vis.morph({}, 
-                {
-                type: 'fade'
-                }
-            );
+            vis.clear();
             this.value();
         }
     };
