@@ -16,7 +16,7 @@ function init() {
         if(this.checked) {
             //top.disabled = bottom.disabled = right.disabled = left.disabled = true;
             //vis.canvas.clear(5);
-            window[value]();
+            window[this.value]();
         }
     };
     
