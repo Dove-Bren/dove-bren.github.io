@@ -64,6 +64,13 @@ function extendsTree() {
         },
         
         
+        Edge: {
+          overridable: true,
+          color: '#00AA11',
+          lineWidth: 1.8
+        },
+        
+        
         levelDistance: 130,
         
 //        onBeforePlotNode: function(node) {
@@ -147,12 +154,13 @@ function ImplementsGraph() {
         // JSON structure.
         Node: {
           overridable: true,
-          color: '#FF0000'
+          color: '#00FF00',
+          size: 50
         },
         Edge: {
           overridable: true,
-          color: '#23A4FF',
-          lineWidth: 0.4
+          color: '#00AA11',
+          lineWidth: 1.8
         },
         //Native canvas text styling
         Label: {
@@ -217,8 +225,8 @@ function ImplementsGraph() {
           domElement.innerHTML = node.name;
           var style = domElement.style;
           style.fontSize = "0.8em";
-          style.color = "#ddd";
-          style.backgroundColor = "#113311";
+            style.color = '#333';
+            style.backgroundColor = '#EEFFEE';
         },
         // Change node styles when DOM labels are placed
         // or moved.
