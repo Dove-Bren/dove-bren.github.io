@@ -1,0 +1,35 @@
+
+
+
+1)
+  Looking at the visualization, what is the first thing you noticed about the Extends tree (Default view)?
+  
+2)
+  Was the class inheiritence represented by the Extends tree clear? What trouble did you have when trying to gain an understanding of what the tree represented?
+
+3)
+  Did the colors help or hinder you? Is the contrast too high, or do the labels blend in with the background? Did you like or dislike the colors?
+  
+4)
+  What would you do to improve the Extends tree visualization?
+  
+5)
+  Looking at the Implements graph, what is the first thing you noticed?
+  
+6)
+  How would you assess the use of color?
+  
+7)
+  Was the graph representation clear (edges signify the classes have an implements relationship)?
+
+8)
+  How would you improve the visualization?
+
+9)
+  Which did you like better, and why?
+
+10)
+  Overall comments
+  
+11)
+  How much better, in your opinion, would this have been if there was a totally sweet visualization of classes calling methods of other classes? Totally sick right? Toat's dope nasty?
