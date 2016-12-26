@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="proj.xsl"?>
+<projects>
+  <proj>
+    <title>QuestManager</title>
+    <url>http://www.github.com/dove-bren/QuestManager</url>
+    <descs>
+      <desc>Questing Framework for Minecraft</desc>
+      <desc>Minecraft plugin implemented using the Spigot API</desc>
+      <desc>Transforms game into MMORPG style experience, as created by the server administrator</desc>
+      <desc>Server admins create quests, NPCs, items, rewards, shops, etc.</desc>
+      <desc>Framework works through config files, meaning each server has their own unique experience</desc>
+      <desc>Massive number of features, made completely configurable</desc>
+    </descs>
+  </proj>
+  <proj>
+    <title>Juggernaut's Armory</title>
+    <url>http://www.github.com/dove-bren/Juggernaut-Armory</url>
+    <descs>
+      <desc>Minecraft combat rehaul</desc>
+      <desc>Minecraft mod, implemented through the Forge API</desc>
+      <desc>Splits damage into slashing, crushing, and piercing types</desc>
+      <desc>Expands on armor and weapon progression</desc>
+      <desc>Provides extensive APIs and configuration options for developers and server admins</desc>
+      <desc>Introduces forging process, including: smelting, shaping, and quenching metals</desc>
+    </descs>
+  </proj>
+  <proj>
+    <title>Quest Maker</title>
+    <url>http://www.github.com/dove-bren/QuestMaker</url>
+    <descs>
+      <desc>Quest File Editor</desc>
+      <desc>Java Application using JSwing, specifically for QuestManager</desc>
+      <desc>Provides GUI interface for quest configuration creation and editing</desc>
+      <desc>Convenience software for QuestManager users who don't want to edit configs</desc>
+    </descs>  
+  </proj>
+  <!--
+  <proj>
+    <title></title>
+    <url></url>
+    <descs>
+      <desc></desc>
+      <desc></desc>
+    </descs>
+  </proj>
+  -->
+</projects>

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="prof.xsl"?>
+<profexp>
+  <exp>
+    <org>Los Alamos National Laboratory</org>
+    <title>Summer Institute Intern</title>
+    <duties>
+      <duty>Assembled and configured a high-performance computing cluster</duty>
+      <duty>Administrated net-booted system</duty>
+      <duty>Performed research on Docker contianers in multi-user environments</duty>
+    </duties>
+  </exp>
+  <exp>
+    <org>NMT Center for Graduate Studies</org>
+    <title>Technology Specialist</title>
+    <duties>
+      <duty>Created and managed web applications</duty>
+      <duty>Work on special requirement jobs and services</duty>
+      <duty>Organize nation-wide conferences</duty>
+      <duty>Created web-based registration from back-end to front-end</duty>
+    </duties>
+  </exp>
+  <exp>
+    <org>NMT Center for Graduate Studies</org>
+    <title>Student Worker</title>
+    <duties>
+      <duty>Adapted graduate catalog into Degreeworks Scribe language</duty>
+      <duty>Processed classified files and applications</duty>
+    </duties>
+  </exp>
+</profexp>

@@ -1,0 +1,218 @@
+<html>
+
+<head>
+<title>Skyler Manzanares</title>
+<link type="text/css" rel="stylesheet" href="global.css" />
+<script src="scripts/framework.js"></script>
+</head>
+<body>
+
+<div id="topper">
+</div>
+
+<div id="content">
+<p id="header">
+Spotlight Project
+</p>
+<p class="title">
+    QuestManager/Iron Tale
+</p>
+<p>
+My current feature project is actually a hybrid project. The two projects are called QuestManager and <em>Iron Tale</em>.
+I would like to showcase these two together, as <em>Iron Tale</em> is a MMORPG Minecraft world created almost exclusively
+through QuestManager. Since this really is two projects, I've broken the discussion down into two sections.
+</p>
+
+<hr />
+<a name="QuestManager"></a><h2 class="subheader">
+QuestManager
+</h2>
+<p>
+QuestManager is a Minecraft Plugin that transforms the game into a very diverse and dynamic MMORPG. QuestManager (QM) works as a framework, creating a system through which server admins can create entire worlds for players.
+QM is a unique plugin in that it operates almost entirely through config files. This means that users do not need to write a single line of code in order to create their own experiences.
+</p>
+<img class="article_pic" src="images/questmanager_1.png" style="width: 50%;" />
+<p>
+QM is implemented through the <a href="http://www.spigotmc.org">Spigot API</a>. It works as a server plugin that changes many aspects of the game without requiring clients to have the plugins themselves.
+It works through a clever combination of chat-based clickable menu's and vanilla GUIs. Quests are created by server
+administraters through the creation of special configuration files. When the server is started, these files are read
+in, and spawn up quests. The creation of quests involves everything, from creating NPCs with dialogue lines and inventories,
+defining quest objectives and goals, creating branching quest lines, etc.
+</p>
+<h3 class="subheader">
+    Quest Definitions
+</h3>
+<p>
+At the core of QM is the definition of a quest. Quests have many different parameters to give as much power to the
+quest creator as possible. Quests have simple data (such as the name of the quest, and how much money the players
+receives after completing it) and complex data (like the list of goals and objectives, as described below). QM tries
+to remain as transparent as possible, allowing creators to create any number of diverse sets of adventures, worlds,
+or universes for their players as they would like.
+</p>
+
+<p class="code_snippet">
+name: "Basic Mixing"<br />
+description: "Mixing 101"<br />
+savestate: true<br />
+requireparty: false<br />
+useparty: false<br />
+fame: 30<br />
+requiredquests:<br />
+&emsp;-&emsp;"*Cooking"<br />
+repeatable: false<br />
+moneyreward: 0<br />
+titlereward: ""<br />
+goals:<br />
+&emsp;1:<br />
+&emsp;&emsp;type: "goalcnf"<br />
+&emsp;&emsp;name: "Apples"<br />
+&emsp;&emsp;description: "Make Apples"<br />
+&emsp;&emsp;requirements:<br />
+&emsp;&emsp;&emsp;1:<br />
+&emsp;&emsp;&emsp;&emsp;CHEST:<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;type: "chestr"<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;description: "Fetch supplies"<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;chest:<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;==: QMChest<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;location:<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;...
+</p>
+<p>
+More specifically, quests are defined as a set of quest objectives. Each objective has a series of requirements that
+are completed individually. As one objective is completed, the quest advanced to the next. This continues until there
+are no more objectives available, which allows the quest to be turned in and completed. Alongside the list of objectives,
+quests have a large amount of metadata that allows them to function as they should. This includes a list of quests that
+must be completed by a player before they can take the quest, name and description information for the quest, how the
+quest should save its state, and whether the player needs a party to take it. In addition, quests are further defined
+with data about what NPCs are involved, what lines of dialogue should be spoken, what the rewards are that may be
+obtained from the quest, and what happens when the quest is failed.
+</p>
+<p>
+QM takes all of this information, and moves it into Minecraft. Suddenly, NPCs exist that talk to you when you interact
+with them. Monsters are spawned systematically rather than randomly, and with preset armors and attributes. Players'
+equipment is damaged when they die, and must be repaired at a repair shop. Players can toggle options, and write
+notes in their journal. As they perform actions, players advance in different skillsets that help them succeed in
+combat or commerce. 
+</p>
+<h3 class="subheader">
+    Feature List
+</h3>
+<p>
+More detailed information can be found by visiting QM's <a href="projects.html#QuestManager">project page</a>. However, listed below are a handful
+of the more important and impressive features of QuestManager:
+</p>
+<ul>
+<li>Unlimited quests of unlimited length</li>
+<li>NPCs that talk, trade, or craft for the player</li>
+<li>22 Player skills, with API to add custom ones</li>
+<li>Individual player and quest tracking, for a real MMORPG feel</li>
+<li>Custom monster spawning and spawning behavior</li>
+<li>No need to program a thing by using config files instead</li>
+<li>and so much more!</li>
+</ul>
+For more information, please visit the <a href="projects.html">project page</a>. In addition, source code for QM can
+be found <a href="http://www.github.com/dove-bren/QuestManager">on GitHub</a>.
+
+<hr />
+<a name="IronTale"></a><p class="title">
+Iron Tale
+</p>
+
+<p>
+Iron Tale is an MMORPG world created using QuestManager. It features <strong>197 quests</strong>, 10 unique towns/cities, hundreds of NPCs,
+a tried-and-balanced magic system, fine-tuned skill progression, and over 300 regions with dedicated enemy spawns!
+Iron Tale has been deployed both on the NMT Minecraft Club Server and locally for family and friends.
+</p>
+<p>
+While Iron Tale originated as a way of testing the QM framework as I developed it, it evolved into a expansive universe
+of its own very quickly. The latest expansion of Iron Tale (Iron Tale 1.4) has over 120 hours of gameplay, excluding
+all party and crafting gameplay. Iron Tale is complete with a spanning Main Story, balanced economy, and unique challanges
+for both solo players and parties of players.
+</p>
+
+<h3 class="subheader">
+Main Story
+</h3>
+<p>
+The main story for Iron Tale was written in part by myself, and in part by Gabriel King. It (<em> SPOILERS </em>)
+begins with the slow realization that the undead are beginning to rise from caves and tombs alike, and in increasing
+volumes. Depending on how the player starts the main story, they may be introduced to the dilema as the hero of the
+people, or as some second-hand knowledge to a mercenary. Nonetheless, the player is eventually lead to uncover details
+about the emerging dead for themselves and of their own motivation. As they progress, they discover that the undead
+are emerging from the gates of Hell itself by some unknown force. Through their adventure to find out more, they
+discover the lands of magic (previously hidden from the world) and the lore they contain; the forefathers of the current
+world came from a far-away plane collapsing under its own greed. More recently, greed again captured the wills of
+the magicians, and some few broke off and sought the power of the old ways. These few were sealed away in the Hellish
+land from which undead now emmerge. In order to stop them, the player must venture through the portals to vanquish
+the evils that sought to reclaim the world from the other wide.  
+</p>
+<p>
+Iron Tale does not have a fixed starting route. The player is dumped after a short tutorial into the wilderness, and
+must use knowledge obtained from the tutorial and from nearby land markings to make their way to civilized land. At
+this early point, there are four major cities that are available to the player: Eldith - the trade city,
+Andester - the mining city, Lunasce - the smith's city, and Valencia - the lumberjack's city. Each location offers
+unique experiences, as citizens and city officials treat you in different ways. As players begin to progress, they
+can eventually begin the main story quest.
+</p>
+<img class="article_pic" src="images/questmanager_4.png" style="width: 50%;" />
+<p>
+Following the main story, the player is taken from the central lands where they start through a whole slew of
+environments. Environments range from the light woods they start in to sandy beaches, thick forests, deep caves,
+and expansive deserts. Each location has unique enemy types and attributes, and even more unique towns and people.
+</p>
+<p>
+Alongside the main story are a large number of side quests. These provide food, money, weapons, and armor early on,
+and eventually evolve into chains and branches of quests that could lead to unique relics,
+powerful spells, or brazen titles. While most quests are self-contained, others affect which you can take in the future,
+or what reward you end up getting. 
+</p>
+
+<h3 class="subheader">
+Game Development Rundown
+</h3>
+<p>
+While QM does much of the work of making this sort of MMORPG style game is available to a Minecraft server, there was
+still a lot of work to be done to create Iron Tale. Each and every quest involved creating NPCs with meaningful
+dialogue. Quest descriptions (and objective descriptions) needed to be strong enough to guide the player through the
+task. Enemies should provide the right amount of challenge to the player, and require the player to plan out their
+skills and weapons. Towns could have shops, and each shop needed items at appropriate rates. Inns should charge
+the correct fee. Skill progression should be balanced to aid the player and allow them to specialize, but not make the
+game too easy. Gathering and Crafting skills should be fun and inviting, and also rewarding. Crafts, quest rewards,
+and loot should be exciting and useful, while still allowing a place for less-special equipment. The list goes on and
+on and on.
+</p>
+<img class="article_pic" src="images/questmanager_3.png" style="width: 50%;" />
+<p>
+Some key points I would like to bring out of the experience, however, are:
+<ul>
+<li>Quest Design - keep it engaging and interesting</li>
+<li>Combat Progression - smooth while still challenging</li>
+<li>Level Design - pretty, functional, and appropriate</li>
+<li>Enemy Design - reinvent enemies, rather than recolor them</li>
+<li>World Layout - where are all the places? How do they fit together</li>
+<li>User Testing - watch someone play, and take notes</li>
+</ul>
+The amount of detail it took to get where Iron Tale is today is immense. The last expansion only added about 50
+quests, but took me the most time out of all of them. This was because I really wanted to sit down and finish drawing
+up the world map, working through the main story in my head, and visualizing the rest of the journey the player
+would take. In addition, this expansion focused more on combat and skill progression, and took much more rebalancing
+than any of the previous had. 
+</p>
+<p>
+Currently, Iron Tale has not been publically published on any site. This is mainly due to all the different components
+that come together aren't set up to be deployed in a streamlined manner. However, a copy of all of Iron Tale is available
+to anyone with request.
+</p>
+</div>
+
+<div id="footer">
+footer
+</div>
+</body>
+
+<script>
+init_navbar();
+init_footbar();
+</script>
+
+</html>

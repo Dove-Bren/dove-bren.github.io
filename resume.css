@@ -1,0 +1,21 @@
+th {
+    vertical-align: top; width: 150px; padding-top: 10px;
+}
+
+td {
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+ul {
+    margin-top: 0px;
+}
+
+.central {
+    text-align: center;
+}
+
+#content {
+    margin: 0 auto;
+    width: 1000px;
+}
