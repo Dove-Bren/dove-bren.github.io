@@ -1,20 +1,26 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 <xsl:template match="/">
-    <table class="wrapcontainer datatable">
+    <!-- <table class="wrapcontainer datatable"> -->
     <xsl:for-each select="projects/proj">
-        <td class="wrappable datacell"><xsl:apply-templates select="." /></td>
+        <!-- <td class="wrappable datacell"><xsl:apply-templates select="." /></td> -->
+        <div class="wrappable datacell"><xsl:apply-templates select="." /></div>
     </xsl:for-each>
-    </table>
+    <!-- </table> -->
 </xsl:template>
 
 <xsl:template match="proj">
   <div>
-        <strong><xsl:value-of select="title" /></strong><br />
+        <a href="project-page.html?{url-tag}">
+        <center><strong><xsl:value-of select="title" /></strong></center><br />
+        </a>
         <a href="{url}"><xsl:value-of select="url" /></a><br />
         <center><img src="{img}" alt="No Picture Available" class="showpic" /></center>
         <xsl:apply-templates select="tags" />
         <xsl:apply-templates select="longdesc" />
+        <!--
+        <center><
+        -->
   </div>
 </xsl:template>
 

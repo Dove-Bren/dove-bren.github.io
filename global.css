@@ -76,7 +76,9 @@ li.tag {
 
 .showpic {
     /* Picture that's a frontpiece; centered and stuff */
-    margin: 20px 10px;
+    margin: 20px 0px;
+    padding: 5% 5%;
+    width: 90%;
 }
 
 .code_snippet {

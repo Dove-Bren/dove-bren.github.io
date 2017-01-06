@@ -20,8 +20,9 @@
       <tag>Massive</tag>
       <tag>Minecraft</tag>
     </tags>
-    <img></img>
+    <img>images/questmanager_1.png</img>
     <longdesc>This is long description number 1</longdesc>
+    <url-tag>questmanager</url-tag>
   </proj>
   <proj>
     <title>Juggernaut's Armory</title>
@@ -42,7 +43,7 @@
       <tag>Massive</tag>
       <tag>Minecraft</tag>
     </tags>
-    <img></img>
+    <img>images/jarmory_1.png</img>
     <longdesc>This is long description number 2</longdesc>
   </proj>
   <proj>
