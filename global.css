@@ -42,6 +42,28 @@ li {
     font-family: Georgia, Helvetica, Times, Serif;
 }
 
+div.taglist {
+    
+}
+
+ul.taglist {
+    padding-left: 0px;
+    padding-top: 0px;
+}
+
+li.tag {
+    list-style: none inside;
+    height: 20px;
+    vertical-align: text-bottom;
+    text-align: center;
+    display: inline-block;
+    background-color: #495894;
+    color: #0d1433;
+    margin: 0px 2px;
+    padding: 1px;
+    border: 1px solid black;
+}
+
 .inset {
     padding-left: 50px;
 }
@@ -50,6 +72,11 @@ li {
     float: left;
     padding: 10px;   
     margin: 10px;
+}
+
+.showpic {
+    /* Picture that's a frontpiece; centered and stuff */
+    margin: 20px 10px;
 }
 
 .code_snippet {
@@ -81,6 +108,18 @@ li {
     padding-top: 10pt;
     padding-bottom: 10pt;
     font-weight: bold;
+}
+
+.desc {
+    
+}
+
+.wrapcontainer {
+    display: block;
+}
+
+.wrappable {
+    display: inline-block;
 }
 
 #nav {

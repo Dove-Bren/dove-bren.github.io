@@ -21,10 +21,14 @@ xhttp.send("");
 return xhttp.responseXML;
 }
 
-function displayResult(id, filename)
+function displayResult(id, filename, stylename = ".")
 {
+if (stylename === ".") {
+    stylename = filename;
+}
+    
 xml = loadXMLDoc(filename + ".xml");
-xsl = loadXMLDoc(filename + ".xsl");
+xsl = loadXMLDoc(stylename + ".xsl");
 // code for IE
 if (window.ActiveXObject || xhttp.responseType == "msxml-document")
   {

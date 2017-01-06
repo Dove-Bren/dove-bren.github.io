@@ -12,6 +12,16 @@
       <desc>Framework works through config files, meaning each server has their own unique experience</desc>
       <desc>Massive number of features, made completely configurable</desc>
     </descs>
+    <tags>
+      <tag>MMORPG</tag>
+      <tag>Framework</tag>
+      <tag>Spigot</tag>
+      <tag>Config Files</tag>
+      <tag>Massive</tag>
+      <tag>Minecraft</tag>
+    </tags>
+    <img></img>
+    <longdesc>This is long description number 1</longdesc>
   </proj>
   <proj>
     <title>Juggernaut's Armory</title>
@@ -24,6 +34,16 @@
       <desc>Provides extensive APIs and configuration options for developers and server admins</desc>
       <desc>Introduces forging process, including: smelting, shaping, and quenching metals</desc>
     </descs>
+    <tags>
+      <tag>MMORPG</tag>
+      <tag>Framework</tag>
+      <tag>Spigot</tag>
+      <tag>Config Files</tag>
+      <tag>Massive</tag>
+      <tag>Minecraft</tag>
+    </tags>
+    <img></img>
+    <longdesc>This is long description number 2</longdesc>
   </proj>
   <proj>
     <title>Quest Maker</title>
@@ -33,7 +53,17 @@
       <desc>Java Application using JSwing, specifically for QuestManager</desc>
       <desc>Provides GUI interface for quest configuration creation and editing</desc>
       <desc>Convenience software for QuestManager users who don't want to edit configs</desc>
-    </descs>  
+    </descs>
+    <tags>
+      <tag>MMORPG</tag>
+      <tag>Framework</tag>
+      <tag>Spigot</tag>
+      <tag>Config Files</tag>
+      <tag>Massive</tag>
+      <tag>Minecraft</tag>
+    </tags>
+    <img></img>
+    <longdesc>This is long description number 3</longdesc>
   </proj>
   <!--
   <proj>

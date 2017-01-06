@@ -15,6 +15,15 @@
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
+              <xs:element name="img" type="xs:string" />
+              <xs:element name="longdesc" type="xs:string" />
+              <xs:element name="tags" type="xs:string">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="tag" type="xs:string> maxOccurs="unbounded" minOccurs="0" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
