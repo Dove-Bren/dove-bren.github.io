@@ -9,7 +9,11 @@ function init() {
         redexit();
     }
 
-    echo "Token: [" . $token . "]";
+    // $url = "proj.xml";
+    // $xml = simplexml_load_file($url);
+    // print_r($xml);
+
+    // print getXSLT("proj.xml", "proj.xsl");
 
 }
 
@@ -30,6 +34,29 @@ function getTitle($token) {
 
 }
 
+
+
+
+function getXSLT($xml, $xsl) {
+
+    if (empty($xsl)) {
+        $xsl = $xml;
+    }
+
+    $mdoc = new DOMDocument();
+    $mdoc->load($xml);
+
+    $sdoc = new DOMDocument();
+    $sdoc->load($xsl);
+
+    $proc = new XSLTProcessor();
+    $proc->importStylesheet($sdoc);
+   
+    $res = $proc->transformToDoc($mdoc);
+
+    return $res->saveXML();
+
+}
 
 
 ?>
