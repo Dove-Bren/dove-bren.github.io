@@ -31,8 +31,8 @@ function init() {
 
     $pobj = getProj($token, $obj);
 
-    $header = getTitle($token, $pobj);
-    $body = getPage($token, $pobj);
+    $header = getTitle($pobj);
+    $body = getPage($pobj);
 
 }
 
@@ -42,8 +42,8 @@ function redexit() {
     die();
 }
 
-function getPage($token, $pobj) {
-    return "Body text";
+function getPage($pobj) {
+    return $pobj->fulldesc;
 }
 
 function validate($token, $xmlobj) {
@@ -65,7 +65,7 @@ function getProj($token, $xmlobj) {
     
 }
 
-function getTitle($token, $pobj) {
+function getTitle($pobj) {
     return $pobj->title;
 }
 
