@@ -1,5 +1,5 @@
 <?php
-require 'projectpage.php' or die("<!-- Could not load libraries -->");
+require 'projectpage.php';
 ?>
 
 <html>
