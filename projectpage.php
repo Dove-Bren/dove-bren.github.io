@@ -29,8 +29,10 @@ function init() {
         redexit();
     }
 
-    $header = getTitle($token, $obj);
-    $body = getPage($token, $obj);
+    $pobj = getProj($token, $obj);
+
+    $header = getTitle($token, $pobj);
+    $body = getPage($token, $pobj);
 
 }
 
@@ -40,18 +42,22 @@ function redexit() {
     die();
 }
 
-function getPage($token, $xmlobj) {
+function getPage($token, $pobj) {
     return "Body text";
 }
 
 function validate($token, $xmlobj) {
+    return getProj($token, $xmlobj) !== false;
+}
+
+function getProj($token, $xmlobj) {
     if (empty($token) or empty($xmlobj)) {
         return false;
     }
 
     foreach ($xmlobj->proj as $proj) {
         if (strcmp($proj->urltag, $token) === 0) {
-            return true;
+            return $proj;
         }
     }
 
@@ -59,8 +65,8 @@ function validate($token, $xmlobj) {
     
 }
 
-function getTitle($token, $xmlobj) {
-    return "Header text";
+function getTitle($token, $pobj) {
+    return $pobj->title;
 }
 
 
