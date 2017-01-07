@@ -1,10 +1,14 @@
+<?php
+require 'projectpage.php' or die("<!-- Could not load libraries -->");
+?>
+
 <html>
 
 <head>
 <title>Skyler Manzanares</title>
 <link type="text/css" rel="stylesheet" href="global.css" />
 <script src="scripts/framework.js"></script>
-<script src="scripts/project-page.js"></script>
+
 </head>
 <body>
 
@@ -13,7 +17,9 @@
 
 <div id="content">
 <p id="header">
-
+<?php
+echo $header;
+?>
 </p>
 
 
@@ -31,7 +37,6 @@ footer
 <script>
 init_navbar();
 init_footbar();
-dopage();
 </script>
 
 </html>
