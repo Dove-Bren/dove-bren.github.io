@@ -17,6 +17,8 @@ else
   }
 xhttp.open("GET", filename, false);
 try {xhttp.responseType = "msxml-document"} catch(err) {} // Helping IE11
+// try {xhttp.responseType = "text/xml"} catch(err) {}
+xhttp.overrideMimeType("text/xml");
 xhttp.send("");
 return xhttp.responseXML;
 }
