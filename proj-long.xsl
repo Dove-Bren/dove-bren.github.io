@@ -11,7 +11,7 @@
 
 <xsl:template match="proj">
   <div>
-        <a href="project-page.html?{url-tag}">
+        <a href="project-page.html?{urltag}">
         <center><strong><xsl:value-of select="title" /></strong></center><br />
         </a>
         <a href="{url}"><xsl:value-of select="url" /></a><br />

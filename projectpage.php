@@ -35,8 +35,9 @@ function init() {
 }
 
 function redexit() {
-    header("Location: projects.html");
-    exit();
+    //header("Location: projects.html");
+    //exit();
+    die();
 }
 
 function getPage($token, $xmlobj) {
@@ -44,7 +45,18 @@ function getPage($token, $xmlobj) {
 }
 
 function validate($token, $xmlobj) {
-    return true;
+    if (empty($token) or empty($xmlobj)) {
+        return false;
+    }
+
+    foreach ($xmlobj->proj as $proj) {
+        if (strcmp($proj->urltag, $token) === 0) {
+            return true;
+        }
+    }
+
+    return false;
+    
 }
 
 function getTitle($token, $xmlobj) {

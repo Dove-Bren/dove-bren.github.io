@@ -22,7 +22,7 @@
     </tags>
     <img>images/questmanager_1.png</img>
     <longdesc>This is long description number 1</longdesc>
-    <url-tag>questmanager</url-tag>
+    <urltag>questmanager</urltag>
   </proj>
   <proj>
     <title>Juggernaut's Armory</title>
