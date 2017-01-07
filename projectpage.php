@@ -14,12 +14,6 @@ function init() {
         redexit();
     }
 
-    // $url = "proj.xml";
-    // $xml = simplexml_load_file($url);
-    // print_r($xml);
-
-    // print getXSLT("proj.xml", "proj.xsl");
-
     $obj = fetchXMLObj("proj.xml");
     if (empty($obj)) {
         redexit();
@@ -28,6 +22,11 @@ function init() {
     if (!validate($token, $obj)) {
         redexit();
     }
+
+
+    //echo $obj->asXML();
+    //print "<br /><br /><hr />";
+
 
     $pobj = getProj($token, $obj);
 
@@ -43,7 +42,8 @@ function redexit() {
 }
 
 function getPage($pobj) {
-    return $pobj->fulldesc;
+    //return $pobj->fulldesc;
+    return getXSLT($pobj, "proj-full.xsl");
 }
 
 function validate($token, $xmlobj) {
@@ -76,12 +76,20 @@ function fetchXMLObj($fname) {
 
 function getXSLT($xml, $xsl) {
 
+    /*
     if (empty($xsl)) {
         $xsl = $xml;
     }
+    */
 
-    $mdoc = new DOMDocument();
-    $mdoc->load($xml);
+    $xml = new SimpleXMLElement($xml->asXML());
+
+    var_dump($xml);
+    echo "<br /><hr />";
+
+    //$mdoc = new DOMDocument();
+    //$mdoc->loadXML($xml->asXML());
+    //$mdoc = dom_import_simplexml($xml);
 
     $sdoc = new DOMDocument();
     $sdoc->load($xsl);
@@ -89,9 +97,18 @@ function getXSLT($xml, $xsl) {
     $proc = new XSLTProcessor();
     $proc->importStylesheet($sdoc);
    
-    $res = $proc->transformToDoc($mdoc);
+    $res = $proc->transformToXML($xml);
 
-    return $res->saveXML();
+    /*
+
+    $mdoc = new DOMDocument();
+    $mdoc->loadXML($res);
+    
+    */
+
+    return $res;
+
+    //return $res;
 
 }
 
