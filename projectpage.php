@@ -1,8 +1,13 @@
 <?php
 
+$header = "";
+$body = "";
+
 init();
 
 function init() {
+
+    global $header, $body;
 
     $token = htmlspecialchars($_GET["page"]);
     if (empty($token)) {
@@ -15,6 +20,18 @@ function init() {
 
     // print getXSLT("proj.xml", "proj.xsl");
 
+    $obj = fetchXMLObj("proj.xml");
+    if (empty($obj)) {
+        redexit();
+    }
+
+    if (!validate($token, $obj)) {
+        redexit();
+    }
+
+    $header = getTitle($token, $obj);
+    $body = getPage($token, $obj);
+
 }
 
 function redexit() {
@@ -22,20 +39,22 @@ function redexit() {
     exit();
 }
 
-function getPage() {
-
+function getPage($token, $xmlobj) {
+    return "Body text";
 }
 
-function validate($token) {
-
+function validate($token, $xmlobj) {
+    return true;
 }
 
-function getTitle($token) {
-
+function getTitle($token, $xmlobj) {
+    return "Header text";
 }
 
 
-
+function fetchXMLObj($fname) {
+    return simplexml_load_file($fname);
+}
 
 function getXSLT($xml, $xsl) {
 

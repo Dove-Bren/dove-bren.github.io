@@ -22,7 +22,11 @@ echo $header;
 ?>
 </p>
 
-
+<div>
+<?php
+echo $body;
+?>
+</div>
 
 <p>
 </p>
