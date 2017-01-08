@@ -3,6 +3,7 @@
 <projects>
   <proj>
     <title>QuestManager</title>
+    <tagline>MMORPG Framework for Minecraft</tagline>
     <url>http://www.github.com/dove-bren/QuestManager</url>
     <descs>
       <desc>Questing Framework for Minecraft</desc>
@@ -22,6 +23,7 @@
     </tags>
     <img>images/questmanager_1.png</img>
     <longdesc>This is long description number 1</longdesc>
+    <fulldesc>QuestManager is aflektlksjt.</fulldesc>
     <urltag>questmanager</urltag>
   </proj>
   <proj>

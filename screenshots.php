@@ -1,5 +1,7 @@
 <?php
-require 'projectpage.php';
+echo "1";
+require 'scripts/screenslib.php';
+echo "2";
 ?>
 
 <html>

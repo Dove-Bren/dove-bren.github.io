@@ -84,8 +84,8 @@ function getXSLT($xml, $xsl) {
 
     $xml = new SimpleXMLElement($xml->asXML());
 
-    var_dump($xml);
-    echo "<br /><hr />";
+    //var_dump($xml);
+    //echo "<br /><hr />";
 
     //$mdoc = new DOMDocument();
     //$mdoc->loadXML($xml->asXML());

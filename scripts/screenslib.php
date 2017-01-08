@@ -93,7 +93,7 @@ function gatherScreenshots($xmlobj) {
                 $screenshot->src, $proj->title, $screenshot->alt
             );
             $obj.assignNumber(index);
-            index = index + 1;
+            $index = $index + 1;
             
             $screens[] = $obj;
         }
