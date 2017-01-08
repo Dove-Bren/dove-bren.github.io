@@ -2,6 +2,14 @@
   box-sizing: border-box;
 }
 
+.row {
+  background-color: black;
+}
+
+.column {
+  background-color: black;
+}
+
 .row > .column {
   padding: 0 8px;
 }
