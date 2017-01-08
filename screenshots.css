@@ -4,6 +4,7 @@
 
 .row {
   background-color: black;
+  text-align: center;
 }
 
 .column {
@@ -150,7 +151,7 @@ img {
 .reel {
   opacity: 0.6;
   width: 20%;
-  height: 15%;
+  height: 130px;
 }
 
 img.launcher {

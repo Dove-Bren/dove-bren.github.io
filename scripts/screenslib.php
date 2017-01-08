@@ -89,7 +89,7 @@ function createModals($screenshots) {
 }
 
 function createModalButtons($screenshots) {
-    $rowmax = 6;
+    $rowmax = 4;
     rowOpen();
     foreach($screenshots as $screenshot) {
         genModalButton($screenshot->src, $screenshot->getNum(), $screenshot->alt);
