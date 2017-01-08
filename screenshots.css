@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .row > .column {
   padding: 0 8px;
 }
@@ -58,6 +62,10 @@
   display: none;
 }
 
+.cursor {
+  cursor: pointer
+}
+
 /* Next & previous buttons */
 .prev,
 .next {
@@ -97,6 +105,10 @@
   top: 0;
 }
 
+img {
+  margin-bottom: -4px;
+}
+
 .caption-container {
   text-align: center;
   background-color: black;
@@ -104,15 +116,8 @@
   color: white;
 }
 
-img.reel {
+.reel {
   opacity: 0.6;
-  width: 200px;
-  height: 130px;
-}
-
-img.launcher {
-  width: 200px;
-  height: 130px;
 }
 
 .active,
