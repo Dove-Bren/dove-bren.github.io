@@ -25,6 +25,28 @@
     <longdesc>This is long description number 1</longdesc>
     <fulldesc>QuestManager is aflektlksjt.</fulldesc>
     <urltag>questmanager</urltag>
+    <screenshots>
+      <screenshot>
+        <src>images/questmanager_1.png</src>
+        <tag>QuestManager</tag>
+        <alt>Dark Dungeon</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/questmanager_2.png</src>
+        <tag>QuestManager</tag>
+        <alt>Skillbook With Levels</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/questmanager_3.png</src>
+        <tag>QuestManager</tag>
+        <alt>Summons, Spells, and Equipment</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/questmanager_4.png</src>
+        <tag>QuestManager</tag>
+        <alt>NPC's That Talk</alt>
+      </screenshot>
+    </screenshots>
   </proj>
   <proj>
     <title>Juggernaut's Armory</title>
