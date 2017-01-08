@@ -106,6 +106,13 @@
 
 img.reel {
   opacity: 0.6;
+  width: 200px;
+  height: 130px;
+}
+
+img.launcher {
+  width: 200px;
+  height: 130px;
 }
 
 .active,

@@ -22,11 +22,9 @@ require 'scripts/screenslib.php';
 Screenshots
 </p>
 
-<div>
 <?php
 spawnLightbox();
 ?>
-</div>
 
 <p>
 </p>

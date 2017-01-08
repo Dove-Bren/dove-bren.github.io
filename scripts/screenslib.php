@@ -16,7 +16,7 @@ function spawnLightbox() {
 /* Base print functions */
 
 function genLauncher($imgsrc, $slidenum, $alt) {
-    print '<img src="' . $imgsrc . '" onclick="openModal();currentSlide(' . $slidenum . ')" class="hover-shadow" alt="' . $alt . '">';
+    print '<img src="' . $imgsrc . '" onclick="openModal();currentSlide(' . $slidenum . ')" class="hover-shadow launcher" alt="' . $alt . '">';
 }
 
 function genModalButton($imgsrc, $slidenum, $alt) {
@@ -90,19 +90,14 @@ function gatherScreenshots($xmlobj) {
     $index = 1;
     
     foreach ($xmlobj->proj as $proj) {
-        print "Project: " . $proj->title . "<br />";
         foreach ($proj->screenshots->screenshot as $screenshot) {
-            print "&nbsp;&nbsp;screenshot " . $index . "<br />";
             $obj = new Screenshot(
                 $screenshot->src, $proj->title, $screenshot->alt
             );
-            print "&nbsp;&nbsp;*Made Object<br />";
             $obj->assignNumber($index);
-            print "&nbsp;&nbsp;*Assigned number<br />";
             $index = $index + 1;
             
             $screens[] = $obj;
-            print "&nbsp;&nbsp;*Done<br />";
         }
     }
     
