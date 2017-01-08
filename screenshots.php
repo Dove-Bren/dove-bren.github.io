@@ -9,7 +9,6 @@ require 'scripts/screenslib.php';
 <link type="text/css" rel="stylesheet" href="global.css" />
 <link type="text/css" rel="stylesheet" href="screenshots.css" />
 <script src="scripts/framework.js"></script>
-<script src="scripts/lightbox.js"></script>
 
 </head>
 <body>
@@ -40,5 +39,7 @@ footer
 init_navbar();
 init_footbar();
 </script>
+
+<script src="scripts/lightbox.js"></script>
 
 </html>

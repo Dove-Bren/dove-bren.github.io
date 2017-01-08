@@ -21,7 +21,7 @@ function genLauncher($imgsrc, $slidenum, $alt) {
 
 function genModalButton($imgsrc, $slidenum, $alt) {
     print '
-    <img class="reel" src="' . $imgsrc . '" onclick="currentSlide(' . $slidenum . ')" alt="' . $alt . '">
+    <img class="reel cursor" src="' . $imgsrc . '" onclick="currentSlide(' . $slidenum . ')" alt="' . $alt . '">
     ';
 }
 
@@ -112,7 +112,7 @@ function gatherScreenshots($xmlobj) {
     }
     
     $screens = array();
-    $index = 1;
+    $index = 0;
     
     foreach ($xmlobj->proj as $proj) {
         foreach ($proj->screenshots->screenshot as $screenshot) {
