@@ -22,7 +22,7 @@
   display: none;
   position: fixed;
   z-index: 1;
-  padding-top: 100px;
+  padding-top: 10px;
   left: 0;
   top: 0;
   width: 100%;
@@ -34,9 +34,9 @@
 /* Modal Content */
 .modal-content {
   position: relative;
-  background-color: #fefefe;
+  background-color: #2f2f2f;
   margin: auto;
-  padding: 0;
+  padding: 0px;
   width: 90%;
   max-width: 1200px;
 }
@@ -60,6 +60,26 @@
 
 .slides {
   display: none;
+  height: 80%;
+  text-align: center;
+  padding: 10px;
+}
+
+.slideimg {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -5px;
+}
+
+.slideimghelp {
+    width: 0px;
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .cursor {
@@ -118,7 +138,15 @@ img {
 
 .reel {
   opacity: 0.6;
+  width: 20%;
+  height: 15%;
 }
+
+img.launcher {
+  width: 200px;
+  height: 130px;
+}
+
 
 .active,
 .reel:hover {

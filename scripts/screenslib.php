@@ -8,7 +8,7 @@ function spawnLightbox() {
 
     createModal($screenshots);
     
-    genLauncher("images/questmanager_1.png", 0, "no alt");
+    genLauncher("images/questmanager_1.png", 1, "no alt");
 
 }
 
@@ -29,7 +29,8 @@ function genModal($imgsrc, $title, $tag) {
     print '
     <div class="slides">
       <div class="numbertext">' . $title . '<br />' . $tag . '</div>
-        <img src="' . $imgsrc . '" style="width:100%">
+        <div class="slideimghelp"></div>
+        <img src="' . $imgsrc . '" class="slideimg">
     </div>
     ';
 }
@@ -87,7 +88,7 @@ function createModals($screenshots) {
 }
 
 function createModalButtons($screenshots) {
-    $rowmax = 2;
+    $rowmax = 6;
     rowOpen();
     foreach($screenshots as $screenshot) {
         genModalButton($screenshot->src, $screenshot->getNum(), $screenshot->alt);
@@ -112,7 +113,7 @@ function gatherScreenshots($xmlobj) {
     }
     
     $screens = array();
-    $index = 0;
+    $index = 1;
     
     foreach ($xmlobj->proj as $proj) {
         foreach ($proj->screenshots->screenshot as $screenshot) {
