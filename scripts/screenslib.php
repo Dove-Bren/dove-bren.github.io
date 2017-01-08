@@ -7,8 +7,9 @@ function spawnLightbox() {
     $screenshots = gatherScreenshots($xmlobj);
 
     createModal($screenshots);
-    
-    genLauncher("images/questmanager_1.png", 1, "no alt");
+
+    createTiles($screenshots);
+        
 
 }
 
@@ -102,7 +103,36 @@ function createModalButtons($screenshots) {
     rowClose();
 }
 
+function createTiles($screenshots) {
+    $last = "";
+    $rowindex = 0;
+    $maxrow = 6;
 
+    foreach($screenshots as $screenshot) {
+        if ($last != $screenshot->tag) {
+            if ($last !== "") {
+                rowClose();
+                print "<br />";
+            }
+
+            print '<h4 class="subheader">' . $screenshot->tag . '</h4>';
+            rowOpen();
+            $last = $screenshot->tag;
+            $rowindex = 0;
+        }
+
+        genLauncher($screenshot->src, $screenshot->getNum(), $screenshot->alt);
+
+        $rowindex = $rowindex + 1;
+        if ($rowindex % $maxrow === 0) {
+            rowClose();
+            rowOpen();
+        }
+
+    }
+
+    rowClose();
+}
 
 /* Data functions */
 

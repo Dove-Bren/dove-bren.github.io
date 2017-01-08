@@ -69,6 +69,13 @@
     </tags>
     <img>images/jarmory_1.png</img>
     <longdesc>This is long description number 2</longdesc>
+    <screenshots>
+      <screenshot>
+        <src>images/jarmory_1.png</src>
+        <tag>Juggernaut's Armory</tag>
+        <alt>Trough</alt>
+      </screenshot>
+    </screenshots>
   </proj>
   <proj>
     <title>Quest Maker</title>
