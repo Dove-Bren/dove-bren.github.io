@@ -5,10 +5,11 @@
 function spawnLightbox() {
     $xmlobj = fetchXMLObj("proj.xml");
     $screenshots = gatherScreenshots($xmlobj);
-    
+
     createModal($screenshots);
     
     genLauncher("images/questmanager_1.png", 0, "no alt");
+
 }
 
 
@@ -81,21 +82,27 @@ function createModalButtons($screenshots) {
 
 function gatherScreenshots($xmlobj) {
     if (empty($xmlobj)) {
+        print "Empty xml object";
         die();
     }
     
     $screens = array();
-    $index = 0;
+    $index = 1;
     
     foreach ($xmlobj->proj as $proj) {
-        foreach ($proj->screenshots as $screenshot) {
+        print "Project: " . $proj->title . "<br />";
+        foreach ($proj->screenshots->screenshot as $screenshot) {
+            print "&nbsp;&nbsp;screenshot " . $index . "<br />";
             $obj = new Screenshot(
                 $screenshot->src, $proj->title, $screenshot->alt
             );
-            $obj.assignNumber(index);
+            print "&nbsp;&nbsp;*Made Object<br />";
+            $obj->assignNumber($index);
+            print "&nbsp;&nbsp;*Assigned number<br />";
             $index = $index + 1;
             
             $screens[] = $obj;
+            print "&nbsp;&nbsp;*Done<br />";
         }
     }
     
