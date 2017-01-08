@@ -34,6 +34,22 @@ function genModal($imgsrc, $title, $tag) {
     ';
 }
 
+function colOpen() {
+    print '<div class="column">';
+}
+
+function colClose() {
+    print '</div>';
+}
+
+function rowOpen() {
+    print '<div class="row">';
+}
+
+function rowClose() {
+    print '</div>';
+}
+
 
 /* Higher print functions */
 
@@ -71,9 +87,18 @@ function createModals($screenshots) {
 }
 
 function createModalButtons($screenshots) {
+    $rowmax = 2;
+    rowOpen();
     foreach($screenshots as $screenshot) {
         genModalButton($screenshot->src, $screenshot->getNum(), $screenshot->alt);
+        
+        if ($screenshot->getNum() % $rowmax === 0) {
+            rowClose();
+            rowOpen();
+        }
+        
     }
+    rowClose();
 }
 
 
