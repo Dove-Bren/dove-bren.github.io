@@ -106,7 +106,7 @@ function createModalButtons($screenshots) {
 function createTiles($screenshots) {
     $last = "";
     $rowindex = 0;
-    $maxrow = 6;
+    $maxrow = 5;
 
     foreach($screenshots as $screenshot) {
         if ($last != $screenshot->tag) {

@@ -138,7 +138,6 @@
 }
 
 img {
-  margin-bottom: -4px;
 }
 
 .caption-container {
@@ -155,8 +154,13 @@ img {
 }
 
 img.launcher {
-  width: 200px;
+  width: 176px;
   height: 130px;
+  opacity: 0.6;
+}
+
+img.launcher:hover {
+  opacity: 1;
 }
 
 

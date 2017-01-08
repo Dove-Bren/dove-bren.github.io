@@ -94,7 +94,7 @@ li.tag {
 
 .subheader {
     text-align: center;
-    margin-left: 20px;
+    /* margin-left: 20px; */
     clear: left;
     margin-top: 20px;
     color: 3c7787;
