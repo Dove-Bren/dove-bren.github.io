@@ -149,6 +149,7 @@
       <tag>Webpage</tag>
     </tags>
     <img>images/website.png</img>
+    <urltag>personalwebpage</urltag>
     <longdesc>
       My Demo Reel website serves to showcase many of the projects I've completed and provide some description of them. Projects are
       documented with descriptions, screenshots, and the source (where available). In addition, a CV and personal statement are
@@ -282,6 +283,7 @@
       <tag>Minecraft</tag>
     </tags>
     <img>images/jarmory_1.png</img>
+    <urltag>jarmory</urltag>
     <longdesc>
     Juggernaut's Armory rehauls Minecraft's Combat Mechanics by diversifying damage and armor types. It also provides
     more room for progression in the damage calculations, and eliminates a strict 'best armor'. Players are able to
@@ -414,6 +416,7 @@
       <tag>Integration</tag>
     </tags>
     <img>images/ageoftitans_4.png</img>
+    <urltag>ageoftitans</urltag>
     <longdesc>
     Minecraft Forge Mod which adds Titans to the game. Titans are incredibly strong, and can even break down your walls! Age of Titans
     is the central mod to the NMT Minecraft Club Server's Age of Titans mod pack.
@@ -471,6 +474,7 @@
       <tag>Minecraft</tag>
     </tags>
     <img>images/questmaker_3.png</img>
+    <urltag>questmaker</urltag>
     <longdesc>
     The QuestManager framework requires a lot of config editing. To address some of the strain, Quest Maker provides a GUI interface
     to the config editing process. The software takes entire projects into consideration, and allows for graphical creation of all
@@ -513,6 +517,7 @@
   <proj>
     <title>Quest Maker</title>
     <url>http://www.github.com/dove-bren/QuestMaker</url>
+    <urltag>questmanager</urltag>
     <classification>Hobby</classification>
     <descs>
       <desc>Quest File Editor</desc>
