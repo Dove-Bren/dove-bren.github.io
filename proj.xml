@@ -312,6 +312,58 @@
     </screenshots>
   </proj>
   <proj>
+    <title>Age Of Titans</title>
+    <url>http://www.github.com/dove-bren/AgeOfTitans</url>
+    <descs>
+      <desc>Quest File Editor</desc>
+      <desc>Java Application using JSwing, specifically for QuestManager</desc>
+      <desc>Provides GUI interface for quest configuration creation and editing</desc>
+      <desc>Convenience software for QuestManager users who don't want to edit configs</desc>
+    </descs>
+    <tags>
+      <tag>MMORPG</tag>
+      <tag>Framework</tag>
+      <tag>Spigot</tag>
+      <tag>Config Files</tag>
+      <tag>Massive</tag>
+      <tag>Minecraft</tag>
+    </tags>
+    <img></img>
+    <longdesc>This is long description number 3</longdesc>
+    <screenshots>
+      <screenshot>
+        <src>images/ageoftitans_0.png</src>
+        <tag>Age Of Titans</tag>
+        <alt>Titan Mob</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/ageoftitans_1.png</src>
+        <tag>Age Of Titans</tag>
+        <alt>Flesh Titan Mob</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/ageoftitans_2.png</src>
+        <tag>Age Of Titans</tag>
+        <alt>Titarillium, Titan Amalgam, Vectorium, and Crystal Vinteum</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/ageoftitans_3.png</src>
+        <tag>Age Of Titans</tag>
+        <alt>Tinker's Construct Integration</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/ageoftitans_4.png</src>
+        <tag>Age Of Titans</tag>
+        <alt>Thaumcraft Integration</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/ageoftitans_5.png</src>
+        <tag>Age Of Titans</tag>
+        <alt>Full Set Of Thaumcraft Researches</alt>
+      </screenshot>
+    </screenshots>
+  </proj>
+  <proj>
     <title>Quest Maker</title>
     <url>http://www.github.com/dove-bren/QuestMaker</url>
     <descs>
