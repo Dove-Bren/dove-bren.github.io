@@ -7,9 +7,37 @@
 
 document.onkeypress = function(evt) {
     evt = evt || window.event;
+
+    //ESC
     if (evt.keyCode == 27) {
         closeModal();
     }
+
+    //LEFT
+    if (evt.keyCode == 37) {
+        plusSlides(-1);
+    }
+
+    //RIGHT
+    if (evt.keyCode == 39) {
+        plusSlides(1);
+    }
+
+    //SPACE
+    if (evt.keyCode == 32) {
+        plusSlides(1);
+    }
+
+    //ENTER
+    if (evt.keyCode == 13) {
+        plusSlides(1);
+    }
+
+    //BACKSPACE
+    if (evt.keyCode == 8) {
+        plusSlides(-1);
+    }
+
 };
  
 function openModal() {
