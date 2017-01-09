@@ -16,6 +16,8 @@
     </descs>
     <tags>
       <tag>MMORPG</tag>
+      <tag>Plugin</tag>
+      <tag>Java</tag>
       <tag>Framework</tag>
       <tag>Spigot</tag>
       <tag>Config Files</tag>
@@ -23,7 +25,11 @@
       <tag>Minecraft</tag>
     </tags>
     <img>images/questmanager_0.png</img>
-    <longdesc>This is long description number 1</longdesc>
+    <longdesc>
+    QuestManager allows Minecraft Servers to transform into fully-immersive MMORPGs of almost any style.
+    QuestManager works entirely through config files, allowing almost anybody to create quests, NPCs, shops, spells,
+    enemies, and more for a completely custom experience every time.
+    </longdesc>
     <fulldesc>QuestManager is aflektlksjt.</fulldesc>
     <urltag>questmanager</urltag>
     <screenshots>
@@ -121,6 +127,7 @@
   <proj>
     <title>Iron Tale</title>
     <tagline>Medieval MMORPG</tagline>
+    <classification>Hobby</classification>
     <url></url>
     <descs>
       <desc>Medieval themed world with <em>197</em> quests</desc>
@@ -224,6 +231,7 @@
   <proj>
     <title>Juggernaut's Armory</title>
     <url>http://www.github.com/dove-bren/Juggernaut-Armory</url>
+    <classification>Hobby</classification>
     <descs>
       <desc>Minecraft combat rehaul</desc>
       <desc>Minecraft mod, implemented through the Forge API</desc>
@@ -233,15 +241,21 @@
       <desc>Introduces forging process, including: smelting, shaping, and quenching metals</desc>
     </descs>
     <tags>
-      <tag>MMORPG</tag>
-      <tag>Framework</tag>
-      <tag>Spigot</tag>
-      <tag>Config Files</tag>
-      <tag>Massive</tag>
+      <tag>Mod</tag>
+      <tag>Java</tag>
+      <tag>Forge</tag>
+      <tag>Mechanics</tag>
+      <tag>Forging</tag>
+      <tag>Combat Mechanics</tag>
+      <tag>Integratable</tag>
       <tag>Minecraft</tag>
     </tags>
     <img>images/jarmory_1.png</img>
-    <longdesc>This is long description number 2</longdesc>
+    <longdesc>
+    Juggernaut's Armory rehauls Minecraft's Combat Mechanics by diversifying damage and armor types. It also provides
+    more room for progression in the damage calculations, and eliminates a strict 'best armor'. Players are able to
+    construct their own armor piece-by-piece and craft weapons to target specific weaknesses.
+    </longdesc>
     <screenshots>
       <screenshot>
         <src>images/jarmory_1.png</src>
@@ -348,21 +362,27 @@
   <proj>
     <title>Age Of Titans</title>
     <url>http://www.github.com/dove-bren/AgeOfTitans</url>
+    <classification>Club Work</classification>
     <descs>
-      <desc>Quest File Editor</desc>
-      <desc>Java Application using JSwing, specifically for QuestManager</desc>
-      <desc>Provides GUI interface for quest configuration creation and editing</desc>
-      <desc>Convenience software for QuestManager users who don't want to edit configs</desc>
+      <desc>Adds large titans for added difficulty</desc>
+      <desc>Provides challenge even for experienced players</desc>
+      <desc>Integrates with <a href="http://www.minecraftforum.net/forums/mapping-and-modding/minecraft-mods/2218638-tinkers-construct-2">
+      Tinker's Construct</a> and <a href="http://www.minecraftforum.net/forums/mapping-and-modding/minecraft-mods/1292130-thaumcraft-5-2-4-updated-2016-3-17">
+      Thaumcraft</a></desc>
+      <desc>Used in Age of Titans Modpack for the NMT Minecraft Club Modded Server</desc>
     </descs>
     <tags>
-      <tag>MMORPG</tag>
-      <tag>Framework</tag>
-      <tag>Spigot</tag>
-      <tag>Config Files</tag>
-      <tag>Massive</tag>
-      <tag>Minecraft</tag>
+      <tag>Mod</tag>
+      <tag>Java</tag>
+      <tag>Forge</tag>
+      <tag>Titans</tag>
+      <tag>Difficult</tag>
+      <tag>Club</tag>
+      <tag>Tinkers Construct</tag>
+      <tag>Thaumcraft</tag>
+      <tag>Integration</tag>
     </tags>
-    <img></img>
+    <img>images/ageoftitans_4.png</img>
     <longdesc>This is long description number 3</longdesc>
     <screenshots>
       <screenshot>
@@ -400,6 +420,7 @@
   <proj>
     <title>Quest Maker</title>
     <url>http://www.github.com/dove-bren/QuestMaker</url>
+    <classification>Hobby</classification>
     <descs>
       <desc>Quest File Editor</desc>
       <desc>Java Application using JSwing, specifically for QuestManager</desc>
@@ -407,15 +428,52 @@
       <desc>Convenience software for QuestManager users who don't want to edit configs</desc>
     </descs>
     <tags>
-      <tag>MMORPG</tag>
-      <tag>Framework</tag>
-      <tag>Spigot</tag>
-      <tag>Config Files</tag>
+      <tag>Application</tag>
+      <tag>Java</tag>
+      <tag>JSwing</tag>
       <tag>Massive</tag>
+      <tag>MMORPG</tag>
+      <tag>QuestManager</tag>
       <tag>Minecraft</tag>
     </tags>
-    <img></img>
-    <longdesc>This is long description number 3</longdesc>
+    <img>images/questmaker_3</img>
+    <longdesc>
+    The QuestManager framework requires a lot of config editing. To address some of the strain, Quest Maker provides a GUI interface
+    to the config editing process. The software takes entire projects into consideration, and allows for graphical creation of all
+    forms of config involved with a QuestManager world.
+    </longdesc>
+    <screenshots>
+      <screenshot>
+        <src>images/questmaker_1</src>
+        <tag>Quest Maker</tag>
+        <alt>Application Home Screen</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/questmaker_2</src>
+        <tag>Quest Maker</tag>
+        <alt>Quest Creation Dialogue</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/questmaker_3</src>
+        <tag>Quest Maker</tag>
+        <alt>Project Settings</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/questmaker_4</src>
+        <tag>Quest Maker</tag>
+        <alt>Spell Creation Dialogue</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/questmaker_5</src>
+        <tag>Quest Maker</tag>
+        <alt>Adding an Effect to a Spell</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/questmaker_6</src>
+        <tag>Quest Maker</tag>
+        <alt>Editing Status Effect on Spell</alt>
+      </screenshot>
+    </screenshots>
   </proj>
   <!--
   <proj>
