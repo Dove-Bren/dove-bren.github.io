@@ -21,8 +21,16 @@ require 'scripts/screenslib.php';
 Screenshots
 </p>
 
+<div style="text-align: right;">
+<form method="GET">
+<input type="text" name="prefix" placeholder="Search" />
+<input type="submit" value="Search" /><br />
+<a href="?" class="silent">Reset</a>
+</form>
+</div>
+
 <?php
-spawnLightbox();
+spawnLightbox($_GET["prefix"]);
 ?>
 
 <p>
