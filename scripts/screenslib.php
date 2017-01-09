@@ -157,7 +157,7 @@ function gatherScreenshots($xmlobj, $prefix) {
         foreach ($proj->screenshots->screenshot as $screenshot) {
 
             if (!empty($prefix)) {
-                if (!startsWith($proj->title, $prefix) && !startsWith($screenshot->alt, $prefix)) {
+                if (!strcont($proj->title, $prefix) && !strcont($screenshot->alt, $prefix)) {
                     continue;
                 }
             }
@@ -217,9 +217,12 @@ class Screenshot {
 
 //Taken from
 //http://stackoverflow.com/questions/834303/startswith-and-endswith-functions-in-php
-function startsWith($haystack, $needle) {
-     $length = strlen($needle);
-     return (substr($haystack, 0, $length) === $needle);
+function strcont($haystack, $needle) {
+     //$length = strlen($needle);
+     //return (strtolower(substr($haystack, 0, $length)) === strtolower($needle));
+    $haystack = strtolower($haystack);
+    $needle = strtolower($needle);
+    return (strpos($haystack, $needle) !== false);
 }
 
 ?>
