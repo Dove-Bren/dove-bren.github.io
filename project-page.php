@@ -1,4 +1,5 @@
 <?php
+require 'scripts/screenslib.php';
 require 'scripts/projectlib.php';
 ?>
 
@@ -42,5 +43,6 @@ footer
 init_navbar();
 init_footbar();
 </script>
+<script src="script/lightbox.js"></script>
 
 </html>

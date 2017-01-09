@@ -13,6 +13,9 @@
     <!--
     <center><img src="{img}" alt="no picture available" class="showpic" /></center>
     -->
+
+    // <xsl:apply-templates select="screenshots" />
+
   </div>
 </xsl:template>
 
@@ -34,8 +37,11 @@
 </xsl:template>
 
 <xsl:template match="screenshots">
-    <div>
-    <!-- INSERT LIGHTBOX TIEIN -->
+    <div class="screenshotpeek">
+       <!--
+       <xsl:value-of select='php:function
+        ("spawnLightbox", "{../title}", "4")' /> 
+       -->
     </div>
 </xsl:template>
 

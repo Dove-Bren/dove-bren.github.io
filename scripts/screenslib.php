@@ -2,9 +2,9 @@
 
 /* Interface functions */
 
-function spawnLightbox($prefix) {
+function spawnLightbox($prefix, $maxscreens) {
     $xmlobj = fetchXMLObj("proj.xml");
-    $screenshots = gatherScreenshots($xmlobj, $prefix);
+    $screenshots = gatherScreenshots($xmlobj, $prefix, $maxscreens);
 
     if (empty($screenshots)) {
         print '
@@ -144,7 +144,7 @@ function createTiles($screenshots) {
 
 /* Data functions */
 
-function gatherScreenshots($xmlobj, $prefix) {
+function gatherScreenshots($xmlobj, $prefix, $maxscreens) {
     if (empty($xmlobj)) {
         //print "Empty xml object";
         die();
@@ -169,6 +169,10 @@ function gatherScreenshots($xmlobj, $prefix) {
             $index = $index + 1;
             
             $screens[] = $obj;
+
+            if (!empty($maxscreens) && ($index > $maxscreens)) {
+                break;
+            }
         }
     }
     

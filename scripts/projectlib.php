@@ -1,5 +1,9 @@
 <?php
 
+//if( !defined( __DIR__ ) ) define( __DIR__, dirname(__FILE__) );
+
+//echo __DIR__."/screenslib.php";
+//require_once(__DIR__."/screenslib.php");
 $header = "";
 
 function displayProjectPage() {
@@ -24,11 +28,14 @@ function displayProjectPage() {
     //echo $obj->asXML();
     //print "<br /><br /><hr />";
 
-
+    echo "1";
     $pobj = getProj($token, $obj);
+    echo "2";
 
     $header = getTitle($pobj);
+    echo "3";
     print getPage($pobj);
+    echo "4";
 
 }
 
@@ -93,8 +100,23 @@ function filterProj($key, $obj) {
 }
 
 function getPage($pobj) {
+    echo "a1";
     //return $pobj->fulldesc;
-    return getXSLT($pobj, "proj-full.xsl");
+    $ret = getXSLT($pobj, "proj-full.xsl");
+
+    echo "a2";
+    if ($pobj->screenshots !== false) {
+        echo "-";
+        $ret .= '
+            <div class="screenshotpeek">' .
+                spawnLightbox($pobj->title, 4) . '
+            </div>
+        ';
+    }
+
+    echo "a3";
+
+    return $ret;
 }
 
 function validate($token, $xmlobj) {
@@ -125,6 +147,10 @@ function fetchXMLObj($fname) {
     return simplexml_load_file($fname);
 }
 
+function foo($out) {
+    var_dump($out);
+}
+
 function getXSLT($xml, $xsl) {
 
     /*
@@ -146,6 +172,7 @@ function getXSLT($xml, $xsl) {
     $sdoc->load($xsl);
 
     $proc = new XSLTProcessor();
+    $proc->registerPHPFunctions();
     $proc->importStylesheet($sdoc);
    
     $res = $proc->transformToXML($xml);
