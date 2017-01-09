@@ -23,7 +23,7 @@ Screenshots
 
 <div style="text-align: right;">
 <form method="GET">
-<input type="text" name="prefix" placeholder="Search" />
+<input type="text" name="prefix" placeholder="Search" value="<?php echo $_GET["prefix"] ?>" />
 <input type="submit" value="Search" /><br />
 <a href="?" class="silent">Reset</a>
 </form>
