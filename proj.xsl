@@ -9,7 +9,9 @@
 
 <xsl:template match="proj">
     <p>
+        <a href="project-page.php?page={urltag}" class="silent">
         <strong><xsl:value-of select="title" /></strong><br />
+        </a>
         <a href="{url}"><xsl:value-of select="url" /></a>
         <xsl:apply-templates select="descs" />
     </p>

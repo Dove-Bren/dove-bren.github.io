@@ -7,8 +7,9 @@ function spawnLightbox() {
     $screenshots = gatherScreenshots($xmlobj);
 
     createModal($screenshots);
-    
-    genLauncher("images/questmanager_1.png", 0, "no alt");
+
+    createTiles($screenshots);
+        
 
 }
 
@@ -21,7 +22,7 @@ function genLauncher($imgsrc, $slidenum, $alt) {
 
 function genModalButton($imgsrc, $slidenum, $alt) {
     print '
-    <img class="reel" src="' . $imgsrc . '" onclick="currentSlide(' . $slidenum . ')" alt="' . $alt . '">
+    <img class="reel cursor" src="' . $imgsrc . '" onclick="currentSlide(' . $slidenum . ')" alt="' . $alt . '">
     ';
 }
 
@@ -29,7 +30,8 @@ function genModal($imgsrc, $title, $tag) {
     print '
     <div class="slides">
       <div class="numbertext">' . $title . '<br />' . $tag . '</div>
-        <img src="' . $imgsrc . '" style="width:100%">
+        <div class="slideimghelp"></div>
+        <img src="' . $imgsrc . '" class="slideimg">
     </div>
     ';
 }
@@ -87,7 +89,7 @@ function createModals($screenshots) {
 }
 
 function createModalButtons($screenshots) {
-    $rowmax = 2;
+    $rowmax = 4;
     rowOpen();
     foreach($screenshots as $screenshot) {
         genModalButton($screenshot->src, $screenshot->getNum(), $screenshot->alt);
@@ -101,7 +103,38 @@ function createModalButtons($screenshots) {
     rowClose();
 }
 
+function createTiles($screenshots) {
+    $last = "";
+    $rowindex = 0;
+    $maxrow = 5;
 
+    foreach($screenshots as $screenshot) {
+        if ($last != $screenshot->tag) {
+            if ($last !== "") {
+                rowClose();
+                print "<br />";
+            }
+
+            print '<a href="project-page.php?page=' . $screenshot->urltag . '" class="silent">';
+            print '<h4 class="subheader">' . $screenshot->tag . '</h4>';
+            print '</a>';
+            rowOpen();
+            $last = $screenshot->tag;
+            $rowindex = 0;
+        }
+
+        genLauncher($screenshot->src, $screenshot->getNum(), $screenshot->alt);
+
+        $rowindex = $rowindex + 1;
+        if ($rowindex % $maxrow === 0) {
+            rowClose();
+            rowOpen();
+        }
+
+    }
+
+    rowClose();
+}
 
 /* Data functions */
 
@@ -117,7 +150,7 @@ function gatherScreenshots($xmlobj) {
     foreach ($xmlobj->proj as $proj) {
         foreach ($proj->screenshots->screenshot as $screenshot) {
             $obj = new Screenshot(
-                $screenshot->src, $proj->title, $screenshot->alt
+                $screenshot->src, $proj->title, $proj->urltag, $screenshot->alt
             );
             $obj->assignNumber($index);
             $index = $index + 1;
@@ -145,12 +178,14 @@ function fetchXMLObj($fname) {
 class Screenshot {
     public $src = "images/missing.jpg";
     public $tag = "";
+    public $urltag = "";
     public $alt = "";
     public $num = 0;
     
-    function __construct($src, $tag, $alt) {
+    function __construct($src, $tag, $urltag, $alt) {
         $this->src = $src;
         $this->tag = $tag;
+        $this->urltag = $urltag;
         $this->alt = $alt;
     }
     

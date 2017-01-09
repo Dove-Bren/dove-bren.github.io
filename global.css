@@ -64,6 +64,15 @@ li.tag {
     border: 1px solid black;
 }
 
+a.silent {
+    color: #6A79B7;
+}
+
+a.silent:link,
+a.silent:visited {
+    text-decoration: none;
+}
+
 .inset {
     padding-left: 50px;
 }
@@ -94,7 +103,7 @@ li.tag {
 
 .subheader {
     text-align: center;
-    margin-left: 20px;
+    /* margin-left: 20px; */
     clear: left;
     margin-top: 20px;
     color: 3c7787;

@@ -11,8 +11,8 @@
 
 <xsl:template match="proj">
   <div>
-        <a href="project-page.php?{urltag}">
-        <center><strong><xsl:value-of select="title" /></strong></center><br />
+        <a href="project-page.php?page={urltag}" class="silent">
+        <h4 class="subheader"><xsl:value-of select="title" /></h4><br />
         </a>
         <a href="{url}"><xsl:value-of select="url" /></a><br />
         <center><img src="{img}" alt="No Picture Available" class="showpic" /></center>

@@ -38,6 +38,7 @@ function init() {
 function redexit() {
     //header("Location: projects.html");
     //exit();
+    echo "reach'ed die";
     die();
 }
 

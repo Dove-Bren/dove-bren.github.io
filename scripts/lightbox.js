@@ -4,6 +4,13 @@
  * http://www.w3schools.com/howto/howto_js_lightbox.asp
  *
  ***************/
+
+document.onkeypress = function(evt) {
+    evt = evt || window.event;
+    if (evt.keyCode == 27) {
+        closeModal();
+    }
+};
  
 function openModal() {
   document.getElementById('myModal').style.display = "block";
