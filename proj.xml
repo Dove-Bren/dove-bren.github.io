@@ -436,7 +436,7 @@
       <tag>QuestManager</tag>
       <tag>Minecraft</tag>
     </tags>
-    <img>images/questmaker_3</img>
+    <img>images/questmaker_3.png</img>
     <longdesc>
     The QuestManager framework requires a lot of config editing. To address some of the strain, Quest Maker provides a GUI interface
     to the config editing process. The software takes entire projects into consideration, and allows for graphical creation of all
@@ -444,32 +444,32 @@
     </longdesc>
     <screenshots>
       <screenshot>
-        <src>images/questmaker_1</src>
+        <src>images/questmaker_1.png</src>
         <tag>Quest Maker</tag>
         <alt>Application Home Screen</alt>
       </screenshot>
       <screenshot>
-        <src>images/questmaker_2</src>
+        <src>images/questmaker_2.png</src>
         <tag>Quest Maker</tag>
         <alt>Quest Creation Dialogue</alt>
       </screenshot>
       <screenshot>
-        <src>images/questmaker_3</src>
+        <src>images/questmaker_3.png</src>
         <tag>Quest Maker</tag>
         <alt>Project Settings</alt>
       </screenshot>
       <screenshot>
-        <src>images/questmaker_4</src>
+        <src>images/questmaker_4.png</src>
         <tag>Quest Maker</tag>
         <alt>Spell Creation Dialogue</alt>
       </screenshot>
       <screenshot>
-        <src>images/questmaker_5</src>
+        <src>images/questmaker_5.png</src>
         <tag>Quest Maker</tag>
         <alt>Adding an Effect to a Spell</alt>
       </screenshot>
       <screenshot>
-        <src>images/questmaker_6</src>
+        <src>images/questmaker_6.png</src>
         <tag>Quest Maker</tag>
         <alt>Editing Status Effect on Spell</alt>
       </screenshot>
