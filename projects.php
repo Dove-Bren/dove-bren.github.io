@@ -23,6 +23,14 @@ This page contains a collection of projects I have worked on. Most of the
 projects are hobby projects, and are denoted as such. 
 </p>
 
+<div style="text-align: right;">
+<form method="GET">
+<input type="text" name="key" placeholder="Search" value="<?php echo $_GET["key"] ?>" />
+<input type="submit" value="Search" /><br />
+<a href="?" class="silent">Reset</a>
+</form>
+</div>
+
 <!--
 <div id="projtable">
 <script>displayResult("projtable", "proj", "proj-long");</script>
