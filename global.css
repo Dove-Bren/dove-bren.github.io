@@ -64,6 +64,15 @@ li.tag {
     border: 1px solid black;
 }
 
+a.silent {
+    color: #6A79B7;
+}
+
+a.silent:link,
+a.silent:visited {
+    text-decoration: none;
+}
+
 .inset {
     padding-left: 50px;
 }

@@ -115,7 +115,9 @@ function createTiles($screenshots) {
                 print "<br />";
             }
 
+            print '<a href="project-page.php?page=' . $screenshot->urltag . '" class="silent">';
             print '<h4 class="subheader">' . $screenshot->tag . '</h4>';
+            print '</a>';
             rowOpen();
             $last = $screenshot->tag;
             $rowindex = 0;
@@ -148,7 +150,7 @@ function gatherScreenshots($xmlobj) {
     foreach ($xmlobj->proj as $proj) {
         foreach ($proj->screenshots->screenshot as $screenshot) {
             $obj = new Screenshot(
-                $screenshot->src, $proj->title, $screenshot->alt
+                $screenshot->src, $proj->title, $proj->urltag, $screenshot->alt
             );
             $obj->assignNumber($index);
             $index = $index + 1;
@@ -176,12 +178,14 @@ function fetchXMLObj($fname) {
 class Screenshot {
     public $src = "images/missing.jpg";
     public $tag = "";
+    public $urltag = "";
     public $alt = "";
     public $num = 0;
     
-    function __construct($src, $tag, $alt) {
+    function __construct($src, $tag, $urltag, $alt) {
         $this->src = $src;
         $this->tag = $tag;
+        $this->urltag = $urltag;
         $this->alt = $alt;
     }
     
