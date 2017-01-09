@@ -21,30 +21,169 @@
       <tag>Massive</tag>
       <tag>Minecraft</tag>
     </tags>
-    <img>images/questmanager_1.png</img>
+    <img>images/questmanager_front.png</img>
     <longdesc>This is long description number 1</longdesc>
     <fulldesc>QuestManager is aflektlksjt.</fulldesc>
     <urltag>questmanager</urltag>
     <screenshots>
       <screenshot>
-        <src>images/questmanager_1.png</src>
+        <src>images/questmanager_front.png</src>
         <tag>QuestManager</tag>
         <alt>Dark Dungeon</alt>
       </screenshot>
       <screenshot>
+        <src>images/questmanager_0.png</src>
+        <tag>QuestManager</tag>
+        <alt>Quest Log</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/questmanager_31.png</src>
+        <alt>Skillbook With Levels</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/questmanager_1.png</src>
+        <tag>QuestManager</tag>
+        <alt>Player Stats and Options</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/questmanager_7.png</src>
+        <tag>QuestManager</tag>
+        <alt>Interact With NPCs</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/questmanager_8.png</src>
+        <tag>QuestManager</tag>
+        <alt>Sleep At Inns</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/questmanager_15.png</src>
+        <tag>QuestManager</tag>
+        <alt>Shop Menu</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/questmanager_16.png</src>
+        <tag>QuestManager</tag>
+        <alt>Large-Scale Towns and Cities</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/questmanager_17.png</src>
+        <tag>QuestManager</tag>
+        <alt>NPC Crafts and Trades</alt>
+      </screenshot>
+      <screenshot>
         <src>images/questmanager_2.png</src>
         <tag>QuestManager</tag>
-        <alt>Skillbook With Levels</alt>
+        <alt>Forge Metals</alt>
       </screenshot>
       <screenshot>
         <src>images/questmanager_3.png</src>
         <tag>QuestManager</tag>
-        <alt>Summons, Spells, and Equipment</alt>
+        <alt>Strike Metal While It's Hot</alt>
       </screenshot>
       <screenshot>
         <src>images/questmanager_4.png</src>
         <tag>QuestManager</tag>
-        <alt>NPCs That Talk</alt>
+        <alt>View Available Recipes</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/questmanager_5.png</src>
+        <tag>QuestManager</tag>
+        <alt>Each Recipe Described Process</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/questmanager_6.png</src>
+        <tag>QuestManager</tag>
+        <alt>Mine For Ores With Mining</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/questmanager_9.png</src>
+        <tag>QuestManager</tag>
+        <alt>Fishing</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/questmanager_10.png</src>
+        <tag>QuestManager</tag>
+        <alt>Fishing Minigame</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/questmanager_11.png</src>
+        <tag>QuestManager</tag>
+        <alt>Quality-Tagged Resources</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/questmanager_12.png</src>
+        <tag>QuestManager</tag>
+        <alt>Cooking's Oven Minigame</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/questmanager_14.png</src>
+        <tag>QuestManager</tag>
+        <alt>Cooking's Mixing Interface</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/questmanager_18.png</src>
+        <tag>QuestManager</tag>
+        <alt>Horra Dungeon's Skids</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/questmanager_19.png</src>
+        <tag>QuestManager</tag>
+        <alt>Horra Cathedral</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/questmanager_20.png</src>
+        <tag>QuestManager</tag>
+        <alt>The City in the Mountains, Hoax</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/questmanager_21.png</src>
+        <tag>QuestManager</tag>
+        <alt>Sarahast Desert</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/questmanager_22.png</src>
+        <tag>QuestManager</tag>
+        <alt>Fayden Temple</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/questmanager_23.png</src>
+        <tag>QuestManager</tag>
+        <alt>See Your Damage</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/questmanager_24.png</src>
+        <tag>QuestManager</tag>
+        <alt>Lake Ingles</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/questmanager_25.png</src>
+        <tag>QuestManager</tag>
+        <alt>Valencia Forest</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/questmanager_26.png</src>
+        <tag>QuestManager</tag>
+        <alt>The Everwoods</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/questmanager_27.png</src>
+        <tag>QuestManager</tag>
+        <alt>Ice Structures in Kleedon</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/questmanager_28.png</src>
+        <tag>QuestManager</tag>
+        <alt>Ship Destined for Yozden</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/questmanager_29.png</src>
+        <tag>QuestManager</tag>
+        <alt>Icy Landscapes of Yozden</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/questmanager_30.png</src>
+        <tag>QuestManager</tag>
+        <alt>Snow Fall on Valencian Outpost</alt>
       </screenshot>
     </screenshots>
   </proj>
