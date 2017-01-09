@@ -36,10 +36,12 @@ function init() {
 }
 
 function redexit() {
-    //header("Location: projects.html");
-    //exit();
+    header("Location: projects.php");
+    exit();
+    <!--
     echo "reach'ed die";
     die();
+    -->
 }
 
 function getPage($pobj) {

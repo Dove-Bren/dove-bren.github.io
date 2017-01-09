@@ -2,7 +2,7 @@ function dopage() {
     var handle = findGetParameter("page");
     if (handle == null) {
         alert("wrong");
-        document.location = "projects.html";
+        document.location = "projects.php";
         throw 'bounce';
     } else {        
         validate(handle);
@@ -17,7 +17,7 @@ function validate(handle) {
         case "test":
             break;
         default:
-            document.location = "projects.html";
+            document.location = "projects.php";
             throw '';
     }
 }
