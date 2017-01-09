@@ -14,7 +14,7 @@
     <center><img src="{img}" alt="no picture available" class="showpic" /></center>
     -->
 
-    // <xsl:apply-templates select="screenshots" />
+    <!-- <xsl:apply-templates select="screenshots" /> -->
 
   </div>
 </xsl:template>

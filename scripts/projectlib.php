@@ -1,9 +1,8 @@
 <?php
 
-//if( !defined( __DIR__ ) ) define( __DIR__, dirname(__FILE__) );
+if( !defined( __DIR__ ) ) define( __DIR__, dirname(__FILE__) );
 
-//echo __DIR__."/screenslib.php";
-//require_once(__DIR__."/screenslib.php");
+require_once(__DIR__."/screenslib.php");
 $header = "";
 
 function displayProjectPage() {
@@ -28,14 +27,10 @@ function displayProjectPage() {
     //echo $obj->asXML();
     //print "<br /><br /><hr />";
 
-    echo "1";
     $pobj = getProj($token, $obj);
-    echo "2";
 
     $header = getTitle($pobj);
-    echo "3";
-    print getPage($pobj);
-    echo "4";
+    printPage($pobj);
 
 }
 
@@ -70,13 +65,13 @@ function filterProj($key, $obj) {
     $pobj = '<?xml version="1.0"?><?xml-stylesheet type="text/xsl" href="proj.xsl"?><projects>';
     
     foreach ($obj->proj as $proj) {
-        if (!strcont($proj->title, $key)
-            && !strcont($proj->longdesc, $key)) {
+        if (!strcont2($proj->title, $key)
+            && !strcont2($proj->longdesc, $key)) {
 
             $trip = false;
 
             foreach ($proj->tags->tag as $tag) {
-                if (strcont($tag, $key)) {
+                if (strcont2($tag, $key)) {
                     $trip = true;
                     break;
                 }
@@ -99,24 +94,19 @@ function filterProj($key, $obj) {
 
 }
 
-function getPage($pobj) {
-    echo "a1";
+function printPage($pobj) {
     //return $pobj->fulldesc;
-    $ret = getXSLT($pobj, "proj-full.xsl");
+    print getXSLT($pobj, "proj-full.xsl");
 
-    echo "a2";
+    
     if ($pobj->screenshots !== false) {
-        echo "-";
-        $ret .= '
+        print '
             <div class="screenshotpeek">' .
                 spawnLightbox($pobj->title, 4) . '
             </div>
         ';
     }
 
-    echo "a3";
-
-    return $ret;
 }
 
 function validate($token, $xmlobj) {
@@ -142,10 +132,11 @@ function getTitle($pobj) {
     return $pobj->title;
 }
 
-
+/*
 function fetchXMLObj($fname) {
     return simplexml_load_file($fname);
 }
+*/
 
 function foo($out) {
     var_dump($out);
@@ -190,7 +181,7 @@ function getXSLT($xml, $xsl) {
 
 }
 
-function strcont($haystack, $needle) {
+function strcont2($haystack, $needle) {
     $haystack = strtolower($haystack);
     $needle = strtolower($needle);
 

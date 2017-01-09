@@ -1,6 +1,7 @@
 <?php
-require 'scripts/screenslib.php';
+
 require 'scripts/projectlib.php';
+
 ?>
 
 <html>
@@ -8,6 +9,7 @@ require 'scripts/projectlib.php';
 <head>
 <title>Skyler Manzanares</title>
 <link type="text/css" rel="stylesheet" href="global.css" />
+<link type="text/css" rel="stylesheet" href="screenshots.css" />
 <script src="scripts/framework.js"></script>
 
 </head>
@@ -43,6 +45,6 @@ footer
 init_navbar();
 init_footbar();
 </script>
-<script src="script/lightbox.js"></script>
+<script src="scripts/lightbox.js"></script>
 
 </html>
