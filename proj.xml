@@ -21,16 +21,11 @@
       <tag>Massive</tag>
       <tag>Minecraft</tag>
     </tags>
-    <img>images/questmanager_front.png</img>
+    <img>images/questmanager_0.png</img>
     <longdesc>This is long description number 1</longdesc>
     <fulldesc>QuestManager is aflektlksjt.</fulldesc>
     <urltag>questmanager</urltag>
     <screenshots>
-      <screenshot>
-        <src>images/questmanager_front.png</src>
-        <tag>QuestManager</tag>
-        <alt>Dark Dungeon</alt>
-      </screenshot>
       <screenshot>
         <src>images/questmanager_0.png</src>
         <tag>QuestManager</tag>
@@ -59,11 +54,6 @@
         <src>images/questmanager_15.png</src>
         <tag>QuestManager</tag>
         <alt>Shop Menu</alt>
-      </screenshot>
-      <screenshot>
-        <src>images/questmanager_16.png</src>
-        <tag>QuestManager</tag>
-        <alt>Large-Scale Towns and Cities</alt>
       </screenshot>
       <screenshot>
         <src>images/questmanager_17.png</src>
@@ -121,6 +111,54 @@
         <alt>Cooking's Mixing Interface</alt>
       </screenshot>
       <screenshot>
+        <src>images/questmanager_23.png</src>
+        <tag>QuestManager</tag>
+        <alt>See Your Damage</alt>
+      </screenshot>
+    </screenshots>
+  </proj>
+  <proj>
+    <title>Iron Tale</title>
+    <tagline>Medieval MMORPG</tagline>
+    <url></url>
+    <descs>
+      <desc>Medieval themed world with <em>197</em> quests</desc>
+      <desc>Hundreds of NPCs</desc>
+      <desc>Magic System</desc>
+      <desc>Balanced and Worthwhile Crafting System</desc>
+      <desc>Massive World with over a hundred types of enemies</desc>
+      <desc>Gigantic main story and a whole slew of side quests</desc>
+      <desc>Over 100 hours of gameplay</desc>
+    </descs>
+    <tags>
+      <tag>MMORPG</tag>
+      <tag>Medieval</tag>
+      <tag>Spigot</tag>
+      <tag>QuestManager</tag>
+      <tag>Minecraft</tag>
+    </tags>
+    <img>images/questmanager_front.png</img>
+    <longdesc>Iron Tale is a Medieval MMORPG implemented using 
+      <a href="project-page.php?page=questmanager">QuestManager</a>. Irontale has 197 quests, hundreds of NPCs,
+      fine-tuned skills and crafting, and so much more. Targetted to a more hardcore audience, Iron Tale has no
+      shortage of challenges for even the most experiened player.
+    </longdesc>
+    <fulldesc>
+      Fulldesc1
+    </fulldesc>
+    <urltag>irontale</urltag>
+    <screenshots>
+      <screenshot>
+        <src>images/questmanager_front.png</src>
+        <tag>QuestManager</tag>
+        <alt>Dark Dungeon</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/questmanager_16.png</src>
+        <tag>QuestManager</tag>
+        <alt>Large-Scale Towns and Cities</alt>
+      </screenshot>
+      <screenshot>
         <src>images/questmanager_18.png</src>
         <tag>QuestManager</tag>
         <alt>Horra Dungeon's Skids</alt>
@@ -144,11 +182,6 @@
         <src>images/questmanager_22.png</src>
         <tag>QuestManager</tag>
         <alt>Fayden Temple</alt>
-      </screenshot>
-      <screenshot>
-        <src>images/questmanager_23.png</src>
-        <tag>QuestManager</tag>
-        <alt>See Your Damage</alt>
       </screenshot>
       <screenshot>
         <src>images/questmanager_24.png</src>
