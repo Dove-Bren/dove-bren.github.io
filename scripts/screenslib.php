@@ -215,11 +215,7 @@ class Screenshot {
 
 /* Helper Functions */
 
-//Taken from
-//http://stackoverflow.com/questions/834303/startswith-and-endswith-functions-in-php
 function strcont($haystack, $needle) {
-     //$length = strlen($needle);
-     //return (strtolower(substr($haystack, 0, $length)) === strtolower($needle));
     $haystack = strtolower($haystack);
     $needle = strtolower($needle);
     return (strpos($haystack, $needle) !== false);

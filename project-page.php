@@ -1,5 +1,5 @@
 <?php
-require 'projectpage.php';
+require 'scripts/projectlib.php';
 ?>
 
 <html>
@@ -24,7 +24,7 @@ echo $header;
 
 <div>
 <?php
-echo $body;
+displayProjectPage();
 ?>
 </div>
 

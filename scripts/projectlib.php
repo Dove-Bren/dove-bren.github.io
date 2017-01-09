@@ -1,13 +1,10 @@
 <?php
 
 $header = "";
-$body = "";
 
-init();
+function displayProjectPage() {
 
-function init() {
-
-    global $header, $body;
+    global $header;
 
     $token = htmlspecialchars($_GET["page"]);
     if (empty($token)) {
@@ -31,7 +28,26 @@ function init() {
     $pobj = getProj($token, $obj);
 
     $header = getTitle($pobj);
-    $body = getPage($pobj);
+    print getPage($pobj);
+
+}
+
+function displayProjects($key) {
+    //key is search key, if there is one
+    echo "1";
+    
+    $obj = fetchXMLObj("proj.xml");
+    if (empty($obj)) {
+        print "Unable to load project data";
+        die();
+    }
+
+    echo "2";
+
+    $pobj = filterProj($key, $obj);
+
+    echo "3";
+    print getXSLT($pobj, "proj-long.xsl");
 
 }
 
@@ -42,6 +58,37 @@ function redexit() {
     echo "reach'ed die";
     die();
     -->
+}
+
+function filterProj($key, $obj) {
+    if (empty($key)) {
+        return $obj;
+    }
+
+    $pobj = new SimpleXMLElement();
+    
+    foreach ($obj->proj as $proj) {
+        if (!strcont($proj->title, $key)
+            && !strcont($proj->longdesc, $key)) {
+
+            $trip = false;
+
+            foreach ($proj->tags->tag as $tag) {
+                if (strcont($tag, $key)) {
+                    $trip = true;
+                    break;
+                }
+            }
+            if (!trip) {
+                continue;
+            }
+        }
+
+        $pobj->addChild($proj);
+    }
+
+    return $pobj;
+
 }
 
 function getPage($pobj) {
@@ -115,5 +162,10 @@ function getXSLT($xml, $xsl) {
 
 }
 
+function strcont($haystack, $needle) {
+    $haystack = strtolower($haystack);
+    $needle = strtolower($needle);
+    return (strpos($haystack, $needle) !== false);
+}
 
 ?>
