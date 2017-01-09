@@ -73,7 +73,102 @@
       <screenshot>
         <src>images/jarmory_1.png</src>
         <tag>Juggernaut's Armory</tag>
-        <alt>Trough</alt>
+        <alt>The Smith's Anvil</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/jarmory_2.png</src>
+        <tag>Juggernaut's Armory</tag>
+        <alt>Hand-Modeled Blocks</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/jarmory_3.png</src>
+        <tag>Juggernaut's Armory</tag>
+        <alt>Added Materials</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/jarmory_4.png</src>
+        <tag>Juggernaut's Armory</tag>
+        <alt>Guide Books</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/jarmory_5.png</src>
+        <tag>Juggernaut's Armory</tag>
+        <alt>Component Recipes</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/jarmory_6.png</src>
+        <tag>Juggernaut's Armory</tag>
+        <alt>Unique Burning Mechanic</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/jarmory_7.png</src>
+        <tag>Juggernaut's Armory</tag>
+        <alt>Melt Metals To Forge Them</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/jarmory_8.png</src>
+        <tag>Juggernaut's Armory</tag>
+        <alt>Use Tongs To Hold Metal</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/jarmory_9.png</src>
+        <tag>Juggernaut's Armory</tag>
+        <alt>Forge Interface</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/jarmory_10.png</src>
+        <tag>Juggernaut's Armory</tag>
+        <alt>Melt Metals At The Right Temperature</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/jarmory_11.png</src>
+        <tag>Juggernaut's Armory</tag>
+        <alt>Collect Melted Metal For Alloys</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/jarmory_12.png</src>
+        <tag>Juggernaut's Armory</tag>
+        <alt>Tong HUD</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/jarmory_13.png</src>
+        <tag>Juggernaut's Armory</tag>
+        <alt>Shape Hot Metal</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/jarmory_14.png</src>
+        <tag>Juggernaut's Armory</tag>
+        <alt>Cool Metal In Troughs</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/jarmory_15.png</src>
+        <tag>Juggernaut's Armory</tag>
+        <alt>Assemble Armor Piece By Piece</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/jarmory_16.png</src>
+        <tag>Juggernaut's Armory</tag>
+        <alt>Failed Creations Are Scrap</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/jarmory_17.png</src>
+        <tag>Juggernaut's Armory</tag>
+        <alt>Mix-n-Match Equipment Components</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/jarmory_18.png</src>
+        <tag>Juggernaut's Armory</tag>
+        <alt>Added Mechanics Work With Vanilla, Too</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/jarmory_19.png</src>
+        <tag>Juggernaut's Armory</tag>
+        <alt>Swords Do Slashing Damage</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/jarmory_20.png</src>
+        <tag>Juggernaut's Armory</tag>
+        <alt>Mixed Damage Types</alt>
       </screenshot>
     </screenshots>
   </proj>
