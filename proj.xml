@@ -125,6 +125,37 @@
     </screenshots>
   </proj>
   <proj>
+    <title>Personal Website/Demo Reel</title>
+    <url>http://www.github.com/dove-bren/dove-bren.github.io</url>
+    <classification>Hobby</classification>
+    <descs>
+      <desc>Website used to collect and showcase projects and achievements</desc>
+      <desc>Uses back-end data for dynamic webpages instead of static HTML</desc>
+      <desc>HTML, CSS, PHP, Javascript, and XSLT</desc>
+      <desc>Uses no libraries; everything built from the ground up</desc>
+    </descs>
+    <tags>
+      <tag>Web</tag>
+      <tag>PHP</tag>
+      <tag>JavaScript</tag>
+      <tag>CSS</tag>
+      <tag>HTML</tag>
+      <tag>XSLT</tag>
+      <tag>XML</tag>
+      <tag>Demo</tag>
+      <tag>JS</tag>
+      <tag>dynamic</tag>
+      <tag>Website</tag>
+      <tag>Webpage</tag>
+    </tags>
+    <img>images/website.png</img>
+    <longdesc>
+      My Demo Reel website serves to showcase many of the projects I've completed and provide some description of them. Projects are
+      documented with descriptions, screenshots, and the source (where available). In addition, a CV and personal statement are
+      presented.
+    </longdesc>
+  </proj>
+  <proj>
     <title>Iron Tale</title>
     <tagline>Medieval MMORPG</tagline>
     <classification>Hobby</classification>
@@ -383,7 +414,10 @@
       <tag>Integration</tag>
     </tags>
     <img>images/ageoftitans_4.png</img>
-    <longdesc>This is long description number 3</longdesc>
+    <longdesc>
+    Minecraft Forge Mod which adds Titans to the game. Titans are incredibly strong, and can even break down your walls! Age of Titans
+    is the central mod to the NMT Minecraft Club Server's Age of Titans mod pack.
+    </longdesc>
     <screenshots>
       <screenshot>
         <src>images/ageoftitans_0.png</src>
@@ -477,12 +511,35 @@
   </proj>
   <!--
   <proj>
-    <title></title>
-    <url></url>
+    <title>Quest Maker</title>
+    <url>http://www.github.com/dove-bren/QuestMaker</url>
+    <classification>Hobby</classification>
     <descs>
-      <desc></desc>
-      <desc></desc>
+      <desc>Quest File Editor</desc>
+      <desc>Java Application using JSwing, specifically for QuestManager</desc>
+      <desc>Provides GUI interface for quest configuration creation and editing</desc>
+      <desc>Convenience software for QuestManager users who don't want to edit configs</desc>
     </descs>
+    <tags>
+      <tag>Application</tag>
+      <tag>Java</tag>
+      <tag>JSwing</tag>
+      <tag>Massive</tag>
+      <tag>MMORPG</tag>
+      <tag>QuestManager</tag>
+      <tag>Minecraft</tag>
+    </tags>
+    <img>images/questmaker_3.png</img>
+    <longdesc>
+      desc
+    </longdesc>
+    <screenshots>
+      <screenshot>
+        <src>images/questmaker_6.png</src>
+        <tag>Quest Maker</tag>
+        <alt>Editing Status Effect on Spell</alt>
+      </screenshot>
+    </screenshots>
   </proj>
   -->
 </projects>
