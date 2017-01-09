@@ -4,6 +4,7 @@
   <proj>
     <title>QuestManager</title>
     <tagline>MMORPG Framework for Minecraft</tagline>
+    <classification>Hobby</classification>
     <url>http://www.github.com/dove-bren/QuestManager</url>
     <descs>
       <desc>Questing Framework for Minecraft</desc>

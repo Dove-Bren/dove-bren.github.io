@@ -33,3 +33,10 @@ button.more {
     bottom: 10px;
     left: 150px;
 }
+
+.minorlabel {
+    position: absolute;
+    top: 2px;
+    right: 5px;
+    text-align: right;
+}

@@ -11,6 +11,7 @@
 
 <xsl:template match="proj">
   <div>
+        <div class="minorlabel"><xsl:value-of select="classification" /></div>
         <a href="project-page.php?page={urltag}" class="silent">
         <h4 class="subheader"><xsl:value-of select="title" /></h4>
         </a>
