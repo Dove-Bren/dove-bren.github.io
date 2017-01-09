@@ -34,7 +34,6 @@ function displayProjectPage() {
 
 function displayProjects($key) {
     //key is search key, if there is one
-    echo "1";
     
     $obj = fetchXMLObj("proj.xml");
     if (empty($obj)) {
@@ -42,11 +41,7 @@ function displayProjects($key) {
         die();
     }
 
-    echo "2";
-
     $pobj = filterProj($key, $obj);
-
-    echo "3";
     print getXSLT($pobj, "proj-long.xsl");
 
 }
@@ -54,10 +49,10 @@ function displayProjects($key) {
 function redexit() {
     header("Location: projects.php");
     exit();
-    <!--
+    /*
     echo "reach'ed die";
     die();
-    -->
+    */
 }
 
 function filterProj($key, $obj) {
@@ -65,7 +60,7 @@ function filterProj($key, $obj) {
         return $obj;
     }
 
-    $pobj = new SimpleXMLElement();
+    $pobj = '<?xml version="1.0"?><?xml-stylesheet type="text/xsl" href="proj.xsl"?><projects>';
     
     foreach ($obj->proj as $proj) {
         if (!strcont($proj->title, $key)
@@ -79,13 +74,19 @@ function filterProj($key, $obj) {
                     break;
                 }
             }
-            if (!trip) {
+            if (!$trip) {
                 continue;
             }
         }
 
-        $pobj->addChild($proj);
+        $pobj .= $proj->asXML();
+
+        //$pobj->addChild($proj);
     }
+
+    $pobj .= "</projects>";
+
+    $pobj = new SimpleXMLElement($pobj);
 
     return $pobj;
 
@@ -165,6 +166,7 @@ function getXSLT($xml, $xsl) {
 function strcont($haystack, $needle) {
     $haystack = strtolower($haystack);
     $needle = strtolower($needle);
+
     return (strpos($haystack, $needle) !== false);
 }
 
