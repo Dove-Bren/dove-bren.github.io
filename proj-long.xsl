@@ -12,15 +12,18 @@
 <xsl:template match="proj">
   <div>
         <a href="project-page.php?page={urltag}" class="silent">
-        <h4 class="subheader"><xsl:value-of select="title" /></h4><br />
+        <h4 class="subheader"><xsl:value-of select="title" /></h4>
         </a>
-        <a href="{url}"><xsl:value-of select="url" /></a><br />
-        <center><img src="{img}" alt="No Picture Available" class="showpic" /></center>
+        <div style="min-height: 1em; text-align: center;"><a href="{url}"><xsl:value-of select="url" /></a></div>
+        <center><a href="project-page.php?page={urltag}">
+        <!-- <a href="screenshots.php?prefix={title}"> -->
+        <img src="{img}" alt="No Picture Available" class="showpic" />
+        </a></center>
         <xsl:apply-templates select="tags" />
         <xsl:apply-templates select="longdesc" />
-        <!--
-        <center><
-        -->
+        <center><a href="project-page.php?page={urltag}" class="silent">
+        <button class="more">See More</button>
+        </a></center>
   </div>
 </xsl:template>
 
