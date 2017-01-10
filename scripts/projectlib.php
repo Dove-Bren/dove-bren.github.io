@@ -99,12 +99,14 @@ function printPage($pobj) {
     print getXSLT($pobj, "proj-full.xsl");
 
     
-    if ($pobj->screenshots !== false) {
+    if (!empty($pobj->screenshots)) {
         print '
             <div class="screenshotpeek">' .
                 spawnLightbox($pobj->title, 4) . '
+                <br /><center><a href="screenshots.php"><button>View All Screenshots</button></a><center>
             </div>
         ';
+        
     }
 
 }
