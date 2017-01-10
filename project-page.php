@@ -1,7 +1,7 @@
 <?php
 
 require 'scripts/projectlib.php';
-
+pageInit();
 ?>
 
 <html>

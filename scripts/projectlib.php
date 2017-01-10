@@ -5,6 +5,28 @@ if( !defined( __DIR__ ) ) define( __DIR__, dirname(__FILE__) );
 require_once(__DIR__."/screenslib.php");
 $header = "";
 
+function pageInit() {
+    global $header;
+
+    $token = htmlspecialchars($_GET["page"]);
+    if (empty($token)) {
+        redexit();
+    }
+
+    $obj = fetchXMLObj("proj.xml");
+    if (empty($obj)) {
+        redexit();
+    }
+
+    if (!validate($token, $obj)) {
+        redexit();
+    }
+
+    $pobj = getProj($token, $obj);
+
+    $header = getTitle($pobj);
+}
+
 function displayProjectPage() {
 
     global $header;
@@ -101,8 +123,9 @@ function printPage($pobj) {
     
     if (!empty($pobj->screenshots)) {
         print '
-            <div class="screenshotpeek">' .
-                spawnLightbox($pobj->title, 4) . '
+            <div class="screenshotpeek"><br /><h2 class="subheader">Screenshots</h4>';
+        print spawnLightbox($pobj->title, 4);
+        print '
                 <br /><center><a href="screenshots.php"><button>View All Screenshots</button></a><center>
             </div>
         ';
