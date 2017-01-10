@@ -23,14 +23,15 @@ Screenshots
 
 <div style="text-align: right;">
 <form method="GET">
-<input type="text" name="prefix" placeholder="Search" value="<?php echo $_GET["prefix"] ?>" />
-<input type="submit" value="Search" /><br />
+<input type="text" name="key" placeholder="Search" value="<?php echo $_GET["key"] ?>" /><br />
+<input type="text" name="n" placeholder="Max Results" value="<?php echo $_GET["n"] ?>" /><br />
 <a href="?" class="silent">Reset</a>
+<input type="submit" value="Search" />
 </form>
 </div>
 
 <?php
-spawnLightbox($_GET["prefix"]);
+spawnLightbox($_GET["key"], $_GET["n"]);
 ?>
 
 <p>

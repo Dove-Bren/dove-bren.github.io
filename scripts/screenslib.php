@@ -151,10 +151,14 @@ function gatherScreenshots($xmlobj, $prefix, $maxscreens) {
     }
     
     $screens = array();
-    $index = 1;
+    $index = 0;
     
     foreach ($xmlobj->proj as $proj) {
         foreach ($proj->screenshots->screenshot as $screenshot) {
+
+            if (!empty($maxscreens) && $index >= ($maxscreens - 1)) {
+                break;
+            }
 
             if (!empty($prefix)) {
                 if (!strcont($proj->title, $prefix) && !strcont($screenshot->alt, $prefix)) {
@@ -162,17 +166,15 @@ function gatherScreenshots($xmlobj, $prefix, $maxscreens) {
                 }
             }
 
+            $index = $index + 1;
+            
             $obj = new Screenshot(
                 $screenshot->src, $proj->title, $proj->urltag, $screenshot->alt
             );
             $obj->assignNumber($index);
-            $index = $index + 1;
             
             $screens[] = $obj;
 
-            if (!empty($maxscreens) && ($index > $maxscreens)) {
-                break;
-            }
         }
     }
     
