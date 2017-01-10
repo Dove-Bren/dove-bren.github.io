@@ -30,7 +30,55 @@
     QuestManager works entirely through config files, allowing almost anybody to create quests, NPCs, shops, spells,
     enemies, and more for a completely custom experience every time.
     </longdesc>
-    <fulldesc>QuestManager is aflektlksjt.</fulldesc>
+    <fulldesc>
+      <p>
+      QuestManager (QM) is a Minecraft Plugin that transforms the game from a sand-box game into a full-feature MMORPG. The plugin
+      works by defining quests, which direct players to complete tasks for certain rewards. In addition, QM adds new ways to interact
+      in order to remake the gameplay of Minecraft in a more direct fashion.
+      </p>
+      <p>
+      In addition to outlining quests, QM allows creation of NPCs for a multitude of purposes (inns, shops, etc). It also provides
+      interfaces for enemy creation (and spawning mechanics), player parties, skill systems, level-up progression, and more. When
+      all of these assets come together, the game is truly transformed away from the creative game that Minecraft is into a
+      player-centralized adventure MMORPG.
+      </p>
+      <p>
+      The feature list of QM is large. What makes it truly powerful, however, is that QM runs completely from config. This means that
+      the plugin by itself has no quests, NPCs, items, or progression. Instead, the plugin works as a framework with which server
+      administrators create their own unique, custom MMORPG. Shifting the content to config also helps make QM easier to interact
+      with, as no programming is required what-so-ever. Instead, interfacing with QM involves creating YAML config files in any
+      text editor. The config files have been designed to be straightforward, so the most difficult part is creating worthwile
+      content!
+      </p>
+      <p>
+      Some of the biggest backend features are in the mechanics of the quests themselves. Quests are composed both of simple data --
+      like the name of the quest -- and complex data -- like the quests that must be completed before the quest can be taken. Emphasis
+      is placed on how expressive the quest creators can be. Due to this, quests can range from simple quests that can be repeated
+      over and over again to long tirades that require a party, involve branching objectives, and can only be taken while a certain
+      other quest is being taken. By expanding the possibilities of the quests, QM allows each and every adventure made completely
+      unique.
+      </p>
+      <p>
+      A big part of an RPG is progression. Your character is expected to grow and get better. This may come through growth of natural
+      ability, improved equipment, or both. QM supports all three options, and leave their implementation completely up to the user.
+      The user is responsible for creating all shops, specifying growth rate for stats and level-up experience, difficulty of enemies,
+      the effective value for a player's money, and the items themselves. Because of this, progression can be specially tailored to the
+      adventure, rather than the opposite.
+      </p>
+      <p>
+      In conjunction with player progression, the user also specifies which skills can be used and how they progress. This includes
+      creating crafts and materials that can be made, the rate at which xp is gained and required to level a skill up, and how useful
+      the results of the skills are. Like everything else in QM, skills are made to be configured.
+      </p>
+      <p>&nbsp;
+      </p>
+      <p>
+      QuestManager is currently in version 1.4, and was last updated August, 2016. Some related works are 
+      <a href="project-page.php?page=irontale">Iron Tale</a>, which is a medieval MMORPG designed using QM, and
+      <a href="project-page.php?page=questmaker">Quest Maker</a>, which is a small graphical application that helps further simplify
+      creating QM configs.
+      </p>
+    </fulldesc>
     <urltag>questmanager</urltag>
     <screenshots>
       <screenshot>
