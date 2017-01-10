@@ -5,7 +5,7 @@
  *
  ***************/
 
-document.onkeypress = function(evt) {
+document.onkeydown = function(evt) {
     evt = evt || window.event;
 
     //ESC

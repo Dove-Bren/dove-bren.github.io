@@ -16,6 +16,7 @@ ul {
 }
 
 #content {
-    margin: 0 auto;
-    width: 1000px;
+    padding: 20px;
+    box-sizing: border-box;
+    width: 900px;
 }
