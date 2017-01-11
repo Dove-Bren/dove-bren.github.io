@@ -4,7 +4,11 @@
   <div>
     <p>
     <h4 class="subheader" style="margin-bottom: 3px;"><xsl:value-of select="tagline" /></h4>
-    <center><a href="{url}"><xsl:value-of select="url" /></a></center>
+    <xsl:choose>
+      <xsl:when test="url">
+        <center><a href="{url}"><xsl:value-of select="url" /></a></center>
+      </xsl:when>
+    </xsl:choose>
     <xsl:apply-templates select="tags" />
     </p>
 

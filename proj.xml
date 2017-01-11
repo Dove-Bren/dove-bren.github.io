@@ -176,6 +176,7 @@
     <title>Personal Website/Demo Reel</title>
     <url>http://www.github.com/dove-bren/dove-bren.github.io</url>
     <classification>Hobby</classification>
+    <tagline>Dynamic Demo Reel Website</tagline>
     <descs>
       <desc>Website used to collect and showcase projects and achievements</desc>
       <desc>Uses back-end data for dynamic webpages instead of static HTML</desc>
@@ -249,7 +250,6 @@
     <title>Iron Tale</title>
     <tagline>Medieval MMORPG</tagline>
     <classification>Hobby</classification>
-    <url></url>
     <descs>
       <desc>Medieval themed world with <em>197</em> quests</desc>
       <desc>Hundreds of NPCs</desc>
