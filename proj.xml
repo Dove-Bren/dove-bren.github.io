@@ -268,12 +268,66 @@
     </tags>
     <img>images/questmanager_front.png</img>
     <longdesc>Iron Tale is a Medieval MMORPG implemented using 
-      <a href="project-page.php?page=questmanager">QuestManager</a>. Irontale has 197 quests, hundreds of NPCs,
+      <a href="project-page.php?page=questmanager">QuestManager</a>. Iron Tale has 197 quests, hundreds of NPCs,
       fine-tuned skills and crafting, and so much more. Targetted to a more hardcore audience, Iron Tale has no
       shortage of challenges for even the most experiened player.
     </longdesc>
     <fulldesc>
-      Fulldesc1
+      <p>
+      Iron Tale is a Medieval MMORPG made using <a href="project-page.php?page=questmanager">QuestManager</a>. It is a combination
+      of mechanics made using QuestMaker, a hand-created map, a unique story, and a Medieval texture pack. The game focuses on
+      player progression, and is geared towards experienced players who want a challenge.
+      </p>
+      <p>
+      Iron Tale starts off by letting the player choose what to do. After a small tutorial space, the player is brought into the
+      wilderness and left to do what they want. This usually involves finding one of the 4 starting cities that surround the
+      starting location, as the first obstacle the player will face is their hunger level. In Iron Tale, food is one of the most
+      present dangers throughout the entire game. In order to get food, players must complete quests (either for food or money to
+      purchase food) or take up crafting. After this, however, the player is free to play the game in whichever fashion they choose.
+      It's entirely possible to stay in the cities and train in crafting. Crafters can provide themselves with goods, or trade their
+      crafts to other players. 
+      </p>
+      <p>
+      Should a player choose instead to pursue combat, they again face a large number of choices. Minecraft defaulty has a small
+      variety of weapons. Iron Tale takes these and helps diversify them by creating it's own material scale. Instead of Minecraft's
+      4-stage material progression -- wood, stone, iron, diamond -- Iron Tale introduces a 6-stage progression. In addition, there
+      are a large number of unique weapons and armors that fall between the material grades. In addition, armor and weapons can
+      possess additional characteristics that break apart the linear progression even further. For example, a Wolf Helmet might have
+      less armor than a copper chainmail helm, but it provides a 10% bonus to damage.
+      </p>
+      <p>
+      Additionally, players can choose to specialize in a combat area. These range from two-handed to using a bow to wielding magic and
+      a weapon at the same time. Each combat specialization offers unique bonuses that distinguish each fighting style further. For example,
+      sword-and-shield provides a defense bonus while wielding magic and a weapon at the same time yields a bonus in mana recovery rate.
+      On top of the style of fighting, each type of weapon (axe, sword, box, etc) has their own skill that makes it beneficial to
+      pick a weapon and stick with it. Auxillary skills like Tactics and Focus are also present, which apply to several different combat
+      styles and help provide further separation between experienced players using a new skill and players who have no skillbase.
+      </p>
+      <p>
+      Special attention is provided to crafting in Iron Tale. There are 3 major crafting skills, and each are incredibly powerful.
+      Armor and Weapons made using Smithing are on par or better than what you can get from the equivalent level'ed quests. Cooking
+      provides food items with much more impact than what you can buy. Fashioning items are essential for either of the other two
+      crafting professions and for archers. Because crafting is so important, gathering professions are too. Lumberjacks, Fishermen,
+      Trappers, and Miners all play very important roles in providing the materials needed for the craftsmen to be able to work.
+      </p>
+      <p>
+      The Quests in Iron Tale fall into two categories: main story quests and side quests. The main story quests start out exactly like
+      side quests, but eventually lead the player around the world. Side quests usually revolve around a city's needs, or in the
+      personal affairs of a citizen. All four of the starting cities have unique main-story quests, but they all eventually lead to
+      the same line of quests. In this way, however, the player gains a different starting to their adventure, and may have different
+      feelings about the story itself. Additionally, players will be armed differently.
+      </p>
+      <p>
+      Locations throughout Iron Tale differe greatly. There are lightly wooded areas. There are plains. There are mountain passes, deep
+      caves, and expansive deserts. Players may find themselves on the frozen island Yozden, or deep in the Everwoods. Each location
+      has different enemies, from zombies and drowened corposes to stone golems. Naturally, areas the player visits later in the
+      main story have higher levels and are more difficult. 
+      </p>
+      <p>
+      Iron Tale has been developed along side QuestManager. As a result, Iron Tale is in version 1.4 (or expansion 4). It has been
+      deployed on the New Mexico Tech's Minecraft Club Server as well as a local server I run. The server files are available upon
+      request.
+      </p>
     </fulldesc>
     <urltag>irontale</urltag>
     <screenshots>
