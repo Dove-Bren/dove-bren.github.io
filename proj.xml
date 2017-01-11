@@ -203,6 +203,47 @@
       documented with descriptions, screenshots, and the source (where available). In addition, a CV and personal statement are
       presented.
     </longdesc>
+    <fulldesc>
+    <p>
+    I started work on this Demo Reel website in order to showcase projects I've completed that lie outside of my professional
+    experience. Despite working to pay my way through college, I've been actively engaged in personal projects in most of my
+    free time. These projects range from trivial helper command-line programs to mods to exploratory excercises like writing
+    a bitmap codec.
+    </p>
+    <p>
+    Much of my experience comes from these personal projects. In order to provide some description of each of the projects, I list
+    them here.
+    </p>
+    <p>
+    This website was created completely from hand. No libraries (save standard libraries like PHP's xsl library) were used. The website
+    is a mixture of server-side data (XML and XSLT proxied by PHP), server-side formatting (like in the screenshots page), and
+    client-side functionallity. It uses HTML, JavaScript, PHP, XML/XSLT, and CSS. Data about projects and professional experience
+    found throughout the website (screenshots, resume, projects page) is created based off of server-side data. This centralized data
+    source makes it easy to add data and have the website correctly adjust.
+    </p>
+    <p>
+    I chose to use XSLT to format the data (and XML to store it) purely for the experience. Instead of using an MySQL database and PHP,
+    I wanted to work with something I knew less about. While working with it, however, I found it easier to interface with the data
+    because it was stored as a plain-text text file. This made making small touch-ups much more straightforward and helped expedite
+    the process of adding data. Additionally, adding more data is as simple as editing the file. Moving the website to a different
+    server was also much easier, as I didn't have to spend any time at all setting up the database, setting up credentials, and
+    making any updates to the backend that might have been needed. Of course, this was acceptable only because the data was not
+    sensitive or confidential.
+    </p>
+    <p>
+    Originally, I was hosting the website on my GitHub io page. Because GitHub io pages are static, however, I was unable to use any
+    server-side processing. Early versions of the website were made entirely with HTML, XSLT, and Javascript -- with the JavaScript
+    fetching the XML and performing the transformation client side. Because the data wasn't sensitive, this worked fine. However,
+    implementations of the individual project pages and the screenshots page in JavaScript seemed sloppy to me. In th end, I decided
+    to move the page somewhere where I could use server-side processing of data and simply provide clients with already-formatted
+    pages.
+    </p>
+    <p>
+    An area I really struggle in is in presentation. There is no greater example than creating color schemes -- like the one for this
+    website. I spent some time trying to decide on a base color, and then using palette websites to find colors that worked well with
+    it. Figuring out which colors to use, and how exactly to lay out each page have been big challenges.
+    </p>
+    </fulldesc>
   </proj>
   <proj>
     <title>Iron Tale</title>
