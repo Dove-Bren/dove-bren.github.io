@@ -31,9 +31,11 @@
 </xsl:template>
 
 <xsl:template match="fulldesc">
-    <p class="inset desc">
-    <xsl:value-of select="." />
-    </p>
+    <xsl:for-each select="p">
+      <p class="inset desc">
+      <xsl:value-of select="." />
+      </p>
+    </xsl:for-each>
 </xsl:template>
 
 <xsl:template match="screenshots">
