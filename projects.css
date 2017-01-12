@@ -1,4 +1,6 @@
---color-cell: #101015;
+:root {
+    --color-cell: #101015;
+}
 
 .datacell {
     width: 400px;

@@ -1,5 +1,11 @@
 <?php
 require 'scripts/screenslib.php';
+
+$count = $_GET["n"];
+if (empty($count)) {
+    $count = 50;
+}
+
 ?>
 
 <html>
@@ -25,14 +31,14 @@ Screenshots
 <div style="text-align: right;">
 <form method="GET">
 <input type="text" name="key" placeholder="Search" value="<?php echo $_GET["key"] ?>" /><br />
-<input type="text" name="n" placeholder="Max Results" value="<?php echo $_GET["n"] ?>" /><br />
+<input type="text" name="n" placeholder="Max Results" value="<?php echo $count ?>" /><br />
 <a href="?" class="silent">Reset</a>
 <input type="submit" value="Search" />
 </form>
 </div>
 
 <?php
-spawnLightbox($_GET["key"], $_GET["n"]);
+spawnLightbox($_GET["key"], $count);
 ?>
 
 <p>
