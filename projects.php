@@ -18,6 +18,7 @@
 <p id="header">
 Projects
 </p>
+<hr class="headerrule" />
 <p >
 This page contains a collection of projects I have worked on. Most of the
 projects are hobby projects, and are denoted as such. 

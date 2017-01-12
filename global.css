@@ -26,14 +26,14 @@
     --color-back: #2d2d2d;
     --color-deep-back: var(--color-back);
     /* --color-back: #494e6b; */
-    --color-foreground: #9a9a9a;
+    --color-foreground: #aaa;
     --color-forward: #297b2f;
-    --color-forward-dark: #75b779;
+    --color-forward-dark: #022730;
     --color-backward: #5D8790;
-    --color-subback: #297b2f;
-    --color-nav-middle: var(--color-back);
+    --color-subback: #396A75;
+    --color-nav-middle: #4d2702;
     --color-nav-inward: #9c6835;
-    --color-nav-outward: #e9b395;
+    --color-nav-outward: #e9be95;
     
     /*
     .color-primary-0 { color: #297B2F }	/* Main Primary color
@@ -67,7 +67,7 @@ html {
 }
 
 body {
-    width: 900px;
+    /* width: 900px; */
     margin: 0 auto;
     background-color: var(--color-back);
     color: var(--color-foreground);
@@ -85,7 +85,7 @@ ul.linklist {
     padding-left: 0px;
     margin-top: 0px;
     margin-bottom: 0px;
-    background-color: var(--color-nav-middle);
+    /* background-color: var(--color-nav-middle); */
     text-align: center; 
     height: 100%;
     display: flex;
@@ -98,6 +98,7 @@ ul.linklist a {
     display: table;
     vertical-align: center;
     text-decoration: none;
+    margin-right: 1em;
 }
 
 li.link {
@@ -107,9 +108,9 @@ li.link {
     vertical-align: middle;
     text-align: center;
     display: table-cell;
-    background-color: var(--color-nav-middle);
+    /* background-color: var(--color-nav-middle); */
     color: var(--color-nav-inward);
-    
+    border-right: 2px solid var(--color-back);
 }
 
 li.link:hover {
@@ -119,6 +120,10 @@ li.link:hover {
 
 li {
     font-family: Georgia, Helvetica, Times, Serif;
+}
+
+a {
+    color: var(--color-nav-inward);
 }
 
 div.taglist {
@@ -174,7 +179,7 @@ a.silent:visited {
     border: 2px inset black;
     margin: 10px;
     padding: 5px;
-    background-color: var(--color-backward);
+    background-color: var(--color-forward-dark);
     color: var(--color-foreground);
     font-family: monospace, serif, san-serif;
     float: right;
@@ -213,37 +218,45 @@ a.silent:visited {
     display: inline-block;
 }
 
+hr.headerrule {
+    width: 50%;
+    margin-top: -20px;
+    margin-bottom: 20px;
+    color: var(--color-backward)
+}
+
 #topper {
-    margin-top: 20px;
+    /*margin-top: 20px; */
 }
 
 #nav {
     /* float: left; */
-    //border-style: groove;
+    /* border-style: groove; */
     height: 50px;
-    width: 100%;
-    background-color: #222;
-    color: var(--color-backward);
+    /* width: 100%; */
+    /* background-color: #222; */
+    color: var(--color-forward-dark);
     margin-top: 0px;
     margin-bottom: 0px;
     display: inline-block;
     vertical-align: middle;
-    border-bottom-style: solid;
-    border-top-style: solid;
+    /* border-bottom-style: solid; */
+    /* border-top-style: solid; */
 }
 
 #banner {
     /* height: 75px; */
     /* border-style: groove; */
     /* float: left; */
-    /* display: inline-block; */
+    display: inline-block;
     /* vertical-align: middle; */
     margin-top: 0px;
     margin-bottom: 0px;
     font-size: 20pt;
-    padding: 10px 20px;
-    color: var(--color-forward-dark);
-    background-color: var(--color-forward);
+    padding: 20 40px;
+    padding-top: 50px;
+    color: var(--color-backward);
+    /* background-color: var(--color-forward); */
 }
 
 #content {
@@ -253,13 +266,23 @@ a.silent:visited {
 }
 
 #footer {
+    text-align: center;
     padding: 10px;
-    background-color: 1c2753;
+    margin-top: 30px;
+    /* background-color: 1c2753; */
 }
 
 #header {
     font-size: 24pt;
     text-align: center;
     width: 100%;
+    padding: 10px 0;
     color: var(--color-backward);
+    --grad-center:rgba(255, 255, 255, 0.1);
+    --grad-outside:rgba(0,0,0,0);
+    background: transparent; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(var(--grad-center) 10%, var(--grad-outside) 50%); /*Safari 5.1-6*/
+    background: -o-linear-gradient(var(--grad-center) 10%, var(--grad-outside) 50%); /*Opera 11.1-12*/
+    background: -moz-linear-gradient(var(--grad-center) 10%, var(--grad-outside) 50%); /*Fx 3.6-15*/
+    background: radial-gradient(var(--grad-center) 10%, var(--grad-outside) 50%); /*Standard*/
 }

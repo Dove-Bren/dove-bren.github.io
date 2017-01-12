@@ -20,6 +20,7 @@ require 'scripts/screenslib.php';
 <p id="header">
 Screenshots
 </p>
+<hr class="headerrule" />
 
 <div style="text-align: right;">
 <form method="GET">
