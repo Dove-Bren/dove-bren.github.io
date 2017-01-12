@@ -64,7 +64,6 @@ function rowClose() {
 function createModal($screenshots) {
     print '
 <div id="myModal" class="modal">
-  <span class="close cursor" onclick="closeModal()">&times;</span>
   <div class="modal-content">';
 
     createModals($screenshots);
@@ -84,6 +83,7 @@ function createModal($screenshots) {
     print '
     
   </div>
+   <span class="close cursor" onclick="closeModal()">&times;</span>
 </div>
     ';
 }
