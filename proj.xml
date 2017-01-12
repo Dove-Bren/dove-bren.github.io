@@ -794,6 +794,137 @@
       </screenshot>
     </screenshots>
   </proj>
+  <proj>
+    <title>COOL Compiler</title>
+    <urltag>coolcomp</urltag>
+    <tagline>Complete compiler for the language COOL</tagline>
+    <classification>Coursework</classification>
+    <descs>
+      <desc>Front-to-back end Compiler</desc>
+      <desc>Uses Flex and Bison for lexing and parsing</desc>
+      <desc>Use common Intermediate Representations such as an AST</desc>
+      <desc>Performs regular semantic analysis, including type checking and valid dispatch checks</desc>
+    </descs>
+    <tags>
+      <tag>Compiler</tag>
+      <tag>C++</tag>
+      <tag>Coursework</tag>
+      <tag>COOL</tag>
+      <tag>Language</tag>
+      <tag>Object Oriented</tag>
+      <tag>Lexing</tag>
+      <tag>Parsing</tag>
+      <tag>Semantic Analysis</tag>
+      <tag>Code Generation</tag>
+      <tag>x86 Assembly</tag>
+    </tags>
+    <img>images/compiler_front.png</img>
+    <longdesc>
+      C++ compiler which transforms Standford's Object-Oriented COOL language into x86 assembly. Input code is taken through all steps
+      of a modern compiler, except assembly. The input code is lexed and parsed, run through semantic analysis, and then passed
+      through code generation.
+    </longdesc>
+    <fulldesc>
+      <p>
+      NMT's capstone C.S. course is Compiler Writing. In it, students are formed into teams, and expected to produce a compiler
+      that takes code from input source code to valid assembly. Our class was assigned the input code COOL, and instructed
+      to produce x86-64 assembly code.
+      </p>
+      <p>
+      Code is first ran through Flex (a lexer) and then Bison (a parser). Each of these tools required configuration for the input
+      language. Special language features, like COOL's nested comments, had to be dealt with carefully to ensure that the lexing
+      and parsing correctly evaluated the input code and preserved the meaning as defined by the language. As tokens were passed
+      to Bison from Flex, we constructed an AST on the input code. The output AST was then fed through to semantic analysis.
+      </p>
+      <p>
+      To perform semantic analysis, we used a visitor pattern and a series of visitors to perform a variety of passes. This included
+      type checking (with type-inferencing and symbol-table insertions), checking that dispatches were valid (named an actual method,
+      parameters were of right type, etc), and making sure that variables were declared before use. Data obtained during these passes
+      were stored either in the AST, the symbol table, or a special class table that held class-specific information.
+      </p>
+      <p>
+      Upon passing semantic analysis, all aquired data was passed to code generation. Here, each node in the AST was used to create
+      pieces of a Linear Intermediate Representation (LIR) that more closely represented the assembly we were outputting to. Our LIR
+      was a quadruples LIR, and held instructions very similar to those available in x86-64 assembly. The produced LIR was then
+      passed over to expand inline variables with runtime data locations. Then, the LIR was transformed into output assembly.
+      </p>
+      <p>
+      Code Generation also houses a small number of optimizations. These optimizations were
+      </p>
+      <list>
+      <li>Constant Propagation and Folding</li>
+      <li>Dead/Unreachable Code Elimination</li>
+      <li>Loop Unswitching</li>
+      <li>Loop Unrolling</li>
+      <li>Strength Reduction</li>
+      </list>
+      <p>
+      Special care was given to the order in which each optimization was performed. In addition, all optimizations (except Strength
+      reduction) were performed before transforming the AST into an LIR.
+      </p>
+      <p>
+      One design decision we made as a team was to generate multiple smaller LIRs rather than one big one. Since COOL is made up
+      entirely of methods (including initialization code of classes, if you wrap them into an 'init' method like we did), we
+      decided each method body would be it's own LIR. We used a simple map data structure to map between methods and LIRs. Breaking
+      the LIRs up like this helped make code generation much smoother. Rearranging method code placement was very straightforward.
+      Evaluating an LIR at a procedural level was implicit. Adding regular procedure prefix and postfix code could be done systematically.
+      </p>
+      <p>
+      Because this project was done as coursework (and a similar assignment will be made in the future), the code is not available
+      as open source. However, a copy is available upon request.
+      </p>
+    </fulldesc>
+  </proj>
+  <proj>
+    <title>Victim Cache Simulation</title>
+    <urltag>bullycache</urltag>
+    <tagline>Simulation of a Victim Cache</tagline>
+    <classification>Coursework</classification>
+    <descs>
+      <desc>Simplified simulation of a cache with victim cache</desc>
+      <desc>Uses 32KB Direct-Mapped Cache with variable-sized victim cache</desc>
+      <desc>Allows use of different replacement policies</desc>
+      <desc>Runs off traces</desc>
+    </descs>
+    <tags>
+      <tag>Cache</tag>
+      <tag>C++</tag>
+      <tag>Coursework</tag>
+      <tag>Simulation</tag>
+      <tag>Victim</tag>
+      <tag>Object Oriented</tag>
+      <tag>Traces</tag>
+      <tag>Command-Line Application</tag>
+    </tags>
+    <img>images/cachesim_front.png</img>
+    <longdesc>
+      Simulation of a 32KB direct-mapped cache with a variably-sized victim cache. Simulation is trace-driven, and produces
+      summary statistics of the input trace and config. Victim cache is configurable.
+    </longdesc>
+    <fulldesc>
+      <p>
+      Victim caches work to alleviate the problem of direct-mapped cache -- associativity. They provide a sort of side-storage
+      that allows direct-mapped caches to deal with a small number of cache collisions while still having the speed of a
+      direct-mapped cache.
+      </p>
+      <p>
+      This project builds off of a C interface provided by the instructor. All code written by me is C++ code, and can be found
+      in .cpp files. These include:
+      </p>
+      <list>
+        <li>victimcachesim.cpp/h</li>
+        <li>common.cpp/h</li>
+        <li>cache.cpp/h></li>
+        <li>bullycache.cpp/h</li>
+        <li>cacheset.cpp/h</li>
+        <li>cacheline.cpp/h</li>
+      </list>
+      <p>
+      Because this project was done as coursework (and a similar assignment will be made in the future), the code is not available
+      as open source. However, a copy is available upon request.
+      </p>
+    </fulldesc>
+  </proj>
   <!--
   <proj>
     <title>Quest Maker</title>
@@ -820,6 +951,9 @@
     <longdesc>
       desc
     </longdesc>
+    <fulldesc>
+    
+    </fulldesc>
     <screenshots>
       <screenshot>
         <src>images/questmaker_6.png</src>
