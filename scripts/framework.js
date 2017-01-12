@@ -1,6 +1,6 @@
 function init_navbar() {
     var obj = document.getElementById("topper");
-    obj.innerHTML = "<div id='banner'><h2 class='inset'>Skyler Manzanares</h2></div><div id='nav'><ul class='linklist'><a href='index.html'><li class='link'>About Me</li></a><a href='spotlight.html'><li class='link'>Spotlight Project</li></a><a href='projects.php'><li class='link'>Projects</li></a><a href='screenshots.php'><li class='link'>Screenshots</li></a><a href='resume.html'><li class='link'>CV</li></a><a href='contact.html'><li class='link'>Contact Info</li></a></ul></div>";
+    obj.innerHTML = "<div id='banner'>Skyler Manzanares</div><div id='nav'><ul class='linklist'><a href='index.html'><li class='link'>About Me</li></a><a href='spotlight.html'><li class='link'>Spotlight Project</li></a><a href='projects.php'><li class='link'>Projects</li></a><a href='screenshots.php'><li class='link'>Screenshots</li></a><a href='resume.html'><li class='link'>CV</li></a><a href='contact.html'><li class='link'>Contact Info</li></a></ul></div>";
 }
 
 function init_footbar() {
