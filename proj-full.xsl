@@ -35,11 +35,31 @@
 </xsl:template>
 
 <xsl:template match="fulldesc">
-    <xsl:for-each select="p">
-      <p class="inset desc">
-      <xsl:value-of select="." />
-      </p>
+    <xsl:for-each select="*">
+      <xsl:apply-templates select="." />
     </xsl:for-each>
+    <!-- <xsl:apply-templates select="./*" /> -->
+</xsl:template>
+
+
+
+<xsl:template match="p">
+    <p class="desc">
+      <xsl:value-of select="." />
+    </p>
+</xsl:template>
+
+<xsl:template match="list">
+    <ul>
+    <xsl:for-each select="li">
+      <li><xsl:value-of select="." /></li>
+    </xsl:for-each>
+    </ul>
+</xsl:template>
+
+<xsl:template match="subhead">
+    <h3 class="subheader"><xsl:value-of select="." /></h3>
+    <hr class="subrule" />
 </xsl:template>
 
 <xsl:template match="screenshots">
