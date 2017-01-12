@@ -157,10 +157,6 @@ a.silent:visited {
     text-decoration: none;
 }
 
-.inset {
-    padding-left: 50px;
-}
-
 .article_pic {
     float: left;
     padding: 10px;   
@@ -216,6 +212,24 @@ a.silent:visited {
 
 .wrappable {
     display: inline-block;
+}
+
+
+
+.article_section {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.article_section_comp {
+    --grad-edge:rgba(255, 255, 255, 0.1);
+    --grad-middle:rgba(0,0,0,0);
+    background: transparent; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(var(--grad-center) 10%, var(--grad-outside) 50%); /*Safari 5.1-6*/
+    background: -o-linear-gradient(var(--grad-center) 10%, var(--grad-outside) 50%); /*Opera 11.1-12*/
+    background: -moz-linear-gradient(var(--grad-center) 10%, var(--grad-outside) 50%); /*Fx 3.6-15*/
+    /* background: linear-gradient(var(--grad-edge) 5%, var(--grad-middle) 10%, var(--grad-middle) 90%, var(--grad-edge) 95%); */ /*Standard*/
+    background: radial-gradient(var(--grad-middle) 80%, var(--grad-edge))
 }
 
 hr.headerrule {
@@ -281,8 +295,8 @@ hr.headerrule {
     --grad-center:rgba(255, 255, 255, 0.1);
     --grad-outside:rgba(0,0,0,0);
     background: transparent; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(var(--grad-center) 10%, var(--grad-outside) 50%); /*Safari 5.1-6*/
-    background: -o-linear-gradient(var(--grad-center) 10%, var(--grad-outside) 50%); /*Opera 11.1-12*/
-    background: -moz-linear-gradient(var(--grad-center) 10%, var(--grad-outside) 50%); /*Fx 3.6-15*/
+    background: -webkit-radial-gradient(var(--grad-center) 10%, var(--grad-outside) 50%); /*Safari 5.1-6*/
+    background: -o-radial-gradient(var(--grad-center) 10%, var(--grad-outside) 50%); /*Opera 11.1-12*/
+    background: -moz-radial-gradient(var(--grad-center) 10%, var(--grad-outside) 50%); /*Fx 3.6-15*/
     background: radial-gradient(var(--grad-center) 10%, var(--grad-outside) 50%); /*Standard*/
 }
