@@ -166,8 +166,15 @@ a.silent:visited {
 .showpic {
     /* Picture that's a frontpiece; centered and stuff */
     /* margin: 20px 0px; */
-    //padding: 15px;
+    /* padding: 15px; */
     margin-top: 10px;
+    width: 90%;
+    height: 90%;
+}
+
+div.showpic {
+    text-align: center;
+    height: 40%;
     width: 90%;
 }
 

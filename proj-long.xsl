@@ -16,7 +16,7 @@
         <h4 class="subheader"><xsl:value-of select="title" /></h4>
         </a>
         <div style="min-height: 1em; text-align: center;"><a href="{url}"><xsl:value-of select="url" /></a></div>
-        <center><a href="project-page.php?page={urltag}">
+        <div class="showpic"><a href="project-page.php?page={urltag}">
         <!-- <a href="screenshots.php?prefix={title}"> -->
         <img src="{img}" alt="No Picture Available" class="showpic" />
         </a></center>
