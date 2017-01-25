@@ -821,8 +821,7 @@
     <!-- <img>images/compiler_front.png</img> -->
     <longdesc>
       C++ compiler which transforms Standford's Object-Oriented COOL language into x86 assembly. Input code is taken through all steps
-      of a modern compiler, except assembly. The input code is lexed and parsed, run through semantic analysis, and then passed
-      through code generation.
+      of a modern compiler, except assembly. 
     </longdesc>
     <fulldesc>
       <p>
