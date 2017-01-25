@@ -25,6 +25,7 @@
           <xsl:otherwise>
             No Image Available
           </xsl:otherwise>
+        </xsl:choose>
         </a></div>
         <xsl:apply-templates select="tags" />
         <xsl:apply-templates select="longdesc" />

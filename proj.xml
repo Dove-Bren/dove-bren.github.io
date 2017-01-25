@@ -818,7 +818,7 @@
       <tag>Code Generation</tag>
       <tag>x86 Assembly</tag>
     </tags>
-    <img>images/compiler_front.png</img>
+    <!-- <img>images/compiler_front.png</img> -->
     <longdesc>
       C++ compiler which transforms Standford's Object-Oriented COOL language into x86 assembly. Input code is taken through all steps
       of a modern compiler, except assembly. The input code is lexed and parsed, run through semantic analysis, and then passed
@@ -896,7 +896,7 @@
       <tag>Traces</tag>
       <tag>Command-Line Application</tag>
     </tags>
-    <img>images/cachesim_front.png</img>
+    <!-- <img>images/cachesim_front.png</img> -->
     <longdesc>
       Simulation of a 32KB direct-mapped cache with a variably-sized victim cache. Simulation is trace-driven, and produces
       summary statistics of the input trace and config. Victim cache is configurable.
