@@ -19,7 +19,7 @@
         <div class="showpic"><a href="project-page.php?page={urltag}">
         <!-- <a href="screenshots.php?prefix={title}"> -->
         <img src="{img}" alt="No Picture Available" class="showpic" />
-        </a></center>
+        </a></div>
         <xsl:apply-templates select="tags" />
         <xsl:apply-templates select="longdesc" />
         <center><a href="project-page.php?page={urltag}" class="silent">
