@@ -404,6 +404,41 @@
     </screenshots>
   </proj>
   <proj>
+    <title>Aechoes</title>
+    <url>http://www.github.com/dove-bren/Aechoes</url>
+    <urltag>aechoes</urltag>
+    <tagline>Strategy RPG in Unreal</tagline>
+    <classification>Hobby</classification>
+    <descs>
+      <desc>Turn-Based RPG created using Unreal 4.14</desc>
+      <desc>Majority of code written in C++ for performance and simplicity</desc>
+    </descs>
+    <tags>
+      <tag>Game</tag>
+      <tag>C++</tag>
+      <tag>Unreal</tag>
+      <tag>Strategy</tag>
+      <tag>Turn-Based</tag>
+    </tags>
+    <img>images/aechoes_front.png</img>
+    <longdesc>
+      Aechoes is a turn-based cell-based strategy RPG made in Unreal. It's very early in development, but
+      will emphasize character progression and challenging combat.
+    </longdesc>
+    <fulldesc>
+    <p>
+    Aechoes is a game I'm currently developing using Unreal Engine 4.14. The game will revolve around it's challenging
+    and engaging combat mechanics. Additionally, the game will focus on character development: how you choose to
+    level your character up matters!
+    </p>
+    <p>
+    Currently, Aechoes is in a very primitive state. The backbone of the combat system is where I'm working as of
+    writing this. Since combat plays a crucial role in the game, I want to spend a lot of time working through it
+    and making it everything I want it to be.
+    </p>
+    </fulldesc>
+  </proj>
+  <proj>
     <title>Juggernaut's Armory</title>
     <url>http://www.github.com/dove-bren/Juggernaut-Armory</url>
     <classification>Hobby</classification>
