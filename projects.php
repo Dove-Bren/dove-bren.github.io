@@ -33,6 +33,7 @@ projects are hobby projects, and are denoted as such.
 </div>
 
 <!--
+test
 <div id="projtable">
 <script>displayResult("projtable", "proj", "proj-long");</script>
 </div>

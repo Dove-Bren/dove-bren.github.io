@@ -2,6 +2,557 @@
 <?xml-stylesheet type="text/xsl" href="proj.xsl"?>
 <projects>
   <proj>
+    <title>Nostrum Magica</title>
+    <tagline>Immersive Spell Crafting Minecraft Mod</tagline>
+    <classification>Hobby</classification>
+    <url>http://www.github.com/dove-bren/NostrumMagica</url>
+    <descs>
+      <desc>Large content mod for Minecraft</desc>
+      <desc>Minecraft mod implemented using the Forge modding API</desc>
+      <desc>Allows players to create complex spells one component at a time</desc>
+      <desc>Large research tree guides progression through the mod and unlocks new items, tools, and progression mechanics</desc>
+      <desc>Procedurally generated dungeons in the overworld hide large bosses or mysterious portals to a new world</desc>
+      <desc>Players level up and progress through the instanced, challenging Sorcery Dimension</desc>
+    </descs>
+    <tags>
+      <tag>Minecraft</tag>
+      <tag>Mod</tag>
+      <tag>Java</tag>
+      <tag>Magic</tag>
+      <tag>Content</tag>
+      <tag>Progression</tag>
+    </tags>
+    <img>images/nostrummagica_8.png</img>
+    <longdesc>
+    Nostrum Magica brings magical adventure to Minecraft. Players explore dungeons filled with magic and puzzles,
+    unlock components for crafting spells, perform large scale crafting rituals, fight challenging bosses, tame fabled
+    beasts, and explore a large research tree.
+    </longdesc>
+    <fulldesc>
+      <p>
+      Nostrum Magica is a Minecraft mod that adds magic to Minecraft. Players find dungeons in the overworld, explore them by solving
+      puzzles and fighting monsters, and travel to a new Sorcery dimension. Through this dimension, they unlock magic and begin their journey
+      to unlock new tools, make more and more advanced spells, and face new challenges.
+      </p>
+      <p>
+      Nostrum Magica was inspired by the Ars Magica II Minecraft mod that ended up being abandoned before it was finished. Like Ars Magica II,
+      Nostrum lets the player create the spells they want to make by presenting spell components and letting players pick and choose and sequence
+      the components to make a spell that does something unique.
+      </p>
+      <p>
+      Spells are made from spell triggers and spell effects. Each effect is described by one spell shape (the 'who'), an element, and an optional 'alteration.'
+      By default, spell effects made of an element and no alteration do damage in that element's type. Alterations change the effect to a unique effect depending
+      on the element and alteration combo. In total, there are 16 different spell triggers, 4 different shapes, 7 elements, and 8 alterations. That means there
+      are 52 different effects a single spell effect could have. Because spells can have up to 16 different components, there are more than 2.5 x 10^36
+      spells.
+      </p>
+      <p>
+      In addition to complex spell crafting, Nostrum adds new player characteristics like mana, mana regen rate, spell cost mitigation,
+      reagent cost mitigation, resistance to magic and different magical elements, and more. Players pick how they want their character to progress and
+      what attributes they want to prioritize based on how they want to play. As they play, they gain more mana to cast more powerful spells.
+      </p>
+      <p>
+      A big focus of Nostrum Magica is progression. The first way players experience meaningful progression in Nostrum Magica is by leveling themselves up.
+      Casting spells awards xp which builds towards advancing the player's magical level. Leveling awards skill points that the player can choose how to allocate
+      between three major attributes -- Control, Finesse, and Technique. These attributes govern what types of spells players can cast. As they allocate these
+      points, they also progress along a large attribute glyph, where nodes require certain attributes and levels before being attained. On this same glyph,
+      players unlock alterations which allows them to add new spell effects to their spells.
+      </p>
+      <p>
+      While casting spells and leveling up themselves, players make many trips into the Sorcery dimension to progress in a hand-crafted
+      and instanced (each player has their own) dungeon to unlock more and more magical spell components. As they make their way further and further
+      into the dungeon, they fight foes and are challenged with puzzles that increase in difficulty. Many of the puzzles require careful observation and traversal,
+      while others demand clever use of different spell components.
+      </p>
+      <p>
+      The third primary progression tracks in Nostrum Magica is the research tree. As players interact with the world, they are awarded lore points that let them
+      unlock new nodes in the research tree. Nodes become visible when players reach adjacent nodes or satisfy any criteria for the node to be purchased -- like
+      experiencing teleportation for the first time to unlock a research item about mark and recall. The research tree pairs with the advanced crafting system
+      Nostrum Magica adds (called Rituals in game) to challenge the players to gather materials and craft powerful weapons and tools.
+      </p>
+      <p>
+      Nostrum Magica has integrations with several other popular Minecraft mods including JEI, EnderIO, Baubles, and Botania. Additionally, it exposes several APIs
+      itself so that other mods (included dedicated Nostrum Magica add-on mods) can add their own custom content.
+      </p>
+      <p> 
+      </p>
+      <p>
+      NostrumMagica is currently in version 1.8.0 and works with Minecraft 1.12.2. It currently has two optional add-ons:<br />
+      <a href="project-page.php?page=nostrumaetheria">Nostrum Aetheria</a> which adds an energy mechanic called Aether, and<br />
+      <a href="project-page.php?page=nostrumfairies">Quest Maker</a> which adds mysterious fey that provide automation to friendly mages!
+      </p>
+    </fulldesc>
+    <urltag>nostrummagica</urltag>
+    <screenshots>
+      <screenshot>
+        <src>images/nostrummagica_1.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Magic flower decorate the world</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_3.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Mysterious new ores lie down below</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_4.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Strange dungeons spawn naturally in the world</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_5.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Typical dungeon opening room</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_6.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Dungeons provide unique minecraft adventure challenges</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_7.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Lots of loot hidden in the overworld dungeons</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_8.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Deep in some dungeons lies a portal...</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_9.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Small to large dungeon rooms with mysterious origins</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_10.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Magical wisps spawn in the overworld</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_11.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Elemental Willos cause mayham to unsuspecting players</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_12.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Shadow dragons patrol the nether</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_13.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Sprites gleefully lift nearby entities to their doom in the nether</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_14.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Through the portal is the Sorcery Dimension</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_15.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Upon entering, four paths lead to unique dungeons</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_16.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Each section of the dungeon is sprawling</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_17.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Rooms vary from small challenge rooms to large puzzle rooms</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_18.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>At the end of each section is a new shape component for your spells</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_19.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Each section of the dungeon is themed differently</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_20.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Solve puzzles to open the door and unlock new spell components</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_21.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Use new spell components to solve more challenging puzzles</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_22.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Keep your eye out for treasure as you explore</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_23.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Grand staircases lead up to challenging bosses</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_24.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Secrets are everywhere in the Sorcery Dimension</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_25.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Travel deep enough, and you might make new friends</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_26.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Use the Attribute Glyph to increase your magic characteristics</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_27.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Moving along the glyph requires allocating attribute points</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_28.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Where will your path take you?</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_29.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>The research table guides you through Nostrum Magica</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_30.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Each research information on mechanics or new recipes and tools</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_31.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Unlock spell crafting, advanced crafting, new weapons, and more</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_32.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Each research page has many research items</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_33.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Research is divided into different tabs based on category</alt>
+      </screenshot>
+      <!--<screenshot>
+        <src>images/nostrummagica_34.png</src>
+        <tag>NostrumMagica</tag>
+        <alt></alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_35.png</src>
+        <tag>NostrumMagica</tag>
+        <alt></alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_36.png</src>
+        <tag>NostrumMagica</tag>
+        <alt></alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_37.png</src>
+        <tag>NostrumMagica</tag>
+        <alt></alt>
+      </screenshot>-->
+      <screenshot>
+        <src>images/nostrummagica_38.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Unlock useful tools like the Reagent Bag</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_39.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Research and attributes are unlocked by traveling to the Sorcery Dimension</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_40.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>The 'home' menu provides useful info and guides</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_41.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>View all the element and alteration combinations you've seen so far</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_42.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Dictate the effects of your spells with shapes, elements, and alterations</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_43.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Modify certain runes to change their parameters</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_44.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Modifying runes takes resources</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_45.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Sequence runes, supply reagents, pick an icon, and name it to create a spell</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_46.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>View ritual recipes in the home menu</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_47.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Rituals vary from small, medium, and large</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_48.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Place items on altars and burn reagents to perform rituals</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_49.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Use magic to imbue items with characteristics of others</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_50.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Combine items in unique ways</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_51.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Use rituals to create powerful tools and equipment</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_52.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Use rituals to create powerful tools and equipment</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_53.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Explore Nostrum's powerful armor sets</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_54.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Each armor set has a different appearance</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_55.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Each armor set provides unique bonuses</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_56.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Gear up to confront powerful foes</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_57.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Soar through the air with the True elemental sets</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_58.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Tame young dragons to fly</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_59.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>View and manage stats on tamed dragons</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_60.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Train up Arcane Wolves for powerful allies in battle</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_61.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Tamed dragons can sit like tamed wolves</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_2.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Arcane Wolves are larger and darker than normal wolves</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_62.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Arcane wolves can sit as well</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrummagica_63.png</src>
+        <tag>NostrumMagica</tag>
+        <alt>Even Arcane Wolves beg for food sometimes</alt>
+      </screenshot>
+    </screenshots>
+  </proj>
+  <proj>
+    <title>Nostrum Aetheria</title>
+    <tagline>Adds power mechanic to promote automation in Nostrum Magica</tagline>
+    <classification>Hobby</classification>
+    <url>http://www.github.com/dove-bren/NostrumAetheria</url>
+    <descs>
+      <desc>Minecraft Mod that adds power mechanic to Nostrum Magica</desc>
+      <desc>Players spend resources to generate and store Aether</desc>
+      <desc>Aether can be transported around and used to power machines</desc>
+      <desc>Promotes puzzling through automating Aether production</desc>
+    </descs>
+    <tags>
+      <tag>Minecraft</tag>
+      <tag>Mod</tag>
+      <tag>Java</tag>
+      <tag>Automation</tag>
+      <tag>Progression</tag>
+    </tags>
+    <img>images/nostrumaetheria_1.png</img>
+    <longdesc>
+    Nostrum Aetheria builds on Nostrum Magica to add the concept of Aether -- an intangible energy source.
+    Players discover how to generate it and either hand-feed machines or solve challenges to automate its productions.
+    Aether can be routed around to machines that require it to function.
+    </longdesc>
+    <fulldesc>
+      <p>
+      Nostrum Aetheria is an add-on to Nostrum Magica that lets players burn reagents to produce unaspected 'Aether' and store it in aether batteries.
+      Players can transport this aether around with new tools to machines that need it to provide powerful effects. Players can also store aether in items
+      and transport it in their inventory to power their handheld tools.
+      </p>
+      <p>
+      Nostrum Aetheria is meant to be an add-on that other add-ons use. Aether provides a mechanic for other systems to specify an <em>upkeep cost</em>
+      to keep using. This creates on central resource players can focus on creating and improving to pay for systems that are too powerful to have a one-time crafting
+      cost.
+      </p>
+      <p>
+      Generating aether is done by burning reagents in generators. Some reagents are easy to acquire (and even automate) like the growable mandrake and ginseng.
+      Others are harder -- like Crystabloom and Black Pearl. This makes generating aether challenging to automate, because the easiest furnace to use requires <em>three
+      different reagents</em> at the same time to produce any aether at all. Larger furnaces produce more aether per reagent, but require more and more (5 and 7) different
+      reagents types to burn.
+      </p>
+      <p>
+      In addition to adding the aether mechanic, Nostrum Aetheria adds several tools (including magical baubles) that use aether to provide nice effects. Players can equip a charm
+      that uses Aether to provide a small flat reduction to damage, or can charge up pendants to cast spells without the need of reagents. If they produce enough aether and have
+      enough resources, they can construct an Aether Infuser and Aether Lenses to increase crop growth, grant speed to players in an area, or even drill into the ground!
+      </p>
+      <p> 
+      </p>
+      <p>
+      Nostrum Aetheria is currently in version 1.1.0 and works with Minecraft 1.12.2.
+      </p>
+    </fulldesc>
+    <urltag>nostrumaetheria</urltag>
+    <screenshots>
+      <screenshot>
+        <src>images/nostrumaetheria_1.png</src>
+        <tag>NostrumAetheria</tag>
+        <alt>Aether Furnace and Aether Battery</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrumaetheria_2.png</src>
+        <tag>NostrumAetheria</tag>
+        <alt>Aether Relays let aether flow wirelessly to other blocks</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrumaetheria_3.png</src>
+        <tag>NostrumAetheria</tag>
+        <alt>Aether Repairer repairing equipment using aether</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrumaetheria_4.png</src>
+        <tag>NostrumAetheria</tag>
+        <alt>Unlock generators, batteries, relays, and more with the Research Table</alt>
+      </screenshot>
+    </screenshots>
+  </proj>
+  <proj>
+    <title>Nostrum Fairies</title>
+    <tagline>Introduces magical Fey to minecraft which provide powerful automation</tagline>
+    <classification>Hobby</classification>
+    <url>http://www.github.com/dove-bren/NostrumFairies</url>
+    <descs>
+      <desc>Minecraft Mod that adds four types of Fey to Nostrum Magica</desc>
+      <desc>Each type of fey has their own likes and dislikes, and can perform unique jobs</desc>
+      <desc>Fey provide services from tree cutting to inventory management</desc>
+    </descs>
+    <tags>
+      <tag>Minecraft</tag>
+      <tag>Mod</tag>
+      <tag>Java</tag>
+      <tag>Automation</tag>
+      <tag>Progression</tag>
+    </tags>
+    <img>images/nostrumfairies_2.png</img>
+    <longdesc>
+    Nostrum Fairies introduces the Fey -- Dwarves, elves, gnomes, and fairies -- to Nostrum Magica.
+    Players can befriend them and exchange aether for their services.
+    Automate wood gathering, farming, mining, crafting, and inventory management in your base with the Fey!
+    </longdesc>
+    <fulldesc>
+      <p>
+      Nostrum Fairies is a late-game addition to Nostrum Magica. As the player explores the world, they are attacked by Shadow Fey -- mysterious creatures
+      with a shadowy form that attack them with magic arrows and knives. After become more powerful mages and defeating more shadow fey, players
+      discover the tragedy of the shadow fey, and even can work to return the fey to their original forms. After doing this, players can befriend them and
+      provide them places to live and Aether to live on in exchange for their services!
+      </p>
+      <p>
+      There are four types of fey: Dwarves, Elves, Gnomes, and Fairies. Each looks very different than the others, and has their own home blocks. Each also provides
+      a unique service. Dwarves are excellent crafters, builders, and miners, while Elves excel at working with wood and hunting; Gnomes make great farmers and love
+      picking up items, while fairies are experts at delivering items to whoever needs them.
+      </p>
+      <p>
+      Nostrum Fairies comes with its own large research tree (that builds on Nostrum Magica's) to guide the player through their journey from discovering the shadow fey to
+      constructing places for the Fey to live. Players can pursue one or all of the fey's services and learn how to craft gems that alter how they work. They can befriend the fairies
+      more personally through magical instruments and acquire friends for battle, constructing, and managing their inventory.
+      </p>
+      <p> 
+      </p>
+      <p>
+      Nostrum Fairies is currently in version 1.1.0 and works with Minecraft 1.12.2.
+      </p>
+    </fulldesc>
+    <urltag>nostrumfairies</urltag>
+    <screenshots>
+      <screenshot>
+        <src>images/nostrumfairies_1.png</src>
+        <tag>NostrumFairies</tag>
+        <alt>Fey perform different tasks like chopping wood or crafting</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrumfairies_2.png</src>
+        <tag>NostrumFairies</tag>
+        <alt>Gnomes can farm while dwarves craft armor</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrumfairies_3.png</src>
+        <tag>NostrumFairies</tag>
+        <alt>Fairies can join you while you adventure</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrumfairies_4.png</src>
+        <tag>NostrumFairies</tag>
+        <alt>Nostrum Fairies' research tree has lots to offer</alt>
+      </screenshot>
+      <screenshot>
+        <src>images/nostrumfairies_5.png</src>
+        <tag>NostrumFairies</tag>
+        <alt>Item logistics research tree</alt>
+      </screenshot>
+    </screenshots>
+  </proj>
+  <proj>
     <title>QuestManager</title>
     <tagline>MMORPG Framework for Minecraft</tagline>
     <classification>Hobby</classification>

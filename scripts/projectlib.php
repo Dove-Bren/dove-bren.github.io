@@ -71,6 +71,7 @@ function displayProjects($key) {
 }
 
 function redexit() {
+	echo "redexit";
     header("Location: projects.php");
     exit();
     /*
@@ -190,7 +191,6 @@ function getXSLT($xml, $xsl) {
     $proc = new XSLTProcessor();
     $proc->registerPHPFunctions();
     $proc->importStylesheet($sdoc);
-   
     $res = $proc->transformToXML($xml);
 
     /*

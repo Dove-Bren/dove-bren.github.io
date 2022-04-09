@@ -2,6 +2,17 @@
 <?xml-stylesheet type="text/xsl" href="prof.xsl"?>
 <profexp>
   <exp>
+    <org>Cryptic Studios</org>
+    <title>Staff Infrastructure Software Engineer</title>
+    <duties>
+      <duty>Worked with live ops to keep services up and running</duty>
+      <duty>Maintained central live systems like NoSQL database, inter and intra-shard communication, and patching</duty>
+      <duty>Supported and improved internal tools including custom version control solution</duty>
+      <duty>Upgraded custom engine to support modern gaming console SDKs (Xbox GDK, PS5) including native app support as well as backend service integration</duty>
+      <duty>Worked in very large codebase with Visual Studio using premake to manage solutions and incredibuild to distribute builds</duty>
+    </duties>
+  </exp>
+  <exp>
     <org>Los Alamos National Laboratory</org>
     <title>Summer Institute Intern</title>
     <duties>
